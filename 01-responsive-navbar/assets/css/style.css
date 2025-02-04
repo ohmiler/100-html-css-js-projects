@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+header {
+    height: 100dvh;
+    background: url("../img/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+
+    nav {
+        padding: 0 2rem;
+
+        .nav-wrapper {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+
+            .logo {
+                a {
+                    color: #fff;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .menu {
+                display: flex;
+                list-style: none;
+
+                li {
+                    margin-left: 1.5rem;
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .hamburger {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        nav {
+            .nav-wrapper {
+                flex-direction: column;
+                align-items: start;
+                margin: 3rem 0;
+                height: auto;
+    
+                .menu {
+                    display: none;
+                    flex-direction: column;
+    
+                    li {
+                        margin-top: 2rem;
+                        margin-left: 0;
+                    }
+
+                    &.show {
+                        display: flex;    
+                    }
+                }
+
+                .hamburger {
+                    position: absolute;
+                    display: flex;
+                    right: 0;
+                    color: #fff;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
