@@ -11,6 +11,7 @@
 }
 
 header {
+    overflow: hidden;
 
     nav {
         background-color: #111;
@@ -51,4 +52,5 @@ header {
 
 main {
     padding: 3rem;
+    margin-top: 4rem;
 }
