@@ -48,14 +48,14 @@ body {
 .dark-mode {
     background-color: #1a1a1a;
     color: #ffffff;
-}
 
-.dark-mode .navbar {
-    background-color: #2d2d2d;
-    border-bottom: 1px solid #444;
-}
+    .navbar {
+        background-color: #2d2d2d;
+        border-bottom: 1px solid #444;
+    }
 
-.dark-mode .toggle-btn {
-    background-color: #fff;
-    color: #111;
+    .toggle-btn {
+        background-color: #fff;
+        color: #111;
+    }
 }
