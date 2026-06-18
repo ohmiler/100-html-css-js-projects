@@ -1,4 +1,28 @@
-﻿*,
+﻿/* ตัวแปรสีสำหรับโหมดสว่าง (ค่าเริ่มต้น) */
+:root,
+[data-theme="light"] {
+  --bg-color: #f0f4f8;
+  --text-color: #334155;
+  --card-bg: #ffffff;
+  --btn-bg: #3b82f6;
+  --btn-hover: #2563eb;
+  --btn-text: #ffffff;
+  --accent: #3b82f6;
+}
+
+/* ตัวแปรสีสำหรับโหมดมืด — เปลี่ยนเมื่อ data-theme="dark" บน html */
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --card-bg: #1e293b;
+  --btn-bg: #6366f1;
+  --btn-hover: #4f46e5;
+  --btn-text: #ffffff;
+  --accent: #818cf8;
+}
+
+/* รีเซ็ต box model ให้ทุก element คำนวณขนาดสม่ำเสมอ */
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,23 +31,60 @@
 body {
   margin: 0;
   min-height: 100vh;
+  /* flex จัดให้เนื้อหาอยู่กลางจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  /* ใช้ตัวแปร CSS — เปลี่ยนอัตโนมัติตามธีม */
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  text-align: center;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
 }
 
 h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: var(--text-color);
 }
 
-.hint {
-  color: #666;
-  font-size: 0.95rem;
+.description {
+  margin: 0 0 1.5rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* สไตล์ปุ่มสลับธีม */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--btn-text);
+  background: var(--btn-bg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* เน้นสี accent เมื่ออยู่โหมดมืด */
+[data-theme="dark"] h1 {
+  color: var(--accent);
 }

@@ -1,4 +1,15 @@
-﻿// EP03: การ์ดโปรไฟล์ง่ายๆ
-// เขียน JavaScript ของคุณที่นี่
+﻿const followBtn = document.getElementById("followBtn");
 
-console.log("EP03 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// state เก็บว่ากำลังติดตามอยู่หรือไม่
+let isFollowing = false;
+
+followBtn.addEventListener("click", () => {
+  // สลับสถานะติดตาม
+  isFollowing = !isFollowing;
+
+  // เปลี่ยนข้อความบนปุ่มตาม state
+  followBtn.textContent = isFollowing ? "กำลังติดตาม" : "ติดตาม";
+
+  // toggle class เพื่อเปลี่ยนสไตล์ปุ่ม
+  followBtn.classList.toggle("profile-card__btn--following", isFollowing);
+});

@@ -1,4 +1,8 @@
-﻿// EP01: ปุ่มเปลี่ยนสีเมื่อคลิก
-// เขียน JavaScript ของคุณที่นี่
+﻿// เลือกปุ่มจาก DOM ด้วย id
+const toggleBtn = document.getElementById("toggleBtn");
 
-console.log("EP01 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// ฟัง event เมื่อผู้ใช้คลิกปุ่ม
+toggleBtn.addEventListener("click", () => {
+  // toggle สลับ class btn--active — มีอยู่แล้วเอาออก ไม่มีก็ใส่
+  toggleBtn.classList.toggle("btn--active");
+});

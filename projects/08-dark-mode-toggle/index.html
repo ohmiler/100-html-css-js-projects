@@ -1,16 +1,22 @@
 ﻿<!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toggle Dark Mode — EP08</title>
+  <title>สลับโหมดมืด/สว่าง — EP08</title>
+  <!-- เชื่อมไฟล์ CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Toggle Dark Mode</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP08: สลับโหมดมืด/สว่าง</h1>
+    <p class="description">กดปุ่มเพื่อเปลี่ยนธีมของหน้าเว็บ</p>
+    <!-- ปุ่มสลับธีม — id ใช้เลือกใน JavaScript -->
+    <button id="themeToggleBtn" class="btn" type="button" aria-pressed="false">
+      เปลี่ยนเป็นโหมดมืด
+    </button>
   </main>
+  <!-- โหลด JavaScript ท้าย body เพื่อให้ DOM พร้อมก่อน -->
   <script src="script.js"></script>
 </body>
 </html>

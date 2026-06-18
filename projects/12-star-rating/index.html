@@ -3,14 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star rating คลิก — EP12</title>
+  <title>ให้คะแนนดาว — EP12</title>
+  <!-- เชื่อมไฟล์ CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Star rating คลิก</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP12: ให้คะแนนดาว</h1>
+    <p class="description">คลิกดาวเพื่อให้คะแนน 1–5</p>
+    <!-- กลุ่มดาว 5 ดวง — role="group" ช่วย screen reader -->
+    <div id="starGroup" class="star-group" role="group" aria-label="ให้คะแนน">
+      <button class="star" type="button" data-rating="1" aria-label="1 ดาว">★</button>
+      <button class="star" type="button" data-rating="2" aria-label="2 ดาว">★</button>
+      <button class="star" type="button" data-rating="3" aria-label="3 ดาว">★</button>
+      <button class="star" type="button" data-rating="4" aria-label="4 ดาว">★</button>
+      <button class="star" type="button" data-rating="5" aria-label="5 ดาว">★</button>
+    </div>
+    <!-- แสดงข้อความคะแนนที่เลือก -->
+    <p id="scoreText" class="score-text">ยังไม่ได้ให้คะแนน</p>
   </main>
+  <!-- โหลด JavaScript ท้าย body -->
   <script src="script.js"></script>
 </body>
 </html>

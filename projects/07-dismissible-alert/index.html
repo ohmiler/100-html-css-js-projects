@@ -4,13 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alert box ปิดได้ — EP07</title>
+  <!-- เชื่อมไฟล์ CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Alert box ปิดได้</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP07: Alert box ปิดได้</h1>
+
+    <!-- alert แจ้งเตือน info -->
+    <div id="infoAlert" class="alert alert--info" role="alert">
+      <p class="alert__message">บันทึกข้อมูลของคุณเรียบร้อยแล้ว</p>
+      <!-- ปุ่ม X สำหรับปิด alert -->
+      <button class="alert__close" type="button" aria-label="ปิดการแจ้งเตือน">&times;</button>
+    </div>
+
+    <!-- alert แจ้งเตือน warning -->
+    <div id="warningAlert" class="alert alert--warning" role="alert">
+      <p class="alert__message">กรุณาตรวจสอบข้อมูลก่อนส่งแบบฟอร์ม</p>
+      <button class="alert__close" type="button" aria-label="ปิดการแจ้งเตือน">&times;</button>
+    </div>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>

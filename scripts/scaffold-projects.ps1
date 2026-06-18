@@ -10,14 +10,6 @@ $templateDir = Join-Path $root "templates/starter"
 $projectsDir = Join-Path $root "projects"
 $utf8Bom = New-Object System.Text.UTF8Encoding $true
 
-$moduleFiles = @{
-    1 = "module-01-foundations"
-    2 = "module-02-layout"
-    3 = "module-03-interactive"
-    4 = "module-04-forms"
-    5 = "module-05-creative"
-}
-
 $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
 foreach ($project in $manifest.projects) {
@@ -33,18 +25,9 @@ foreach ($project in $manifest.projects) {
 
     New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
 
-    $modulePadded = "{0:D2}" -f $project.module
-    $difficulty = if ($project.PSObject.Properties.Name -contains "difficulty") { $project.difficulty } else { "-" }
-    $challenge = if ($project.PSObject.Properties.Name -contains "challenge_th") { $project.challenge_th } else { "See curriculum module file" }
-    $moduleFile = $moduleFiles[[int]$project.module]
-
     $replacements = [ordered]@{
-        '{{EP_ID}}'       = "{0:D2}" -f $project.id
-        '{{EP_TITLE}}'    = $project.title_th
-        '{{MODULE}}'      = $modulePadded
-        '{{MODULE_FILE}}' = $moduleFile
-        '{{DIFFICULTY}}'  = $difficulty
-        '{{CHALLENGE}}'   = $challenge
+        '{{EP_ID}}'    = "{0:D2}" -f $project.id
+        '{{EP_TITLE}}' = $project.title_th
     }
 
     foreach ($file in Get-ChildItem $templateDir -File) {

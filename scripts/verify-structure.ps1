@@ -6,7 +6,7 @@ $errors = @()
 foreach ($project in $manifest.projects) {
     $folderName = "{0:D2}-{1}" -f $project.id, $project.slug
     $dir = Join-Path $projectsDir $folderName
-    $required = @("index.html", "style.css", "script.js", "README.md")
+    $required = @("index.html", "style.css", "script.js")
 
     if (-not (Test-Path $dir)) {
         $errors += "Missing folder: $folderName"

@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avatar + status dot — EP16</title>
+  <title>อวตารและสถานะ — EP16</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Avatar + status dot</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP16: อวตารและจุดสถานะ</h1>
+
+    <!-- อวตารพร้อมจุดสถานะ -->
+    <div class="avatar-wrapper">
+      <img
+        id="avatarImage"
+        class="avatar"
+        src="https://picsum.photos/80/80"
+        alt="รูปโปรไฟล์"
+        width="80"
+        height="80"
+      >
+      <span id="statusDot" class="status-dot status-online" aria-hidden="true"></span>
+    </div>
+
+    <p id="statusLabel" class="status-label">สถานะ: ออนไลน์</p>
+    <button id="cycleBtn" class="btn" type="button">เปลี่ยนสถานะ</button>
   </main>
   <script src="script.js"></script>
 </body>

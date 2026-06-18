@@ -8,8 +8,20 @@
 </head>
 <body>
   <main class="container">
-    <h1>Tag เพิ่ม/ลบ</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP18: Tag เพิ่ม/ลบ</h1>
+    <p class="hint">พิมพ์ชื่อ tag แล้วกด Enter เพื่อเพิ่ม</p>
+    <!-- ช่องพิมพ์ tag ใหม่ -->
+    <input
+      id="tagInput"
+      class="tag-input"
+      type="text"
+      placeholder="เช่น JavaScript, CSS, HTML"
+      autocomplete="off"
+    >
+    <!-- รายการ tag ที่เพิ่มแล้ว -->
+    <ul id="tagList" class="tag-list" aria-label="รายการ tag"></ul>
+    <!-- แจ้งเตือนเมื่อ tag ซ้ำ -->
+    <p id="duplicateMsg" class="duplicate-msg" aria-live="polite"></p>
   </main>
   <script src="script.js"></script>
 </body>

@@ -3,14 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo รายการเดียว — EP10</title>
+  <title>รายการสิ่งที่ต้องทำ — EP10</title>
+  <!-- เชื่อมไฟล์ CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Todo รายการเดียว</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP10: รายการสิ่งที่ต้องทำ</h1>
+    <p class="description">พิมพ์รายการแล้วกด Enter — ติ๊กช่องเพื่อขีดฆ่า</p>
+    <!-- ช่องพิมพ์รายการใหม่ -->
+    <input
+      id="todoInput"
+      class="todo-input"
+      type="text"
+      placeholder="เพิ่มรายการใหม่..."
+      aria-label="เพิ่มรายการใหม่"
+    >
+    <!-- รายการเดียว — checkbox + label -->
+    <label class="todo-item" for="todoCheckbox">
+      <input id="todoCheckbox" class="todo-checkbox" type="checkbox">
+      <span id="todoLabel" class="todo-label">เรียน HTML, CSS และ JavaScript</span>
+    </label>
   </main>
+  <!-- โหลด JavaScript ท้าย body -->
   <script src="script.js"></script>
 </body>
 </html>

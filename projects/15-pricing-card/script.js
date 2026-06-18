@@ -1,4 +1,30 @@
-﻿// EP15: Pricing card
-// เขียน JavaScript ของคุณที่นี่
+﻿const cards = document.querySelectorAll(".pricing-card");
+const selectedPlan = document.getElementById("selectedPlan");
 
-console.log("EP15 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// ชื่อแพ็กเกจภาษาไทยตาม data-plan
+const planLabels = {
+  basic: "พื้นฐาน",
+  pro: "โปร",
+  enterprise: "องค์กร",
+};
+
+// เลือกการ์ดและไฮไลต์
+function selectCard(card) {
+  cards.forEach((item) => item.classList.remove("selected"));
+  card.classList.add("selected");
+
+  const planKey = card.dataset.plan;
+  selectedPlan.textContent = `เลือกแพ็กเกจ: ${planLabels[planKey]}`;
+}
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => selectCard(card));
+
+  // รองรับ Enter/Space เมื่อโฟกัส
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectCard(card);
+    }
+  });
+});

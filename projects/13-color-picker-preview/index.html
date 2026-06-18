@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color picker preview — EP13</title>
+  <title>ตัวเลือกสีและพรีวิว — EP13</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
-    <h1>Color picker preview</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP13: ตัวเลือกสีและพรีวิว</h1>
+
+    <!-- ตัวเลือกสี -->
+    <label for="colorInput" class="color-label">เลือกสี</label>
+    <input id="colorInput" class="color-input" type="color" value="#6366f1">
+
+    <!-- กล่องพรีวิวสีที่เลือก -->
+    <div id="previewBox" class="preview-box" aria-label="พรีวิวสี"></div>
+
+    <!-- แสดงรหัสสี hex -->
+    <p class="hex-label">รหัสสี: <span id="hexValue" class="hex-value">#6366f1</span></p>
   </main>
   <script src="script.js"></script>
 </body>

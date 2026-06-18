@@ -7,23 +7,64 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 420px;
+  padding: 2rem;
 }
 
 h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
 }
 
-.hint {
-  color: #666;
-  font-size: 0.95rem;
+/* การ์ดคำคม */
+.quote-card {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.quote-text {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #334155;
+  font-style: italic;
+}
+
+.quote-text::before {
+  content: "\201C";
+  color: #6366f1;
+  font-size: 1.4rem;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #4f46e5;
 }

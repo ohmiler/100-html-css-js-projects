@@ -8,8 +8,22 @@
 </head>
 <body>
   <main class="container">
-    <h1>Like button + ตัวนับ</h1>
-    <p class="hint">เริ่มเขียนโค้ดที่นี่ — เปิด Live Server เพื่อดูผลลัพธ์</p>
+    <h1>EP20: Like button + ตัวนับ</h1>
+    <p class="hint">กดหัวใจเพื่อ like / unlike</p>
+    <div class="like-widget">
+      <!-- ปุ่มหัวใจ toggle สถานะ liked -->
+      <button
+        id="likeBtn"
+        class="like-btn"
+        type="button"
+        aria-pressed="false"
+        aria-label="กดเพื่อ like"
+      >
+        ♥
+      </button>
+      <!-- ตัวนับจำนวน like -->
+      <span id="count" class="like-count">0</span>
+    </div>
   </main>
   <script src="script.js"></script>
 </body>

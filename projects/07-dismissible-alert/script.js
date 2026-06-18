@@ -1,4 +1,16 @@
-﻿// EP07: Alert box ปิดได้
-// เขียน JavaScript ของคุณที่นี่
+﻿// เลือกปุ่มปิดทุก alert บนหน้า
+const closeButtons = document.querySelectorAll(".alert__close");
 
-console.log("EP07 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+closeButtons.forEach((closeBtn) => {
+  closeBtn.addEventListener("click", () => {
+    // หา element .alert ที่ครอบปุ่มนี้อยู่
+    const alertBox = closeBtn.closest(".alert");
+
+    if (!alertBox) {
+      return;
+    }
+
+    // ลบ alert ออกจาก DOM ด้วย remove()
+    alertBox.remove();
+  });
+});
