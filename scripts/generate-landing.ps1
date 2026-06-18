@@ -17,7 +17,7 @@ $sections = foreach ($group in $groups) {
     $mod = $group.Name
     $title = $moduleNames[[int]$mod]
     $items = foreach ($p in ($group.Group | Sort-Object id)) {
-        $folder = "{0:D2}-{1}" -f $p.id, $p.slug
+        $folder = "{0:D3}-{1}" -f $p.id, $p.slug
         "        <li><a href=`"projects/$folder/index.html`">EP$("{0:D2}" -f $p.id): $($p.title_th)</a></li>"
     }
     @"

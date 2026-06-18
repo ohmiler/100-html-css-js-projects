@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ให้คะแนนดาว — EP12</title>
+  <!-- เชื่อมไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- กลุ่มดาว 5 ดวง — role="group" ช่วย screen reader -->
+    <div id="starGroup" class="star-group" role="group" aria-label="ให้คะแนน">
+      <button class="star" type="button" data-rating="1" aria-label="1 ดาว">★</button>
+      <button class="star" type="button" data-rating="2" aria-label="2 ดาว">★</button>
+      <button class="star" type="button" data-rating="3" aria-label="3 ดาว">★</button>
+      <button class="star" type="button" data-rating="4" aria-label="4 ดาว">★</button>
+      <button class="star" type="button" data-rating="5" aria-label="5 ดาว">★</button>
+    </div>
+    <!-- แสดงข้อความคะแนนที่เลือก -->
+    <p id="scoreText" class="score-text"></p>
+  </main>
+  <!-- โหลด JavaScript ท้าย body -->
+  <script src="script.js"></script>
+</body>
+</html>

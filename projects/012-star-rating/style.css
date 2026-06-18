@@ -1,0 +1,62 @@
+﻿/* รีเซ็ต box model ให้ทุก element คำนวณขนาดสม่ำเสมอ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* flex จัดให้เนื้อหาอยู่กลางจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f0f4f8;
+}
+
+.container {
+  text-align: center;
+}
+
+.description {
+  color: #64748b;
+  margin: 0 0 1.5rem;
+}
+
+/* กลุ่มดาว — จัดเรียงในแนวนอน */
+.star-group {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ปุ่มดาวแต่ละดวง */
+.star {
+  font-size: 2.5rem;
+  color: #cbd5e1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+/* ดาวที่ถูกเลือก — class star--active ใส่ด้วย JavaScript */
+.star--active {
+  color: #fbbf24;
+}
+
+/* ข้อความแสดงคะแนน */
+.score-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+}

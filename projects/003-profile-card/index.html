@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การ์ดโปรไฟล์ง่ายๆ — EP03</title>
+  <!-- เชื่อมไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- article เป็น semantic tag สำหรับเนื้อหาที่อ่านได้แยกเป็นชิ้น -->
+    <article class="profile-card">
+      <!-- รูปโปรไฟล์จาก picsum (200x200) -->
+      <img
+        class="profile-card__avatar"
+        src="https://picsum.photos/200"
+        alt="รูปโปรไฟล์ของสมชาย"
+        width="200"
+        height="200"
+      >
+      <div class="profile-card__body">
+        <!-- h2 ใช้หัวข้อย่อยของการ์ด -->
+        <h2 class="profile-card__name">สมชาย ใจดี</h2>
+        <!-- bio อธิบายตัวตนสั้นๆ -->
+        <p class="profile-card__bio">
+          นักพัฒนาเว็บมือใหม่ที่ชอบ HTML, CSS และ JavaScript
+          กำลังเรียนรู้การสร้าง UI แบบ vanilla ทีละโปรเจกต์
+        </p>
+        <!-- ปุ่มติดตาม — JS จะสลับข้อความเมื่อคลิก -->
+        <button id="followBtn" class="profile-card__btn" type="button">ติดตาม</button>
+      </div>
+    </article>
+  </main>
+
+  <!-- โหลด JavaScript ท้าย body -->
+  <script src="script.js"></script>
+</body>
+</html>

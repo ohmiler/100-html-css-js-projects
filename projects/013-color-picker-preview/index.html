@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตัวเลือกสีและพรีวิว — EP13</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- ตัวเลือกสี -->
+    <label for="colorInput" class="color-label">เลือกสี</label>
+    <input id="colorInput" class="color-input" type="color" value="#6366f1">
+
+    <!-- กล่องพรีวิวสีที่เลือก -->
+    <div id="previewBox" class="preview-box" aria-label="พรีวิวสี"></div>
+
+    <!-- แสดงรหัสสี hex -->
+    <p class="hex-label"><span id="hexValue" class="hex-value">#6366f1</span></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

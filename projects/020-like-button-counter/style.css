@@ -1,0 +1,72 @@
+﻿*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #334155;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.like-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgb(15 23 42 / 8%);
+}
+
+/* ปุ่มหัวใจ — สีเทาเมื่อยังไม่ like */
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #94a3b8;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.08);
+}
+
+.like-btn:active {
+  transform: scale(0.95);
+}
+
+/* สถานะ liked — สีแดง */
+.like-btn.liked {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+.like-count {
+  min-width: 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}

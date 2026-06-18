@@ -1,0 +1,85 @@
+﻿*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+}
+
+.container {
+  text-align: center;
+  max-width: 420px;
+  padding: 2rem;
+}
+
+/* การ์ดโปรไฟล์ — ใช้ box model: padding, border, margin */
+.profile-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+/* รูปโปรไฟล์เป็นวงกลม */
+.profile-card__avatar {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e0e7ff;
+}
+
+.profile-card__body {
+  padding: 0 0.5rem;
+}
+
+.profile-card__name {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  color: #1e293b;
+}
+
+.profile-card__bio {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* ปุ่มติดตาม */
+.profile-card__btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.profile-card__btn:hover {
+  background: #4f46e5;
+}
+
+/* สถานะกำลังติดตาม — เปลี่ยนสไตล์เมื่อ JS เพิ่ม class นี้ */
+.profile-card__btn--following {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.profile-card__btn--following:hover {
+  background: #cbd5e1;
+}

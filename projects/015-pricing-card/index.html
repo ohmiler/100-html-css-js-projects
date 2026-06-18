@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การ์ดราคา — EP15</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="pricing-grid">
+      <!-- แพ็กเกจพื้นฐาน -->
+      <article class="pricing-card" data-plan="basic" tabindex="0">
+        <h2 class="plan-name">พื้นฐาน</h2>
+        <p class="plan-price">฿99<span class="plan-period">/เดือน</span></p>
+        <ul class="plan-features">
+          <li>5 โปรเจกต์</li>
+          <li>10 GB พื้นที่</li>
+          <li>อีเมลสนับสนุน</li>
+        </ul>
+      </article>
+
+      <!-- แพ็กเกจโปร -->
+      <article class="pricing-card" data-plan="pro" tabindex="0">
+        <h2 class="plan-name">โปร</h2>
+        <p class="plan-price">฿199<span class="plan-period">/เดือน</span></p>
+        <ul class="plan-features">
+          <li>20 โปรเจกต์</li>
+          <li>50 GB พื้นที่</li>
+          <li>แชทสนับสนุน 24/7</li>
+        </ul>
+      </article>
+
+      <!-- แพ็กเกจองค์กร -->
+      <article class="pricing-card" data-plan="enterprise" tabindex="0">
+        <h2 class="plan-name">องค์กร</h2>
+        <p class="plan-price">฿499<span class="plan-period">/เดือน</span></p>
+        <ul class="plan-features">
+          <li>ไม่จำกัดโปรเจกต์</li>
+          <li>500 GB พื้นที่</li>
+          <li>ผู้จัดการเฉพาะ</li>
+        </ul>
+      </article>
+    </div>
+
+    <p id="selectedPlan" class="selected-label"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

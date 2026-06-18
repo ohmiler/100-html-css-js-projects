@@ -1,0 +1,74 @@
+﻿*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+}
+
+/* กล่อง alert พื้นฐาน */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+/* ประเภท info — สีฟ้า */
+.alert--info {
+  color: #1e40af;
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+/* ประเภท warning — สีเหลือง */
+.alert--warning {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fcd34d;
+}
+
+.alert__message {
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* ปุ่มปิด X */
+.alert__close {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.alert__close:hover {
+  opacity: 1;
+  background: rgba(15, 23, 42, 0.08);
+}

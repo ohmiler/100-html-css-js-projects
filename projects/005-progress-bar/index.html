@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress bar — EP05</title>
+  <!-- เชื่อมไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- แสดงเปอร์เซ็นต์ปัจจุบัน -->
+    <p class="progress-label">
+      <span id="progressValue">0</span>%
+    </p>
+
+    <!-- กล่อง progress — bar ด้านในใช้ CSS variable กำหนดความกว้าง -->
+    <div class="progress" id="progressTrack" style="--progress: 0%;">
+      <div class="progress__bar"></div>
+    </div>
+
+    <!-- ปุ่มเพิ่มความคืบหน้า 10% -->
+    <button id="addBtn" class="btn" type="button">+10%</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

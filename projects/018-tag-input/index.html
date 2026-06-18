@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag เพิ่ม/ลบ — EP18</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- ช่องพิมพ์ tag ใหม่ -->
+    <input
+      id="tagInput"
+      class="tag-input"
+      type="text"
+      placeholder="เช่น JavaScript, CSS, HTML"
+      autocomplete="off"
+    >
+    <!-- รายการ tag ที่เพิ่มแล้ว -->
+    <ul id="tagList" class="tag-list" aria-label="รายการ tag"></ul>
+    <!-- แจ้งเตือนเมื่อ tag ซ้ำ -->
+    <p id="duplicateMsg" class="duplicate-msg" aria-live="polite"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Like button + ตัวนับ — EP20</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="like-widget">
+      <!-- ปุ่มหัวใจ toggle สถานะ liked -->
+      <button
+        id="likeBtn"
+        class="like-btn"
+        type="button"
+        aria-pressed="false"
+        aria-label="กดเพื่อ like"
+      >
+        ♥
+      </button>
+      <!-- ตัวนับจำนวน like -->
+      <span id="count" class="like-count">0</span>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

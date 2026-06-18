@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip hover — EP06</title>
+  <!-- เชื่อมไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <!-- wrapper ใช้ position relative เป็นจุดอ้างอิงของ tooltip -->
+    <div id="tooltipWrapper" class="tooltip-wrapper">
+      <button id="tooltipTrigger" class="btn" type="button">ช่วยเหลือ</button>
+      <!-- tooltip แสดงคำอธิบาย — CSS จัดตำแหน่ง absolute -->
+      <span class="tooltip" role="tooltip">นี่คือคำอธิบายสั้นๆ ของปุ่มนี้</span>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

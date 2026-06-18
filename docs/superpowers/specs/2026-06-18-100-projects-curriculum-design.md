@@ -108,7 +108,7 @@
 ### กฎการตั้งชื่อ
 
 - **วิดีโอ:** `[EP{NN}] ทำ{ชื่อโปรเจกต์} ด้วย HTML CSS JS | สอนมือใหม่`
-- **โฟลเดอร์:** `projects/{NN}-{slug}/` เช่น `projects/01-color-toggle-button/`
+- **โฟลเดอร์:** `projects/{NNN}-{slug}/` (เลข 3 หลัก) เช่น `projects/001-color-toggle-button/`, `projects/010-single-todo/`, `projects/100-portfolio-section/`
 - **โค้ด:** ข้อความ UI และ comment เป็นภาษาไทยได้ แต่ `class`, `id`, ชื่อ function/variable ใช้ภาษาอังกฤษ
 
 ---

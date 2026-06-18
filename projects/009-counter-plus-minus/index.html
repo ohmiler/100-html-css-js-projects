@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตัวนับ +/- — EP09</title>
+  <!-- เชื่อมไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="counter" role="group" aria-label="ตัวนับ">
+      <!-- ปุ่มลดค่า -->
+      <button id="decreaseBtn" class="btn btn--minus" type="button" aria-label="ลดค่า">−</button>
+      <!-- แสดงตัวเลขปัจจุบัน -->
+      <span id="countDisplay" class="count" aria-live="polite">0</span>
+      <!-- ปุ่มเพิ่มค่า -->
+      <button id="increaseBtn" class="btn btn--plus" type="button" aria-label="เพิ่มค่า">+</button>
+    </div>
+  </main>
+  <!-- โหลด JavaScript ท้าย body -->
+  <script src="script.js"></script>
+</body>
+</html>

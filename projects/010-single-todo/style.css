@@ -1,0 +1,77 @@
+﻿/* รีเซ็ต box model ให้ทุก element คำนวณขนาดสม่ำเสมอ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* flex จัดให้เนื้อหาอยู่กลางจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f0f4f8;
+}
+
+.container {
+  width: min(100% - 2rem, 420px);
+}
+
+.description {
+  color: #64748b;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+/* ช่องพิมพ์รายการ */
+.todo-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.todo-input:focus {
+  border-color: #3b82f6;
+}
+
+/* กล่องรายการ — label ครอบ checkbox และข้อความ */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* ช่องติ๊ก */
+.todo-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #3b82f6;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ข้อความรายการ */
+.todo-label {
+  font-size: 1rem;
+  color: #1e293b;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* เมื่อติ๊ก checkbox — ขีดฆ่าข้อความ (ใช้ :checked + sibling selector) */
+.todo-checkbox:checked + .todo-label {
+  text-decoration: line-through;
+  color: #94a3b8;
+}

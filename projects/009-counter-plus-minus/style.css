@@ -1,0 +1,91 @@
+﻿/* รีเซ็ต box model ให้ทุก element คำนวณขนาดสม่ำเสมอ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* flex จัดให้เนื้อหาอยู่กลางจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f0f4f8;
+}
+
+.container {
+  text-align: center;
+}
+
+.description {
+  color: #64748b;
+  margin: 0 0 1.5rem;
+}
+
+/* กล่องตัวนับ — จัดปุ่มและตัวเลขในแนวนอน */
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ตัวเลขแสดงผล */
+.count {
+  min-width: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* สไตล์ปุ่มร่วม */
+.btn {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* ปุ่มลบ — สีแดง */
+.btn--minus {
+  background: #ef4444;
+}
+
+.btn--minus:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+/* ปุ่มบวก — สีเขียว */
+.btn--plus {
+  background: #22c55e;
+}
+
+.btn--plus:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+/* ปุ่ม disabled เมื่อค่าถึงขั้นต่ำ */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

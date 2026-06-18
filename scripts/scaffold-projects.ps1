@@ -15,7 +15,7 @@ $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 foreach ($project in $manifest.projects) {
     if ($project.id -lt $From -or $project.id -gt $To) { continue }
 
-    $folderName = "{0:D2}-{1}" -f $project.id, $project.slug
+    $folderName = "{0:D3}-{1}" -f $project.id, $project.slug
     $targetDir = Join-Path $projectsDir $folderName
 
     if ((Test-Path $targetDir) -and -not $Force) {
