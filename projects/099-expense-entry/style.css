@@ -8,12 +8,144 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #faf5ff;
+  color: #3b0764;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1.25rem;
+}
+
+.expense-app {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 12px 36px rgba(91, 33, 182, 0.1);
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e9d5ff;
+  border-radius: 0.65rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #a855f7;
+}
+
+.btn--add {
+  padding: 0.85rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn--add:hover {
+  background: #6d28d9;
+}
+
+.summary {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  background: #f5f3ff;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.summary__label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7c3aed;
+}
+
+.summary__total {
+  margin: 0.35rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.expense-list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expense-list:empty::after {
+  content: "ยังไม่มีรายการ";
+  display: block;
+  text-align: center;
+  color: #a78bfa;
+  padding: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #faf5ff;
+  border-radius: 0.65rem;
+  border: 1px solid #ede9fe;
+}
+
+.expense-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.expense-item__name {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expense-item__amount {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  color: #7c3aed;
+}
+
+.btn--delete {
+  flex-shrink: 0;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn--delete:hover {
+  background: #fecaca;
 }

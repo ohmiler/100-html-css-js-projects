@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stopwatch — EP96</title>
+  <title>นาฬิกาจับเวลา</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="stopwatch" aria-label="นาฬิกาจับเวลา">
+      <p id="display" class="display" aria-live="polite">00:00:00</p>
+
+      <div class="controls">
+        <button id="startBtn" class="btn btn--primary" type="button">เริ่ม</button>
+        <button id="stopBtn" class="btn btn--secondary" type="button" disabled>หยุด</button>
+        <button id="lapBtn" class="btn btn--accent" type="button" disabled>รอบ</button>
+        <button id="resetBtn" class="btn btn--ghost" type="button">รีเซ็ต</button>
+      </div>
+
+      <ol id="lapList" class="lap-list" aria-label="รายการรอบ"></ol>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

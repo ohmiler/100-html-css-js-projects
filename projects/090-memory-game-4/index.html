@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory game 4 การ์ด — EP90</title>
+  <title>เกมจำคู่ 4 การ์ด — EP90</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <p class="stats">พลิก: <span id="flipCount">0</span></p>
+
+    <div class="board" id="board"></div>
+
+    <div class="win-message" id="winMessage" hidden>
+      <p>🎉 จับคู่ครบแล้ว!</p>
+      <button class="win-message__btn" id="restartBtn" type="button">เล่นใหม่</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

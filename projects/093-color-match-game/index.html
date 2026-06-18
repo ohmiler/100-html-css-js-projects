@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color match game — EP93</title>
+  <title>เกมจับคู่สี — EP93</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">จับคู่สี</h1>
+    </header>
+
+    <div class="hud">
+      <div class="hud-item">
+        <span class="hud-label">คะแนน</span>
+        <span id="score" class="hud-value">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">เวลา</span>
+        <span id="timer" class="hud-value">30</span>
+      </div>
+    </div>
+
+    <p id="colorPrompt" class="color-prompt" aria-live="polite">แดง</p>
+
+    <div id="options" class="options"></div>
+
+    <div id="gameOver" class="game-over hidden" aria-live="polite">
+      <p id="finalScore" class="final-score"></p>
+      <button id="restartBtn" class="restart-btn" type="button">เล่นใหม่</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

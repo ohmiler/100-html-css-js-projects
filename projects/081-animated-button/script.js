@@ -1,4 +1,20 @@
-﻿// EP81: Animated button
-// เขียน JavaScript ของคุณที่นี่
+﻿const ctaBtn = document.getElementById("ctaBtn");
 
-console.log("EP81 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// สร้าง ripple จากตำแหน่งคลิก
+ctaBtn.addEventListener("click", (event) => {
+  const rect = ctaBtn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+
+  const ripple = document.createElement("span");
+  ripple.className = "ripple";
+  ripple.style.width = `${size}px`;
+  ripple.style.height = `${size}px`;
+  ripple.style.left = `${x}px`;
+  ripple.style.top = `${y}px`;
+
+  ctaBtn.appendChild(ripple);
+
+  ripple.addEventListener("animationend", () => ripple.remove());
+});

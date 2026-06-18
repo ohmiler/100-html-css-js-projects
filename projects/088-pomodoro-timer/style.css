@@ -8,12 +8,131 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  color: #fff;
+  transition: background 0.5s ease;
+}
+
+body.phase-work {
+  background: linear-gradient(160deg, #c0392b 0%, #e74c3c 50%, #f39c12 100%);
+}
+
+body.phase-break {
+  background: linear-gradient(160deg, #27ae60 0%, #2ecc71 50%, #1abc9c 100%);
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 2rem 1rem;
+  gap: 1.5rem;
+}
+
+.timer {
+  width: min(100%, 360px);
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.timer__phase {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.timer__display {
+  margin: 0 0 2rem;
+  font-size: 5rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timer__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.timer__btn {
+  padding: 0.7rem 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.timer__btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.timer__btn--primary {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  color: #1a1a1a;
+}
+
+.timer__btn--primary:hover {
+  background: #fff;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease;
+}
+
+.notification[hidden] {
+  display: none;
+}
+
+.notification__text {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.notification__close {
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.notification__close:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -8,12 +8,98 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #18181b;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  width: min(100%, 340px);
+  padding: 1.5rem 1rem;
+}
+
+.calculator {
+  background: #27272a;
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.display-wrap {
+  margin-bottom: 1rem;
+  padding: 1rem 0.75rem;
+  border-radius: 12px;
+  background: #09090b;
+  text-align: right;
+  overflow: hidden;
+}
+
+.display {
+  display: block;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.key {
+  padding: 1rem 0.5rem;
+  border: none;
+  border-radius: 12px;
+  background: #3f3f46;
+  color: inherit;
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.key:hover {
+  background: #52525b;
+}
+
+.key:active {
+  transform: scale(0.97);
+}
+
+.key--func {
+  background: #52525b;
+  color: #fde047;
+}
+
+.key--func:hover {
+  background: #71717a;
+}
+
+.key--op {
+  background: #f97316;
+  color: #fff;
+}
+
+.key--op:hover {
+  background: #fb923c;
+}
+
+.key--eq {
+  grid-row: span 2;
+  background: #22c55e;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.key--eq:hover {
+  background: #4ade80;
+}
+
+.key--zero {
+  grid-column: span 2;
 }

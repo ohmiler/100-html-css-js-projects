@@ -8,12 +8,122 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #1a1a1a;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 2rem 1rem;
+}
+
+.quiz-card,
+.quiz-result {
+  width: min(100%, 480px);
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.quiz-card[hidden],
+.quiz-result[hidden] {
+  display: none;
+}
+
+.quiz-card__counter {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.quiz-card__question {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.quiz-card__options {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.quiz-card__option {
+  padding: 0.85rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.65rem;
+  background: #fafafa;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.quiz-card__option:hover:not(:disabled) {
+  border-color: #667eea;
+  background: #f0f0ff;
+}
+
+.quiz-card__option:disabled {
+  cursor: default;
+}
+
+.quiz-card__option--correct {
+  border-color: #27ae60;
+  background: #d5f5e3;
+  color: #1e8449;
+}
+
+.quiz-card__option--wrong {
+  border-color: #e74c3c;
+  background: #fadbd8;
+  color: #c0392b;
+}
+
+.quiz-card__next {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.quiz-card__next:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.quiz-result {
+  text-align: center;
+}
+
+.quiz-result__title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.quiz-result__score {
+  margin: 0 0 0.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.quiz-result__message {
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
 }

@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flip card — EP83</title>
+  <title>การ์ดพลิก — EP83</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <p class="instruction">คลิกการ์ดเพื่อพลิก — บนเดสก์ท็อปสามารถวางเมาส์เพื่อพลิกได้</p>
+
+    <div id="flipCard" class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-card__inner">
+        <article class="flip-card__face flip-card__face--front">
+          <span class="face-icon" aria-hidden="true">✦</span>
+          <h2 class="face-title">ด้านหน้า</h2>
+          <p class="face-text">ยินดีต้อนรับสู่ประสบการณ์ใหม่</p>
+        </article>
+
+        <article class="flip-card__face flip-card__face--back">
+          <span class="face-icon" aria-hidden="true">◎</span>
+          <h2 class="face-title">ด้านหลัง</h2>
+          <p class="face-text">ค้นพบรายละเอียดเพิ่มเติมที่ซ่อนอยู่</p>
+        </article>
+      </div>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

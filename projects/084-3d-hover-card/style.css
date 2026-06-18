@@ -8,12 +8,105 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: radial-gradient(circle at 30% 20%, #1e3a5f 0%, #0b1120 55%, #030712 100%);
+  color: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.25rem;
+  gap: 1.5rem;
+  perspective: 1200px;
+}
+
+.instruction {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+/* การ์ดเอียง 3D — transform ถูกควบคุมด้วย JS */
+.tilt-card {
+  position: relative;
+  width: min(100%, 340px);
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.55);
+}
+
+.tilt-card__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover .tilt-card__shine {
+  opacity: 1;
+}
+
+.tilt-card__content {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(40px);
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.card-desc {
+  margin: 0 0 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.card-price {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.card-price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
 }

@@ -1,4 +1,11 @@
-﻿// EP82: Neon text
-// เขียน JavaScript ของคุณที่นี่
+﻿const neonText = document.getElementById("neonText");
+const colorBtn = document.getElementById("colorBtn");
 
-console.log("EP82 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// สีนีออนที่สลับได้
+const neonColors = ["pink", "cyan", "green"];
+let colorIndex = 0;
+
+colorBtn.addEventListener("click", () => {
+  colorIndex = (colorIndex + 1) % neonColors.length;
+  neonText.dataset.color = neonColors[colorIndex];
+});

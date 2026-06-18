@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic-tac-toe — EP91</title>
+  <title>เกม X O — EP91</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">เกม X O</h1>
+      <p id="status" class="status" aria-live="polite">ตาของ X</p>
+    </header>
+
+    <div id="board" class="board" role="grid" aria-label="กระดานเกม X O"></div>
+
+    <button id="resetBtn" class="reset-btn" type="button">เริ่มใหม่</button>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

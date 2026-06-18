@@ -3,11 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors — EP92</title>
+  <title>ค้อน กรรไกร กระดาษ — EP92</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">ค้อน กรรไกร กระดาษ</h1>
+      <p class="subtitle">แข่ง 3 จาก 5</p>
+    </header>
+
+    <div class="scoreboard">
+      <div class="score score--player">
+        <span class="score-label">คุณ</span>
+        <span id="playerScore" class="score-value">0</span>
+      </div>
+      <div class="score score--cpu">
+        <span class="score-label">คอม</span>
+        <span id="cpuScore" class="score-value">0</span>
+      </div>
+    </div>
+
+    <p id="roundResult" class="round-result" aria-live="polite">&nbsp;</p>
+
+    <div id="choices" class="choices">
+      <button class="choice-btn" type="button" data-choice="rock">✊ ค้อน</button>
+      <button class="choice-btn" type="button" data-choice="scissors">✌️ กรรไกร</button>
+      <button class="choice-btn" type="button" data-choice="paper">✋ กระดาษ</button>
+    </div>
+
+    <div id="matchEnd" class="match-end hidden" aria-live="polite">
+      <p id="winnerText" class="winner-text"></p>
+      <button id="playAgainBtn" class="play-again-btn" type="button">เล่นใหม่</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

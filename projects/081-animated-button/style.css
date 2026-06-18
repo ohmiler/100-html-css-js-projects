@@ -8,12 +8,109 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1e 55%, #050308 100%);
+  color: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.25rem;
+}
+
+.hero {
+  max-width: 520px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a78bfa;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* ปุ่ม CTA พร้อม pulse และ hover */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 2.25rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 0 rgba(168, 85, 247, 0.55),
+    0 12px 32px rgba(124, 58, 237, 0.35);
+  animation: pulse 2.4s ease-in-out infinite;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 6px rgba(168, 85, 247, 0.18),
+    0 18px 40px rgba(124, 58, 237, 0.45);
+}
+
+.cta-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* คลื่น ripple จากตำแหน่งคลิก */
+.cta-btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: ripple-expand 0.65s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(168, 85, 247, 0.55),
+      0 12px 32px rgba(124, 58, 237, 0.35);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 14px rgba(168, 85, 247, 0),
+      0 12px 32px rgba(124, 58, 237, 0.35);
+  }
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }

@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather card UI — EP86</title>
+  <title>การ์ดสภาพอากาศ — EP86</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="weather-card" id="weatherCard">
+      <div class="weather-card__header">
+        <span class="weather-card__icon" id="weatherIcon" aria-hidden="true">☀️</span>
+        <div>
+          <h1 class="weather-card__city" id="cityName">กรุงเทพมหานคร</h1>
+          <p class="weather-card__desc" id="weatherDesc">แดดจัด</p>
+        </div>
+      </div>
+      <p class="weather-card__temp" id="temperature">34°</p>
+      <button class="weather-card__btn" id="cycleBtn" type="button">เปลี่ยนเมือง</button>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

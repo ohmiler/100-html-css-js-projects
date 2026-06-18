@@ -3,11 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini music player UI — EP87</title>
+  <title>เครื่องเล่นเพลงขนาดเล็ก — EP87</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="player">
+      <div class="player__art" aria-hidden="true">🎵</div>
+      <h1 class="player__title" id="songTitle">รักแท้</h1>
+      <p class="player__artist" id="songArtist">นภ พรชำนะ</p>
+
+      <div class="player__progress">
+        <div class="player__bar" id="progressBar"></div>
+      </div>
+      <div class="player__time">
+        <span id="currentTime">0:00</span>
+        <span id="totalTime">3:30</span>
+      </div>
+
+      <div class="player__controls">
+        <button class="player__btn" id="prevBtn" type="button" aria-label="เพลงก่อนหน้า">⏮</button>
+        <button class="player__btn player__btn--play" id="playBtn" type="button" aria-label="เล่น">▶</button>
+        <button class="player__btn" id="nextBtn" type="button" aria-label="เพลงถัดไป">⏭</button>
+      </div>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

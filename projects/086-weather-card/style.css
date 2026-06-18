@@ -8,12 +8,78 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
   color: #1a1a1a;
+  transition: background 0.6s ease;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 2rem 1rem;
+}
+
+.weather-card {
+  width: min(100%, 360px);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.weather-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weather-card__icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.weather-card__city {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.weather-card__desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.weather-card__temp {
+  margin: 0 0 1.75rem;
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.weather-card__btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.weather-card__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.weather-card__btn:active {
+  transform: translateY(0);
 }

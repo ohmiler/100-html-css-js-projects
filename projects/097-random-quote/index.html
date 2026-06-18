@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random quote — EP97</title>
+  <title>คำคมสุ่ม</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="quote-card" aria-live="polite">
+      <blockquote id="quoteText" class="quote-text">กำลังโหลดคำคม...</blockquote>
+      <p id="quoteAuthor" class="quote-author"></p>
+    </article>
+
+    <div class="actions">
+      <button id="randomBtn" class="btn btn--primary" type="button">สุ่มคำคม</button>
+      <button id="copyBtn" class="btn btn--secondary" type="button">คัดลอก</button>
+    </div>
+
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

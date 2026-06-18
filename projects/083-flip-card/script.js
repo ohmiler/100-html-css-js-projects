@@ -1,4 +1,15 @@
-﻿// EP83: Flip card
-// เขียน JavaScript ของคุณที่นี่
+﻿const flipCard = document.getElementById("flipCard");
 
-console.log("EP83 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// สลับคลาส flipped เมื่อคลิก
+flipCard.addEventListener("click", () => {
+  const isFlipped = flipCard.classList.toggle("flipped");
+  flipCard.setAttribute("aria-pressed", String(isFlipped));
+});
+
+// รองรับ Enter / Space สำหรับ accessibility
+flipCard.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    flipCard.click();
+  }
+});

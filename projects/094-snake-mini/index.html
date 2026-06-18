@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake mini — EP94</title>
+  <title>เกมงู — EP94</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">เกมงู</h1>
+      <p class="score-line">คะแนน: <span id="score">0</span></p>
+    </header>
+
+    <canvas id="gameCanvas" width="400" height="400" aria-label="กระดานเกมงู"></canvas>
+
+    <div id="overlay" class="overlay hidden" aria-live="polite">
+      <p id="overlayTitle" class="overlay-title">จบเกม</p>
+      <p id="overlayScore" class="overlay-score"></p>
+      <button id="restartBtn" class="restart-btn" type="button">เล่นใหม่</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

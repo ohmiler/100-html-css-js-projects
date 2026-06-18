@@ -8,12 +8,105 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #0a0a0f;
+  color: #e2e8f0;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.25rem;
+}
+
+.stage {
+  text-align: center;
+}
+
+/* ข้อความนีออน — เงาเรืองแสงหลายชั้น */
+.neon-text {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 8vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  animation: flicker 4s ease-in-out infinite;
+}
+
+.neon-text[data-color="pink"] {
+  color: #ff6ec7;
+  text-shadow:
+    0 0 5px #ff6ec7,
+    0 0 10px #ff6ec7,
+    0 0 20px #ff6ec7,
+    0 0 40px #ff1493,
+    0 0 80px #ff1493,
+    0 0 120px #c71585;
+}
+
+.neon-text[data-color="cyan"] {
+  color: #00f5ff;
+  text-shadow:
+    0 0 5px #00f5ff,
+    0 0 10px #00f5ff,
+    0 0 20px #00f5ff,
+    0 0 40px #00bfff,
+    0 0 80px #00bfff,
+    0 0 120px #008b8b;
+}
+
+.neon-text[data-color="green"] {
+  color: #39ff14;
+  text-shadow:
+    0 0 5px #39ff14,
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 40px #00ff41,
+    0 0 80px #00ff41,
+    0 0 120px #00cc33;
+}
+
+.hint {
+  margin: 0 0 1.75rem;
+  font-size: 0.9375rem;
+  color: #64748b;
+}
+
+.color-btn {
+  padding: 0.875rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f1f5f9;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.color-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* กระพริบเบา ๆ ให้ดูเป็นธรรมชาติ */
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  55%,
+  57%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  56% {
+    opacity: 0.92;
+  }
 }

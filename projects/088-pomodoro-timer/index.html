@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro timer — EP88</title>
+  <title>ตัวจับเวลาโพโมโดโร — EP88</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main class="container"></main>
+<body class="phase-work">
+  <main class="container">
+    <article class="timer">
+      <p class="timer__phase" id="phaseLabel">ช่วงทำงาน</p>
+      <p class="timer__display" id="timeDisplay">25:00</p>
+
+      <div class="timer__controls">
+        <button class="timer__btn timer__btn--primary" id="startBtn" type="button">เริ่ม</button>
+        <button class="timer__btn" id="pauseBtn" type="button">หยุดชั่วคราว</button>
+        <button class="timer__btn" id="resetBtn" type="button">รีเซ็ต</button>
+      </div>
+    </article>
+
+    <div class="notification" id="notification" role="alert" hidden>
+      <p class="notification__text" id="notificationText"></p>
+      <button class="notification__close" id="closeNotification" type="button">ปิด</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

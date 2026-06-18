@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz card — EP89</title>
+  <title>การ์ดควิซ — EP89</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="quiz-card" id="quizCard">
+      <p class="quiz-card__counter" id="questionCounter">ข้อ 1 / 4</p>
+      <h1 class="quiz-card__question" id="questionText"></h1>
+      <ul class="quiz-card__options" id="optionsList"></ul>
+      <button class="quiz-card__next" id="nextBtn" type="button" hidden>ข้อถัดไป</button>
+    </article>
+
+    <article class="quiz-result" id="resultCard" hidden>
+      <h1 class="quiz-result__title">ผลคะแนน</h1>
+      <p class="quiz-result__score" id="finalScore">0 / 4</p>
+      <p class="quiz-result__message" id="resultMessage"></p>
+      <button class="quiz-card__next" id="restartBtn" type="button">เล่นใหม่</button>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

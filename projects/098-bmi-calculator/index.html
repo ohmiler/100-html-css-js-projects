@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI calculator — EP98</title>
+  <title>คำนวณ BMI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="bmi-card" aria-label="เครื่องคำนวณ BMI">
+      <form id="bmiForm" class="bmi-form" novalidate>
+        <div class="field">
+          <label for="weight">น้ำหนัก (กก.)</label>
+          <input id="weight" name="weight" type="number" min="1" max="500" step="0.1" placeholder="เช่น 65" required>
+        </div>
+        <div class="field">
+          <label for="height">ส่วนสูง (ซม.)</label>
+          <input id="height" name="height" type="number" min="50" max="250" step="0.1" placeholder="เช่น 170" required>
+        </div>
+      </form>
+
+      <div id="result" class="result result--hidden" aria-live="polite">
+        <p class="result__value">BMI: <span id="bmiValue">—</span></p>
+        <p id="bmiCategory" class="result__category">—</p>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

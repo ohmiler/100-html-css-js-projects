@@ -8,12 +8,110 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #0f172a;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem 1.25rem;
+}
+
+.stopwatch {
+  background: #1e293b;
+  border-radius: 1.25rem;
+  padding: 2.5rem 1.75rem;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.display {
+  margin: 0 0 2rem;
+  font-size: clamp(2.75rem, 10vw, 4rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #38bdf8;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: #22c55e;
+  color: #052e16;
+}
+
+.btn--secondary {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn--accent {
+  background: #f59e0b;
+  color: #451a03;
+}
+
+.btn--ghost {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.lap-list {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.lap-list:empty {
+  display: none;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.5rem;
+  background: #0f172a;
+  border-radius: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.lap-item__label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.lap-item__time {
+  font-weight: 600;
+  color: #f1f5f9;
 }

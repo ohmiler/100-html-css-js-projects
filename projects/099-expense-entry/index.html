@@ -3,11 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Expense entry — EP99</title>
+  <title>บันทึกรายจ่าย</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="expense-app" aria-label="บันทึกรายจ่าย">
+      <form id="expenseForm" class="expense-form">
+        <div class="field">
+          <label for="name">รายการ</label>
+          <input id="name" name="name" type="text" placeholder="เช่น ค่าอาหาร" required>
+        </div>
+        <div class="field">
+          <label for="amount">จำนวนเงิน (บาท)</label>
+          <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+        </div>
+        <button class="btn btn--add" type="submit">เพิ่มรายการ</button>
+      </form>
+
+      <div class="summary">
+        <p class="summary__label">ยอดรวมทั้งหมด</p>
+        <p id="total" class="summary__total">฿0.00</p>
+      </div>
+
+      <ul id="expenseList" class="expense-list" aria-label="รายการรายจ่าย"></ul>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
