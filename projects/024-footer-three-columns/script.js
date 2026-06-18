@@ -1,4 +1,9 @@
-﻿// EP24: Footer 3 คอลัมน์
-// เขียน JavaScript ของคุณที่นี่
+﻿const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-console.log("EP24 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// คลิกปุ่ม — scroll กลับด้านบนหน้า
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

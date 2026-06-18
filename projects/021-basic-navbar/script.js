@@ -1,4 +1,15 @@
-﻿// EP21: Navbar พื้นฐาน
-// เขียน JavaScript ของคุณที่นี่
+﻿// เลือกลิงก์ทั้งหมดใน navbar
+const navLinks = document.querySelectorAll(".navbar__link");
 
-console.log("EP21 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// เมื่อคลิกลิงก์ — เปลี่ยน active และแสดง underline
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // ลบ class active จากทุกลิงก์
+    navLinks.forEach((item) => item.classList.remove("navbar__link--active"));
+
+    // เพิ่ม active ให้ลิงก์ที่คลิก
+    link.classList.add("navbar__link--active");
+  });
+});

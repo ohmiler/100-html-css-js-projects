@@ -3,11 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard widgets row — EP39</title>
+  <title>วิดเจ็ตแดชบอร์ด — EP39</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">ภาพรวมวันนี้</h1>
+      <button id="refreshBtn" class="refresh-btn" type="button">รีเฟรช</button>
+    </div>
+
+    <div class="widget-row">
+      <article class="widget widget--sales">
+        <div class="widget-icon" aria-hidden="true">📈</div>
+        <div class="widget-body">
+          <p class="widget-label">ยอดขาย</p>
+          <p class="widget-value" data-widget="sales">฿128,450</p>
+        </div>
+      </article>
+
+      <article class="widget widget--users">
+        <div class="widget-icon" aria-hidden="true">👥</div>
+        <div class="widget-body">
+          <p class="widget-label">ผู้ใช้</p>
+          <p class="widget-value" data-widget="users">3,842</p>
+        </div>
+      </article>
+
+      <article class="widget widget--orders">
+        <div class="widget-icon" aria-hidden="true">🛒</div>
+        <div class="widget-body">
+          <p class="widget-label">คำสั่งซื้อ</p>
+          <p class="widget-value" data-widget="orders">567</p>
+        </div>
+      </article>
+
+      <article class="widget widget--revenue">
+        <div class="widget-icon" aria-hidden="true">💰</div>
+        <div class="widget-body">
+          <p class="widget-label">รายได้</p>
+          <p class="widget-value" data-widget="revenue">฿89,200</p>
+        </div>
+      </article>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

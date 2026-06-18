@@ -7,13 +7,100 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
   padding: 2rem 1rem;
+}
+
+/* Grid 3 คอลัมน์เท่ากัน */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* การ์ดฟีเจอร์แต่ละใบ */
+.feature-card {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: #a5b4fc;
+}
+
+/* class เมื่อเปิดรายละเอียด */
+.feature-card.is-expanded {
+  border-color: #6366f1;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+.feature-card-inner {
+  padding: 1.5rem;
+}
+
+.feature-front {
+  text-align: center;
+}
+
+.feature-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #334155;
+}
+
+.feature-summary {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* รายละเอียดซ่อนไว้ก่อน แล้วค่อยขยายลงมา */
+.feature-detail {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+.feature-card.is-expanded .feature-detail {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.feature-detail p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* มือถือ: 1 คอลัมน์ */
+@media (max-width: 640px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
 }

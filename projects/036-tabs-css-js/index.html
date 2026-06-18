@@ -3,11 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabs (CSS แล้วเพิ่ม JS) — EP36</title>
+  <title>แท็บสลับเนื้อหา — EP36</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="tabs" role="tablist" aria-label="เมนูแท็บ">
+      <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home" data-tab="home">หน้าแรก</button>
+      <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="panel-profile" id="tab-profile" data-tab="profile">โปรไฟล์</button>
+      <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="panel-settings" id="tab-settings" data-tab="settings">ตั้งค่า</button>
+    </div>
+
+    <div class="tab-panels">
+      <section class="tab-panel is-visible" role="tabpanel" id="panel-home" aria-labelledby="tab-home" data-panel="home">
+        <h2>ยินดีต้อนรับ</h2>
+        <p>ภาพรวมโปรเจกต์และกิจกรรมล่าสุดของคุณ</p>
+      </section>
+
+      <section class="tab-panel" role="tabpanel" id="panel-profile" aria-labelledby="tab-profile" data-panel="profile" hidden>
+        <h2>โปรไฟล์</h2>
+        <p>สมชาย ใจดี · สมาชิกตั้งแต่ ม.ค. 2567</p>
+      </section>
+
+      <section class="tab-panel" role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" data-panel="settings" hidden>
+        <h2>ตั้งค่า</h2>
+        <p>การแจ้งเตือน · ภาษา · ความเป็นส่วนตัว</p>
+      </section>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

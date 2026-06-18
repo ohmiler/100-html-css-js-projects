@@ -7,7 +7,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <!-- header ครอบ navbar ทั้งก้อน — โครงสร้าง semantic HTML -->
+  <header class="navbar">
+    <!-- โลโก้ฝั่งซ้าย -->
+    <a href="#" class="navbar__logo">โลโก้</a>
+
+    <!-- nav ครอบรายการลิงก์นำทาง -->
+    <nav class="navbar__nav" aria-label="เมนูหลัก">
+      <ul class="navbar__list">
+        <li><a href="#home" class="navbar__link navbar__link--active">หน้าแรก</a></li>
+        <li><a href="#about" class="navbar__link">เกี่ยวกับ</a></li>
+        <li><a href="#services" class="navbar__link">บริการ</a></li>
+        <li><a href="#contact" class="navbar__link">ติดต่อ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- เนื้อหาตัวอย่างด้านล่าง navbar -->
+  <main class="page">
+    <section id="home" class="page__section">
+      <h1>ยินดีต้อนรับ</h1>
+      <p>เนื้อหาหน้าแรก</p>
+    </section>
+    <section id="about" class="page__section">
+      <h2>เกี่ยวกับเรา</h2>
+      <p>ข้อมูลเกี่ยวกับองค์กร</p>
+    </section>
+    <section id="services" class="page__section">
+      <h2>บริการ</h2>
+      <p>รายการบริการของเรา</p>
+    </section>
+    <section id="contact" class="page__section">
+      <h2>ติดต่อ</h2>
+      <p>ช่องทางติดต่อ</p>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>

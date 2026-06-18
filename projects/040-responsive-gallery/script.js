@@ -1,4 +1,25 @@
-﻿// EP40: Responsive gallery
-// เขียน JavaScript ของคุณที่นี่
+﻿const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
 
-console.log("EP40 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// กรองแสดงเฉพาะรายการที่ตรงหมวด
+function filterGallery(category) {
+  galleryItems.forEach((item) => {
+    const itemCategory = item.dataset.category;
+    const shouldShow = category === "all" || itemCategory === category;
+    item.classList.toggle("is-hidden", !shouldShow);
+  });
+}
+
+// อัปเดตปุ่ม filter ที่ active
+function setActiveFilter(activeBtn) {
+  filterButtons.forEach((btn) => {
+    btn.classList.toggle("is-active", btn === activeBtn);
+  });
+}
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    setActiveFilter(btn);
+    filterGallery(btn.dataset.filter);
+  });
+});

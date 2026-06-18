@@ -1,4 +1,24 @@
-﻿// EP29: Team member card
-// เขียน JavaScript ของคุณที่นี่
+﻿const teamCard = document.getElementById("teamCard");
+const socialBtns = document.querySelectorAll(".social-btn");
 
-console.log("EP29 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// คลิกสลับ bio overlay (เหมาะกับมือถือ)
+teamCard.addEventListener("click", (event) => {
+  if (event.target.closest(".social-btn")) return;
+  teamCard.classList.toggle("is-bio-open");
+});
+
+teamCard.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    teamCard.classList.toggle("is-bio-open");
+  }
+});
+
+// คลิกไอคอน social แสดง alert ชื่อ platform
+socialBtns.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const platform = btn.dataset.platform;
+    alert(`เปิด ${platform}`);
+  });
+});

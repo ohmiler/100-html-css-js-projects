@@ -3,11 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive gallery — EP40</title>
+  <title>แกลเลอรี Responsive — EP40</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="filter-bar" role="group" aria-label="กรองหมวดหมู่">
+      <button class="filter-btn is-active" type="button" data-filter="all">ทั้งหมด</button>
+      <button class="filter-btn" type="button" data-filter="nature">ธรรมชาติ</button>
+      <button class="filter-btn" type="button" data-filter="city">เมือง</button>
+      <button class="filter-btn" type="button" data-filter="food">อาหาร</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <figure class="gallery-item" data-category="nature">
+        <div class="gallery-thumb gallery-thumb--forest"></div>
+        <figcaption>ป่าเขียว</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="city">
+        <div class="gallery-thumb gallery-thumb--skyline"></div>
+        <figcaption>เมืองกลางคืน</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="food">
+        <div class="gallery-thumb gallery-thumb--noodle"></div>
+        <figcaption>ก๋วยเตี๋ยว</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="nature">
+        <div class="gallery-thumb gallery-thumb--waterfall"></div>
+        <figcaption>น้ำตก</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="city">
+        <div class="gallery-thumb gallery-thumb--bridge"></div>
+        <figcaption>สะพาน</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="food">
+        <div class="gallery-thumb gallery-thumb--fruit"></div>
+        <figcaption>ผลไม้สด</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="nature">
+        <div class="gallery-thumb gallery-thumb--mountain"></div>
+        <figcaption>ยอดเขา</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="city">
+        <div class="gallery-thumb gallery-thumb--street"></div>
+        <figcaption>ถนนคนเดิน</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="food">
+        <div class="gallery-thumb gallery-thumb--coffee"></div>
+        <figcaption>กาแฟ</figcaption>
+      </figure>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

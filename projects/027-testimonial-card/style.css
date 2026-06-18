@@ -7,13 +7,116 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 480px;
   padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* การ์ดรีวิว */
+.testimonial-card {
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-quote {
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #334155;
+  font-style: italic;
+}
+
+.testimonial-quote::before {
+  content: "\201C";
+  color: #6366f1;
+  font-size: 1.5rem;
+  margin-right: 0.15rem;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.testimonial-name {
+  margin: 0;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.testimonial-role {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ปุ่มเลื่อนและจุด indicator */
+.testimonial-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  background: #fff;
+  color: #475569;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.dot-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot-btn {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* จุดที่ active ตาม index ปัจจุบัน */
+.dot-btn.is-active {
+  background: #6366f1;
+  transform: scale(1.2);
 }

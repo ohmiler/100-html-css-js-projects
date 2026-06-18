@@ -6,14 +6,86 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f8fafc;
+  color: #334155;
 }
 
-.container {
-  max-width: 640px;
+/* navbar ใช้ flex จัดโลโก้ซ้าย ลิงก์ขวา */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgb(15 23 42 / 6%);
+}
+
+.navbar__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.navbar__nav {
+  /* nav เป็น wrapper ของ ul */
+}
+
+/* ul เป็น flex เรียงลิงก์แนวนอน */
+.navbar__list {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__link {
+  position: relative;
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: #6366f1;
+}
+
+/* ลิงก์ที่ active — สีเข้ม + เส้นใต้ */
+.navbar__link--active {
+  color: #6366f1;
+}
+
+.navbar__link--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: #6366f1;
+  border-radius: 1px;
+}
+
+/* เนื้อหาตัวอย่าง */
+.page__section {
+  padding: 4rem 2rem;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+}
+
+.page__section h1,
+.page__section h2 {
+  margin: 0 0 0.5rem;
+  color: #1e293b;
+}
+
+.page__section p {
+  margin: 0;
+  color: #64748b;
 }

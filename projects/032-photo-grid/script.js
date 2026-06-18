@@ -1,4 +1,9 @@
-﻿// EP32: Photo grid
-// เขียน JavaScript ของคุณที่นี่
+﻿const gallery = document.getElementById("gallery");
+const items = gallery.querySelectorAll(".gallery__item");
 
-console.log("EP32 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// คลิกรูปเพื่อ toggle highlight — คลิกซ้ำจะยกเลิก
+items.forEach((item) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("is-selected");
+  });
+});

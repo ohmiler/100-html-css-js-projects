@@ -3,11 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonial card — EP27</title>
+  <title>การ์ดรีวิว — EP27</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="testimonial-card">
+      <blockquote id="quoteText" class="testimonial-quote"></blockquote>
+
+      <footer class="testimonial-footer">
+        <img id="avatarImg" class="testimonial-avatar" src="" alt="">
+        <div>
+          <p id="authorName" class="testimonial-name"></p>
+          <p id="authorRole" class="testimonial-role"></p>
+        </div>
+      </footer>
+    </article>
+
+    <div class="testimonial-controls">
+      <button id="prevBtn" class="nav-btn" type="button" aria-label="รีวิวก่อนหน้า">‹</button>
+
+      <!-- จุดบอกตำแหน่งรีวิวปัจจุบัน -->
+      <div id="dotGroup" class="dot-group" role="tablist" aria-label="เลือกรีวิว"></div>
+
+      <button id="nextBtn" class="nav-btn" type="button" aria-label="รีวิวถัดไป">›</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -8,12 +8,120 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #0f172a;
+  color: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+/* layout แบบ bento ด้วย grid-template-areas */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, minmax(120px, auto));
+  grid-template-areas:
+    "hero hero stats chart"
+    "hero hero note gallery"
+    "cta team team gallery";
+  gap: 0.75rem;
+}
+
+.bento-item {
+  padding: 1.25rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+}
+
+.bento-item:focus-visible {
+  box-shadow: 0 0 0 3px #818cf8;
+}
+
+.bento-item:hover {
+  transform: translateY(-2px);
+}
+
+/* กำหนดตำแหน่งแต่ละกล่อง */
+.bento-item[data-area="hero"] {
+  grid-area: hero;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.bento-item[data-area="stats"] {
+  grid-area: stats;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+}
+
+.bento-item[data-area="chart"] {
+  grid-area: chart;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.bento-item[data-area="note"] {
+  grid-area: note;
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.bento-item[data-area="gallery"] {
+  grid-area: gallery;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.bento-item[data-area="cta"] {
+  grid-area: cta;
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+}
+
+.bento-item[data-area="team"] {
+  grid-area: team;
+  background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.bento-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.bento-item h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+/* กล่องที่ถูกขยายเต็มแถว */
+.bento-grid.is-expanded .bento-item {
+  grid-area: auto;
+  grid-column: 1 / -1;
+}
+
+.bento-grid.is-expanded .bento-item.is-expanded {
+  min-height: 180px;
+}
+
+.bento-grid.is-expanded .bento-item:not(.is-expanded) {
+  opacity: 0.55;
+}
+
+/* มือถือ — ยุบเป็นคอลัมน์เดียว */
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: none;
+  }
+
+  .bento-grid .bento-item {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
 }

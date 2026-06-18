@@ -7,13 +7,84 @@
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  width: min(100%, 520px);
   padding: 2rem 1rem;
+}
+
+/* แถวปุ่มแท็บ */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  background: #e2e8f0;
+  border-radius: 12px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #334155;
+}
+
+/* แท็บที่เลือกอยู่ */
+.tab-btn.is-active {
+  color: #4338ca;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(67, 56, 202, 0.12);
+}
+
+.tab-panels {
+  margin-top: 1.25rem;
+  position: relative;
+  min-height: 140px;
+}
+
+/* panel เริ่มซ่อนด้วย hidden attribute + CSS */
+.tab-panel {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+/* panel ที่แสดง — fade in */
+.tab-panel.is-visible {
+  opacity: 1;
+}
+
+.tab-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.tab-panel p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
 }

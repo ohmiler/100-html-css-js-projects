@@ -1,4 +1,13 @@
-﻿// EP30: Blog post card
-// เขียน JavaScript ของคุณที่นี่
+﻿const excerptText = document.getElementById("excerptText");
+const readMoreBtn = document.getElementById("readMoreBtn");
 
-console.log("EP30 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+let isExpanded = false;
+
+// สลับแสดง excerpt เต็ม / ย่อ 2 บรรทัด
+readMoreBtn.addEventListener("click", () => {
+  isExpanded = !isExpanded;
+
+  excerptText.classList.toggle("is-clamped", !isExpanded);
+  readMoreBtn.textContent = isExpanded ? "ย่อ" : "อ่านต่อ";
+  readMoreBtn.classList.toggle("is-expanded", isExpanded);
+});

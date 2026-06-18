@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team member card — EP29</title>
+  <title>การ์ดทีม — EP29</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article id="teamCard" class="team-card" tabindex="0">
+      <img
+        class="team-avatar"
+        src="https://i.pravatar.cc/160?img=47"
+        alt="รูปโปรไฟล์ ปิยะ สร้างสรรค์"
+      >
+
+      <h2 class="team-name">ปิยะ สร้างสรรค์</h2>
+      <p class="team-role">Frontend Developer</p>
+
+      <div class="team-socials">
+        <button class="social-btn" type="button" data-platform="GitHub" aria-label="GitHub">GH</button>
+        <button class="social-btn" type="button" data-platform="LinkedIn" aria-label="LinkedIn">IN</button>
+        <button class="social-btn" type="button" data-platform="Twitter" aria-label="Twitter">TW</button>
+      </div>
+
+      <!-- overlay แสดง bio สั้นๆ (hover หรือคลิก) -->
+      <div class="bio-overlay">
+        <p>ชอบสอน HTML/CSS/JS ให้มือใหม่ เขียน component เล็กๆ ที่ใช้งานได้จริง</p>
+      </div>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

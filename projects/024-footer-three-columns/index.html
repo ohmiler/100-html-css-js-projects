@@ -7,7 +7,59 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <!-- เนื้อหาด้านบน footer -->
+  <main class="content">
+    <h1>เนื้อหาหน้าเว็บ</h1>
+    <p>เลื่อนลงเพื่อดู footer และปุ่มกลับด้านบน</p>
+    <div class="content__spacer"></div>
+  </main>
+
+  <!-- footer 3 คอลัมน์ -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <!-- คอลัมน์ลิงก์ -->
+      <div class="footer__column">
+        <h2 class="footer__heading">ลิงก์</h2>
+        <ul class="footer__list">
+          <li><a href="#">หน้าแรก</a></li>
+          <li><a href="#">เกี่ยวกับ</a></li>
+          <li><a href="#">บริการ</a></li>
+          <li><a href="#">ติดต่อ</a></li>
+        </ul>
+      </div>
+
+      <!-- คอลัมน์ติดต่อ -->
+      <div class="footer__column">
+        <h2 class="footer__heading">ติดต่อ</h2>
+        <ul class="footer__list footer__list--plain">
+          <li>123 ถนนสุขุมวิท</li>
+          <li>กรุงเทพฯ 10110</li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="tel:+6621234567">02-123-4567</a></li>
+        </ul>
+      </div>
+
+      <!-- คอลัมน์โซเชียล -->
+      <div class="footer__column">
+        <h2 class="footer__heading">โซเชียล</h2>
+        <ul class="footer__social">
+          <li><a href="#" aria-label="Facebook">FB</a></li>
+          <li><a href="#" aria-label="Instagram">IG</a></li>
+          <li><a href="#" aria-label="YouTube">YT</a></li>
+          <li><a href="#" aria-label="Line">LINE</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 บริษัทตัวอย่าง จำกัด</p>
+      <!-- ปุ่ม scroll กลับด้านบน -->
+      <button id="scrollTopBtn" class="footer__scroll-top" type="button" aria-label="กลับด้านบน">
+        ↑
+      </button>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

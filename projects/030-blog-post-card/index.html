@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog post card — EP30</title>
+  <title>การ์ดบทความ — EP30</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="blog-card">
+      <div class="blog-image-wrap">
+        <img
+          class="blog-image"
+          src="https://picsum.photos/seed/blog30/640/360"
+          alt="ภาพประกอบบทความ"
+        >
+        <span class="read-badge">5 นาที</span>
+      </div>
+
+      <div class="blog-body">
+        <time class="blog-date" datetime="2026-06-18">18 มิ.ย. 2569</time>
+        <h2 class="blog-title">เริ่มต้น CSS Grid สำหรับมือใหม่</h2>
+
+        <p id="excerptText" class="blog-excerpt is-clamped">
+          CSS Grid ช่วยจัดเลย์เอาต์หลายคอลัมน์ได้ง่ายมาก แค่กำหนด display: grid และ grid-template-columns ก็สร้างการ์ดเรียงกันได้ทันที บทความนี้จะพาเรียนรู้จากพื้นฐานจนทำ component จริงได้ รวมถึง responsive บนมือถือด้วย media query เพื่อให้ layout ยืดหยุ่นตามขนาดหน้าจอ
+        </p>
+
+        <button id="readMoreBtn" class="read-more-btn" type="button">อ่านต่อ</button>
+      </div>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

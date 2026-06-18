@@ -7,7 +7,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <article class="image-card">
+      <img
+        class="image-card__img"
+        src="https://picsum.photos/seed/ep31/480/320"
+        alt="ภูเขาและทะเลสาบยามเช้า"
+        width="480"
+        height="320"
+      >
+      <div class="image-card__overlay">
+        <h2 class="image-card__title">ภูเขาและทะเลสาบ</h2>
+        <button class="image-card__btn" type="button" data-view-more>ดูเพิ่ม</button>
+      </div>
+    </article>
+  </main>
+
+  <!-- lightbox แสดงรูปใหญ่ -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <div class="lightbox__backdrop" data-close-lightbox></div>
+    <figure class="lightbox__panel" role="dialog" aria-modal="true" aria-label="รูปภาพขยาย">
+      <button class="lightbox__close" type="button" aria-label="ปิด" data-close-lightbox>&times;</button>
+      <img
+        class="lightbox__img"
+        id="lightboxImg"
+        src=""
+        alt="ภูเขาและทะเลสาบยามเช้า ขยาย"
+      >
+    </figure>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

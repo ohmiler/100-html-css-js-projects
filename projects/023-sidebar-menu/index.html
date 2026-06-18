@@ -3,11 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar เมนู — EP23</title>
+  <title>Sidebar Menu — EP23</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <!-- sidebar ติดซ้าย fixed -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar__header">
+      <span class="sidebar__brand">
+        <span class="sidebar__icon" aria-hidden="true">◆</span>
+        <span class="sidebar__text">แดชบอร์ด</span>
+      </span>
+      <!-- ปุ่มย่อ/ขยาย sidebar -->
+      <button
+        id="toggleBtn"
+        class="sidebar__toggle"
+        type="button"
+        aria-label="ย่อเมนู"
+        aria-expanded="true"
+      >
+        <span aria-hidden="true">◀</span>
+      </button>
+    </div>
+
+    <nav class="sidebar__nav" aria-label="เมนูด้านข้าง">
+      <ul class="sidebar__list">
+        <li>
+          <a href="#" class="sidebar__link sidebar__link--active">
+            <span class="sidebar__icon" aria-hidden="true">🏠</span>
+            <span class="sidebar__text">หน้าแรก</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">📊</span>
+            <span class="sidebar__text">รายงาน</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">👤</span>
+            <span class="sidebar__text">โปรไฟล์</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">⚙️</span>
+            <span class="sidebar__text">ตั้งค่า</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- เนื้อหาหลัก — margin-left ตามความกว้าง sidebar -->
+  <main class="main">
+    <h1>เนื้อหาหลัก</h1>
+    <p>คลิกปุ่มลูกศรเพื่อย่อหรือขยาย sidebar</p>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>

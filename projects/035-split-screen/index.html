@@ -7,7 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <div class="split" id="split">
+    <section class="split__panel split__panel--image">
+      <img
+        class="split__img"
+        src="https://picsum.photos/seed/ep35/900/900"
+        alt="คาเฟ่บรรยากาศอบอุ่น"
+        width="900"
+        height="900"
+      >
+    </section>
+
+    <section class="split__panel split__panel--form">
+      <form class="signup-form" id="signupForm">
+        <h1 class="signup-form__title">สมัครสมาชิก</h1>
+        <label class="signup-form__field">
+          <span>ชื่อ</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label class="signup-form__field">
+          <span>อีเมล</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label class="signup-form__field">
+          <span>รหัสผ่าน</span>
+          <input type="password" name="password" autocomplete="new-password" required>
+        </label>
+        <button class="signup-form__submit" type="submit">สร้างบัญชี</button>
+      </form>
+    </section>
+  </div>
+
+  <button class="swap-btn" id="swapBtn" type="button">สลับด้านซ้าย/ขวา</button>
+
   <script src="script.js"></script>
 </body>
 </html>

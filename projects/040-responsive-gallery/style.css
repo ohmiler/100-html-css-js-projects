@@ -8,12 +8,111 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #6366f1;
+  color: #4338ca;
+}
+
+.filter-btn.is-active {
+  color: #fff;
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+/* แกลเลอรี responsive ด้วย auto-fit + minmax */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-item.is-hidden {
+  display: none;
+}
+
+.gallery-thumb {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-item figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* สีจำลองแทนรูปภาพ */
+.gallery-thumb--forest {
+  background: linear-gradient(135deg, #166534, #22c55e);
+}
+
+.gallery-thumb--skyline {
+  background: linear-gradient(135deg, #1e3a8a, #6366f1);
+}
+
+.gallery-thumb--noodle {
+  background: linear-gradient(135deg, #b45309, #fbbf24);
+}
+
+.gallery-thumb--waterfall {
+  background: linear-gradient(135deg, #0e7490, #67e8f9);
+}
+
+.gallery-thumb--bridge {
+  background: linear-gradient(135deg, #475569, #94a3b8);
+}
+
+.gallery-thumb--fruit {
+  background: linear-gradient(135deg, #be123c, #fb7185);
+}
+
+.gallery-thumb--mountain {
+  background: linear-gradient(135deg, #334155, #cbd5e1);
+}
+
+.gallery-thumb--street {
+  background: linear-gradient(135deg, #7c2d12, #fdba74);
+}
+
+.gallery-thumb--coffee {
+  background: linear-gradient(135deg, #78350f, #d97706);
 }

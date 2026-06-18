@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hero section — EP25</title>
+  <title>Hero Section — EP25</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <!-- hero เต็ม viewport -->
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">สร้างเว็บไซต์ที่น่าประทับใจ</h1>
+      <p class="hero__subtitle">เรียนรู้ HTML, CSS และ JavaScript ผ่านโปรเจกต์จริง</p>
+      <button id="ctaBtn" class="hero__cta" type="button">เริ่มต้นเลย</button>
+    </div>
+  </section>
+
+  <!-- section เป้าหมายสำหรับ scroll -->
+  <section id="next" class="next-section">
+    <h2>เนื้อหาถัดไป</h2>
+    <p>คุณเลื่อนมาถึงส่วนนี้แล้ว</p>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>

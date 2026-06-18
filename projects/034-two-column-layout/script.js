@@ -1,4 +1,7 @@
-﻿// EP34: Two-column layout
-// เขียน JavaScript ของคุณที่นี่
+﻿const layout = document.getElementById("layout");
+const swapBtn = document.getElementById("swapBtn");
 
-console.log("EP34 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+// สลับลำดับคอลัมน์ด้วย class ที่เปลี่ยน flex-direction
+swapBtn.addEventListener("click", () => {
+  layout.classList.toggle("is-reversed");
+});

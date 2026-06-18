@@ -8,12 +8,142 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-title {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.refresh-btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: #4f46e5;
+}
+
+/* แถว widget 4 คอลัมน์ */
+.widget-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.widget {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.widget-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 1.4rem;
+  border-radius: 10px;
+}
+
+.widget-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.widget-value {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+/* สี accent ต่างกันตามประเภท */
+.widget--sales {
+  border-left-color: #6366f1;
+}
+
+.widget--sales .widget-icon {
+  background: #eef2ff;
+}
+
+.widget--sales .widget-value {
+  color: #4338ca;
+}
+
+.widget--users {
+  border-left-color: #0ea5e9;
+}
+
+.widget--users .widget-icon {
+  background: #e0f2fe;
+}
+
+.widget--users .widget-value {
+  color: #0284c7;
+}
+
+.widget--orders {
+  border-left-color: #f59e0b;
+}
+
+.widget--orders .widget-icon {
+  background: #fef3c7;
+}
+
+.widget--orders .widget-value {
+  color: #d97706;
+}
+
+.widget--revenue {
+  border-left-color: #10b981;
+}
+
+.widget--revenue .widget-icon {
+  background: #d1fae5;
+}
+
+.widget--revenue .widget-value {
+  color: #059669;
+}
+
+@media (max-width: 768px) {
+  .widget-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .widget-row {
+    grid-template-columns: 1fr;
+  }
 }

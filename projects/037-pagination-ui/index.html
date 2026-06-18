@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagination UI — EP37</title>
+  <title>แบ่งหน้า — EP37</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div id="pageContent" class="page-content" aria-live="polite"></div>
+
+    <nav class="pagination" aria-label="แบ่งหน้า">
+      <button id="prevBtn" class="page-btn page-btn--nav" type="button" aria-label="หน้าก่อนหน้า">ก่อนหน้า</button>
+      <div class="page-numbers" role="group" aria-label="เลขหน้า">
+        <button class="page-btn page-btn--num is-active" type="button" data-page="1">1</button>
+        <button class="page-btn page-btn--num" type="button" data-page="2">2</button>
+        <button class="page-btn page-btn--num" type="button" data-page="3">3</button>
+        <button class="page-btn page-btn--num" type="button" data-page="4">4</button>
+        <button class="page-btn page-btn--num" type="button" data-page="5">5</button>
+      </div>
+      <button id="nextBtn" class="page-btn page-btn--nav" type="button" aria-label="หน้าถัดไป">ถัดไป</button>
+    </nav>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

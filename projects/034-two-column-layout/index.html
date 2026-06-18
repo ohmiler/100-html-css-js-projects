@@ -7,7 +7,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="layout" id="layout">
+      <section class="layout__col layout__col--main">
+        <h1>เรียน Frontend แบบลงมือทำ</h1>
+        <p>ฝึกสร้าง component จริงด้วย HTML, CSS และ JavaScript ทีละโปรเจกต์ เพื่อเก็บ portfolio ที่ใช้งานได้จริง</p>
+        <ul class="layout__list">
+          <li>100 โปรเจกต์ย่อยครบทุกทักษะ</li>
+          <li>comment ภาษาไทยในโค้ด</li>
+          <li>UI สวย พร้อม responsive</li>
+        </ul>
+      </section>
+
+      <aside class="layout__col layout__col--side">
+        <img
+          class="layout__image"
+          src="https://picsum.photos/seed/ep34/520/360"
+          alt="นักเรียนกำลังเขียนโค้ด"
+          width="520"
+          height="360"
+        >
+      </aside>
+    </div>
+
+    <button class="swap-btn" id="swapBtn" type="button">สลับลำดับคอลัมน์</button>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
