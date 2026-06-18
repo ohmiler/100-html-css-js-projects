@@ -8,12 +8,109 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #faf5ff;
+  color: #1e1b4b;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 440px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.1);
+}
+
+.card-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.2rem;
+}
+
+.file-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 2rem 1.5rem;
+  border: 2px dashed #c4b5fd;
+  border-radius: 12px;
+  background: #f5f3ff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.upload-zone:hover,
+.upload-zone:focus-within {
+  border-color: #8b5cf6;
+  background: #ede9fe;
+}
+
+.upload-icon {
+  font-size: 2rem;
+}
+
+.upload-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: #7c3aed;
+}
+
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 280px;
+  border-radius: 10px;
+  object-fit: contain;
+  border: 1px solid #e9d5ff;
+  background: #faf5ff;
+}
+
+.preview-name {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  word-break: break-all;
+  text-align: center;
+}
+
+.btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn--clear {
+  color: #7c3aed;
+  background: #ede9fe;
+}
+
+.btn--clear:hover {
+  background: #ddd6fe;
 }

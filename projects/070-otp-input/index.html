@@ -7,7 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <h1 class="card-title">ยืนยันรหัส OTP</h1>
+      <p class="card-subtitle">กรอกรหัส 6 หลักที่ส่งไปยังอีเมลของคุณ</p>
+
+      <div class="otp-group" id="otpGroup">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="หลักที่ 1">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" aria-label="หลักที่ 2">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" aria-label="หลักที่ 3">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" aria-label="หลักที่ 4">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" aria-label="หลักที่ 5">
+        <input type="text" class="otp-input" inputmode="numeric" maxlength="1" aria-label="หลักที่ 6">
+      </div>
+
+      <button type="button" class="btn btn--verify" id="verifyBtn">ยืนยัน</button>
+
+      <div class="result" id="result" aria-live="polite" hidden>
+        <span class="result-label">รหัสที่กรอก</span>
+        <span class="result-code" id="resultCode"></span>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inline error messages — EP73</title>
+  <title>ข้อความผิดพลาดในฟอร์ม — EP73</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form id="contactForm" class="card" novalidate>
+      <div class="field">
+        <label class="field-label" for="nameInput">ชื่อ-นามสกุล</label>
+        <input id="nameInput" class="field-input" type="text" autocomplete="name">
+        <p id="nameError" class="field-error" role="alert" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="emailInput">อีเมล</label>
+        <input id="emailInput" class="field-input" type="email" autocomplete="email">
+        <p id="emailError" class="field-error" role="alert" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="phoneInput">เบอร์โทร</label>
+        <input id="phoneInput" class="field-input" type="tel" autocomplete="tel">
+        <p id="phoneError" class="field-error" role="alert" hidden></p>
+      </div>
+
+      <button class="submit-btn" type="submit">ส่งข้อมูล</button>
+    </form>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

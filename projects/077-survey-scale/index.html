@@ -3,11 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Survey scale 1–5 — EP77</title>
+  <title>แบบสำรวจความพึงพอใจ — EP77</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="panel">
+      <h1 class="title">คุณพึงพอใจกับบริการของเราแค่ไหน?</h1>
+
+      <fieldset class="scale-fieldset">
+        <legend class="scale-legend">เลือกคะแนน 1–5</legend>
+        <div id="scaleGroup" class="scale-group" role="radiogroup" aria-label="ความพึงพอใจ">
+          <label class="scale-option">
+            <input type="radio" name="satisfaction" value="1" class="scale-input">
+            <span class="scale-circle">1</span>
+            <span class="scale-caption">ไม่พอใจ</span>
+          </label>
+          <label class="scale-option">
+            <input type="radio" name="satisfaction" value="2" class="scale-input">
+            <span class="scale-circle">2</span>
+          </label>
+          <label class="scale-option">
+            <input type="radio" name="satisfaction" value="3" class="scale-input">
+            <span class="scale-circle">3</span>
+          </label>
+          <label class="scale-option">
+            <input type="radio" name="satisfaction" value="4" class="scale-input">
+            <span class="scale-circle">4</span>
+          </label>
+          <label class="scale-option">
+            <input type="radio" name="satisfaction" value="5" class="scale-input">
+            <span class="scale-circle">5</span>
+            <span class="scale-caption">พอใจมาก</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <p id="thankYou" class="thank-you" hidden aria-live="polite"></p>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

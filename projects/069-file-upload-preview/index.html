@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>File upload preview — EP69</title>
+  <title>อัปโหลดไฟล์พร้อมพรีวิว — EP69</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <h1 class="card-title">อัปโหลดรูปภาพ</h1>
+
+      <label class="upload-zone" id="uploadZone">
+        <input
+          type="file"
+          id="fileInput"
+          class="file-input"
+          accept="image/*"
+        >
+        <span class="upload-icon" aria-hidden="true">📷</span>
+        <span class="upload-text">แตะเพื่อเลือกรูปภาพ</span>
+        <span class="upload-hint">PNG, JPG, GIF, WebP</span>
+      </label>
+
+      <div class="preview-area" id="previewArea" hidden>
+        <img class="preview-image" id="previewImage" alt="ตัวอย่างรูปภาพ">
+        <p class="preview-name" id="previewName"></p>
+        <button type="button" class="btn btn--clear" id="clearBtn">ลบรูป</button>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

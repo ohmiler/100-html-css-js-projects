@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Textarea char count — EP71</title>
+  <title>นับตัวอักษร — EP71</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <label class="field-label" for="messageInput">ข้อความ</label>
+      <textarea
+        id="messageInput"
+        class="textarea"
+        maxlength="200"
+        rows="6"
+        placeholder="พิมพ์ข้อความของคุณ..."
+      ></textarea>
+      <p id="charCounter" class="char-counter" aria-live="polite">0/200</p>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

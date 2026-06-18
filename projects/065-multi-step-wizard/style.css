@@ -8,12 +8,176 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
+}
+
+.wizard {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.wizard-progress {
+  margin-bottom: 1.5rem;
+}
+
+.progress-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  color: #475569;
+  text-align: center;
+}
+
+#stepLabel {
+  font-weight: 700;
+  color: #6366f1;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress__bar {
+  width: var(--progress, 33.33%);
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.wizard-step {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.step-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.field {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.field-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.field-input.input--error {
+  border-color: #ef4444;
+}
+
+.field-error {
+  display: block;
+  min-height: 1.1rem;
+  margin-top: 0.3rem;
+  font-size: 0.8125rem;
+  color: #dc2626;
+}
+
+.wizard-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn--primary {
+  color: #fff;
+  background: #6366f1;
+}
+
+.btn--primary:hover {
+  background: #4f46e5;
+}
+
+.btn--secondary {
+  color: #475569;
+  background: #e2e8f0;
+}
+
+.btn--secondary:hover {
+  background: #cbd5e1;
+}
+
+.summary {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.summary-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.summary-list {
+  margin: 0;
+}
+
+.summary-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-list dt {
+  margin: 0;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.summary-list dd {
+  margin: 0;
+  text-align: right;
 }

@@ -3,11 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login form UI — EP61</title>
+  <title>ฟอร์มเข้าสู่ระบบ — EP61</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form class="login-form" id="loginForm">
+      <h1 class="form-title">เข้าสู่ระบบ</h1>
+
+      <label class="field">
+        <span class="field-label">อีเมล</span>
+        <input
+          class="field-input"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+      </label>
+
+      <label class="field">
+        <span class="field-label">รหัสผ่าน</span>
+        <input
+          class="field-input"
+          type="password"
+          name="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+          required
+        >
+      </label>
+
+      <button class="submit-btn" id="submitBtn" type="submit">เข้าสู่ระบบ</button>
+
+      <p id="successMsg" class="success-msg" hidden>เข้าสู่ระบบสำเร็จ</p>
+    </form>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

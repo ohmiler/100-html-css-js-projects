@@ -3,11 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register + validate — EP62</title>
+  <title>ฟอร์มสมัครสมาชิก — EP62</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form class="register-form" id="registerForm" novalidate>
+      <h1 class="form-title">สมัครสมาชิก</h1>
+
+      <label class="field">
+        <span class="field-label">อีเมล</span>
+        <input
+          class="field-input"
+          id="emailInput"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+        >
+        <span class="field-error" id="emailError"></span>
+      </label>
+
+      <label class="field">
+        <span class="field-label">รหัสผ่าน</span>
+        <input
+          class="field-input"
+          id="passwordInput"
+          type="password"
+          name="password"
+          placeholder="อย่างน้อย 8 ตัวอักษร"
+          autocomplete="new-password"
+        >
+        <span class="field-error" id="passwordError"></span>
+      </label>
+
+      <label class="field">
+        <span class="field-label">ยืนยันรหัสผ่าน</span>
+        <input
+          class="field-input"
+          id="confirmInput"
+          type="password"
+          name="confirmPassword"
+          placeholder="กรอกรหัสผ่านอีกครั้ง"
+          autocomplete="new-password"
+        >
+        <span class="field-error" id="confirmError"></span>
+      </label>
+
+      <button class="submit-btn" type="submit">สมัครสมาชิก</button>
+    </form>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

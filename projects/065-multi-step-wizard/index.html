@@ -3,11 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-step wizard — EP65</title>
+  <title>ฟอร์มหลายขั้นตอน — EP65</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form class="wizard" id="wizardForm" novalidate>
+      <div class="wizard-progress">
+        <p class="progress-label">
+          ขั้นตอน <span id="stepLabel">1/3</span>
+        </p>
+        <div class="progress">
+          <div class="progress__bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <fieldset class="wizard-step" data-step="1">
+        <legend class="step-title">ข้อมูลส่วนตัว</legend>
+
+        <label class="field">
+          <span class="field-label">ชื่อ</span>
+          <input class="field-input" type="text" name="firstName" required>
+          <span class="field-error"></span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">นามสกุล</span>
+          <input class="field-input" type="text" name="lastName" required>
+          <span class="field-error"></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="wizard-step" data-step="2" hidden>
+        <legend class="step-title">ข้อมูลติดต่อ</legend>
+
+        <label class="field">
+          <span class="field-label">อีเมล</span>
+          <input class="field-input" type="email" name="email" required>
+          <span class="field-error"></span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">เบอร์โทร</span>
+          <input class="field-input" type="tel" name="phone" required>
+          <span class="field-error"></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="wizard-step" data-step="3" hidden>
+        <legend class="step-title">ที่อยู่</legend>
+
+        <label class="field">
+          <span class="field-label">จังหวัด</span>
+          <input class="field-input" type="text" name="province" required>
+          <span class="field-error"></span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">รหัสไปรษณีย์</span>
+          <input class="field-input" type="text" name="zip" inputmode="numeric" required>
+          <span class="field-error"></span>
+        </label>
+      </fieldset>
+
+      <div class="wizard-actions">
+        <button class="btn btn--secondary" id="backBtn" type="button" hidden>ย้อนกลับ</button>
+        <button class="btn btn--primary" id="nextBtn" type="button">ถัดไป</button>
+        <button class="btn btn--primary" id="submitBtn" type="submit" hidden>ส่งข้อมูล</button>
+      </div>
+    </form>
+
+    <section id="summaryPanel" class="summary" hidden>
+      <h2 class="summary-title">สรุปข้อมูล</h2>
+      <dl class="summary-list" id="summaryList"></dl>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

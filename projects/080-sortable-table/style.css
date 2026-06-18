@@ -17,3 +17,91 @@ body {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
+
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.product-table th {
+  background: #f9fafb;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.product-table td {
+  font-size: 0.9375rem;
+}
+
+.product-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.sortable {
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.sortable:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.sortable.is-active {
+  color: #2563eb;
+}
+
+.sort-arrow {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sortable.is-active .sort-arrow {
+  opacity: 1;
+}
+
+.sortable.is-asc .sort-arrow::after {
+  content: "▲";
+}
+
+.sortable.is-desc .sort-arrow::after {
+  content: "▼";
+}
+
+.price-cell {
+  font-weight: 600;
+  color: #2563eb;
+  white-space: nowrap;
+}

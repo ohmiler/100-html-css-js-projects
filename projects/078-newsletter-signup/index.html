@@ -3,11 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter signup — EP78</title>
+  <title>สมัครรับจดหมายข่าว — EP78</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="panel">
+      <h1 class="title">รับข่าวสารล่าสุด</h1>
+      <p class="subtitle">สมัครรับอีเมลเพื่อไม่พลาดโปรโมชันและบทความใหม่</p>
+
+      <form id="newsletterForm" class="newsletter-form" novalidate>
+        <div class="input-row">
+          <input
+            type="email"
+            id="emailInput"
+            class="email-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-describedby="emailHint"
+            required
+          >
+          <button type="submit" id="subscribeBtn" class="subscribe-btn" disabled>
+            สมัคร
+          </button>
+        </div>
+        <p id="emailHint" class="email-hint">กรอกอีเมลที่ถูกต้องเพื่อเปิดใช้งานปุ่มสมัคร</p>
+      </form>
+
+      <div id="successState" class="success-state" hidden aria-live="polite">
+        <span class="success-icon" aria-hidden="true">✓</span>
+        <p class="success-text">สมัครรับจดหมายข่าวเรียบร้อยแล้ว!</p>
+        <p id="successEmail" class="success-email"></p>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sortable table headers — EP80</title>
+  <title>ตารางเรียงลำดับ — EP80</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="panel">
+      <h1 class="title">รายการสินค้า</h1>
+
+      <div class="table-wrap">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th scope="col" class="sortable" data-key="name">
+                ชื่อสินค้า
+                <span class="sort-arrow" aria-hidden="true"></span>
+              </th>
+              <th scope="col" class="sortable" data-key="price">
+                ราคา
+                <span class="sort-arrow" aria-hidden="true"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

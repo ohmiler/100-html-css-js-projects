@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password strength — EP72</title>
+  <title>ความแข็งแรงรหัสผ่าน — EP72</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <label class="field-label" for="passwordInput">รหัสผ่าน</label>
+      <input
+        id="passwordInput"
+        class="password-input"
+        type="password"
+        autocomplete="new-password"
+        placeholder="กรอกรหัสผ่าน"
+      >
+
+      <div class="strength-meter" aria-hidden="true">
+        <div id="strengthBar" class="strength-meter__bar"></div>
+      </div>
+
+      <p id="strengthLabel" class="strength-label">—</p>
+      <p id="strengthHint" class="strength-hint" hidden>เพิ่มตัวเลขและสัญลักษณ์</p>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Date picker UI — EP75</title>
+  <title>เลือกวันที่ — EP75</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <p class="field-label">วันที่</p>
+      <div class="date-picker">
+        <button id="dateTrigger" class="date-picker__trigger" type="button">
+          <span class="date-picker__icon" aria-hidden="true">📅</span>
+          <span id="dateDisplay" class="date-picker__text">เลือกวันที่</span>
+        </button>
+        <input
+          id="dateInput"
+          class="date-picker__native"
+          type="date"
+          aria-label="เลือกวันที่"
+        >
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact form — EP63</title>
+  <title>ฟอร์มติดต่อ — EP63</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form class="contact-form" id="contactForm" novalidate>
+      <h1 class="form-title">ติดต่อเรา</h1>
+
+      <label class="field">
+        <span class="field-label">ชื่อ</span>
+        <input
+          class="field-input"
+          id="nameInput"
+          type="text"
+          name="name"
+          placeholder="ชื่อของคุณ"
+          required
+        >
+        <span class="field-error" id="nameError"></span>
+      </label>
+
+      <label class="field">
+        <span class="field-label">อีเมล</span>
+        <input
+          class="field-input"
+          id="emailInput"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        >
+        <span class="field-error" id="emailError"></span>
+      </label>
+
+      <label class="field">
+        <span class="field-label">ข้อความ</span>
+        <textarea
+          class="field-input field-textarea"
+          id="messageInput"
+          name="message"
+          rows="5"
+          placeholder="พิมพ์ข้อความของคุณ..."
+          required
+        ></textarea>
+        <span class="field-error" id="messageError"></span>
+      </label>
+
+      <button class="submit-btn" type="submit">ส่งข้อความ</button>
+    </form>
+
+    <p id="successMsg" class="success-msg" hidden>ส่งสำเร็จ</p>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

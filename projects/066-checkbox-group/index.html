@@ -3,11 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkbox group — EP66</title>
+  <title>กลุ่มช่องทำเครื่องหมาย — EP66</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <header class="card-header">
+        <h1 class="card-title">ความสนใจของคุณ</h1>
+        <button type="button" id="toggleAllBtn" class="btn btn--ghost">เลือกทั้งหมด</button>
+      </header>
+
+      <fieldset class="checkbox-group" id="interestGroup">
+        <legend class="visually-hidden">เลือกความสนใจ</legend>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="technology">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">เทคโนโลยี</span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="music">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">ดนตรี</span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="travel">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">ท่องเที่ยว</span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="sports">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">กีฬา</span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="cooking">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">ทำอาหาร</span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="reading">
+          <span class="checkbox-box" aria-hidden="true"></span>
+          <span class="checkbox-label">อ่านหนังสือ</span>
+        </label>
+      </fieldset>
+
+      <div class="summary" id="summary" aria-live="polite">
+        <p class="summary-label">สรุปที่เลือก</p>
+        <p class="summary-value" id="summaryValue">ยังไม่ได้เลือก</p>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

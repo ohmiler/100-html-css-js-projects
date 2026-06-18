@@ -3,11 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Range slider value — EP68</title>
+  <title>สไลเดอร์ช่วงค่า — EP68</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <h1 class="card-title">ระดับความสว่าง</h1>
+
+      <div class="slider-wrap">
+        <output class="slider-output" id="sliderOutput" for="brightness">50</output>
+
+        <input
+          type="range"
+          id="brightness"
+          class="range-slider"
+          min="0"
+          max="100"
+          value="50"
+          step="1"
+        >
+
+        <div class="slider-labels">
+          <span class="slider-min">0</span>
+          <span class="slider-max">100</span>
+        </div>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radio group styled — EP67</title>
+  <title>กลุ่มปุ่มเลือกสไตล์ — EP67</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <h1 class="card-title">เลือกแพ็กเกจ</h1>
+
+      <fieldset class="plan-group" id="planGroup">
+        <legend class="visually-hidden">แพ็กเกจสมาชิก</legend>
+
+        <label class="plan-card">
+          <input type="radio" name="plan" value="basic" data-price="199">
+          <span class="plan-content">
+            <span class="plan-name">พื้นฐาน</span>
+            <span class="plan-desc">เหมาะสำหรับเริ่มต้น</span>
+            <span class="plan-price">฿199<span class="plan-period">/เดือน</span></span>
+          </span>
+        </label>
+
+        <label class="plan-card">
+          <input type="radio" name="plan" value="pro" data-price="499" checked>
+          <span class="plan-content">
+            <span class="plan-badge">ยอดนิยม</span>
+            <span class="plan-name">โปร</span>
+            <span class="plan-desc">ฟีเจอร์ครบสำหรับทีม</span>
+            <span class="plan-price">฿499<span class="plan-period">/เดือน</span></span>
+          </span>
+        </label>
+
+        <label class="plan-card">
+          <input type="radio" name="plan" value="enterprise" data-price="1299">
+          <span class="plan-content">
+            <span class="plan-name">องค์กร</span>
+            <span class="plan-desc">รองรับธุรกิจขนาดใหญ่</span>
+            <span class="plan-price">฿1,299<span class="plan-period">/เดือน</span></span>
+          </span>
+        </label>
+      </fieldset>
+
+      <div class="price-display" id="priceDisplay" aria-live="polite">
+        <span class="price-label">ราคาที่เลือก</span>
+        <span class="price-value" id="priceValue">฿499</span>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

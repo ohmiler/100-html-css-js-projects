@@ -13,7 +13,103 @@ body {
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 2rem 1rem;
+}
+
+.card {
+  width: min(420px, 100%);
+  padding: 1.75rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.password-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.strength-meter {
+  height: 6px;
+  margin-top: 1rem;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.strength-meter__bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #94a3b8;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.strength-meter__bar.is-weak {
+  width: 33%;
+  background: #ef4444;
+}
+
+.strength-meter__bar.is-medium {
+  width: 66%;
+  background: #f59e0b;
+}
+
+.strength-meter__bar.is-strong {
+  width: 100%;
+  background: #22c55e;
+}
+
+.strength-label {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.strength-label.is-weak {
+  color: #dc2626;
+}
+
+.strength-label.is-medium {
+  color: #d97706;
+}
+
+.strength-label.is-strong {
+  color: #16a34a;
+}
+
+.strength-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+
+.strength-hint[hidden] {
+  display: none;
 }

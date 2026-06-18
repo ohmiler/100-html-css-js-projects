@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Autocomplete dropdown — EP74</title>
+  <title>ค้นหาเมือง — EP74</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="card">
+      <label class="field-label" for="cityInput">เมือง</label>
+      <div id="combobox" class="combobox">
+        <input
+          id="cityInput"
+          class="combobox__input"
+          type="text"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls="cityListbox"
+          autocomplete="off"
+          placeholder="พิมพ์ชื่อเมือง..."
+        >
+        <ul id="cityListbox" class="combobox__list" role="listbox" hidden></ul>
+      </div>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

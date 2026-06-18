@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filter chips — EP79</title>
+  <title>ตัวกรองหมวดหมู่ — EP79</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="panel">
+      <div class="header-row">
+        <h1 class="title">สินค้า</h1>
+        <button type="button" id="clearFilters" class="clear-btn">ล้างตัวกรอง</button>
+      </div>
+
+      <div id="chipGroup" class="chip-group" role="group" aria-label="หมวดหมู่สินค้า">
+        <button type="button" class="chip is-active" data-category="all">ทั้งหมด</button>
+        <button type="button" class="chip" data-category="shirt">เสื้อ</button>
+        <button type="button" class="chip" data-category="pants">กางเกง</button>
+        <button type="button" class="chip" data-category="shoes">รองเท้า</button>
+      </div>
+
+      <p id="resultCount" class="result-count" aria-live="polite"></p>
+
+      <ul id="productList" class="product-list"></ul>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

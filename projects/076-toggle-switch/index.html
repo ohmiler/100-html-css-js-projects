@@ -3,11 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toggle switch — EP76</title>
+  <title>สวิตช์เปิดปิด — EP76</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <section class="panel">
+      <h1 class="title">การแจ้งเตือน</h1>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <p class="toggle-label">รับการแจ้งเตือนทางอีเมล</p>
+          <p class="toggle-desc">รับข่าวสารและโปรโมชันจากเรา</p>
+        </div>
+
+        <div class="toggle-control">
+          <input
+            type="checkbox"
+            id="notifyToggle"
+            class="toggle-input"
+            aria-describedby="toggleStatus"
+          >
+          <label for="notifyToggle" class="toggle-slider" aria-hidden="true">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <p id="toggleStatus" class="toggle-status" aria-live="polite">สถานะ: ปิด</p>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
