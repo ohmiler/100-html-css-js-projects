@@ -3,11 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tab switcher (JS) — EP46</title>
+  <title>สลับแท็บ — EP46</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">บัญชีของฉัน</h1>
+
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" type="button" role="tab" data-tab="profile" aria-selected="true">โปรไฟล์</button>
+      <button class="tab" type="button" role="tab" data-tab="orders" aria-selected="false">คำสั่งซื้อ</button>
+      <button class="tab" type="button" role="tab" data-tab="settings" aria-selected="false">ตั้งค่า</button>
+    </div>
+
+    <section class="panel is-active" role="tabpanel" data-panel="profile">
+      <h2>ข้อมูลส่วนตัว</h2>
+      <dl class="info-list">
+        <div><dt>ชื่อ</dt><dd>สมชาย ใจดี</dd></div>
+        <div><dt>อีเมล</dt><dd>somchai@email.com</dd></div>
+        <div><dt>เบอร์โทร</dt><dd>081-234-5678</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel" role="tabpanel" data-panel="orders" hidden>
+      <h2>คำสั่งซื้อล่าสุด</h2>
+      <ul class="order-list">
+        <li><span>#1024</span><span>เสื้อยืด × 2</span><span class="status">จัดส่งแล้ว</span></li>
+        <li><span>#1023</span><span>รองเท้า × 1</span><span class="status">กำลังเตรียม</span></li>
+        <li><span>#1022</span><span>กระเป๋า × 1</span><span class="status">สำเร็จ</span></li>
+      </ul>
+    </section>
+
+    <section class="panel" role="tabpanel" data-panel="settings" hidden>
+      <h2>การตั้งค่า</h2>
+      <label class="setting-row">
+        <span>แจ้งเตือนทางอีเมล</span>
+        <input type="checkbox" checked>
+      </label>
+      <label class="setting-row">
+        <span>โหมดมืด</span>
+        <input type="checkbox">
+      </label>
+      <label class="setting-row">
+        <span>ภาษา</span>
+        <select>
+          <option selected>ไทย</option>
+          <option>English</option>
+        </select>
+      </label>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

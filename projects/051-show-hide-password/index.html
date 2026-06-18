@@ -3,11 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show/hide password — EP51</title>
+  <title>แสดง/ซ่อนรหัสผ่าน — EP51</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <form class="login-form" id="loginForm">
+      <h1 class="login-title">เข้าสู่ระบบ</h1>
+
+      <label class="field">
+        <span class="field-label">อีเมล</span>
+        <input
+          class="field-input"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+      </label>
+
+      <label class="field">
+        <span class="field-label">รหัสผ่าน</span>
+        <div class="password-wrap">
+          <input
+            class="field-input password-input"
+            id="passwordInput"
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            autocomplete="current-password"
+            required
+          >
+          <button
+            class="toggle-btn"
+            id="togglePassword"
+            type="button"
+            aria-label="แสดงรหัสผ่าน"
+            aria-pressed="false"
+          >
+            <span class="toggle-icon" aria-hidden="true">👁️</span>
+          </button>
+        </div>
+      </label>
+
+      <button class="submit-btn" type="submit">เข้าสู่ระบบ</button>
+    </form>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

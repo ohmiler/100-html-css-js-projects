@@ -1,4 +1,13 @@
-﻿// EP52: Animated hamburger
-// เขียน JavaScript ของคุณที่นี่
+﻿// EP52: แฮมเบอร์เกอร์เคลื่อนไหว
 
-console.log("EP52 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navPanel = document.getElementById("navPanel");
+
+hamburgerBtn.addEventListener("click", () => {
+  const isOpen = hamburgerBtn.classList.toggle("is-open");
+  navPanel.classList.toggle("is-open", isOpen);
+
+  hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+  hamburgerBtn.setAttribute("aria-label", isOpen ? "ปิดเมนู" : "เปิดเมนู");
+  navPanel.setAttribute("aria-hidden", String(!isOpen));
+});

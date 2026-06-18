@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search filter list — EP50</title>
+  <title>ค้นหาและกรอง — EP50</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">เมนูอาหารไทย</h1>
+
+    <div class="search-wrap">
+      <input
+        id="searchInput"
+        class="search-input"
+        type="search"
+        placeholder="ค้นหาเมนู..."
+        autocomplete="off"
+      >
+    </div>
+
+    <p id="emptyMsg" class="empty-msg" hidden>ไม่พบผลลัพธ์</p>
+    <ul id="itemList" class="item-list"></ul>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

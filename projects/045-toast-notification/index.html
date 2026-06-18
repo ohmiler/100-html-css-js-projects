@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toast notification — EP45</title>
+  <title>แจ้งเตือน Toast — EP45</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <button class="toast-btn" type="button" id="showToast">แสดงการแจ้งเตือน</button>
+  </main>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

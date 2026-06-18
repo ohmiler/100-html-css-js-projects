@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image slider — EP47</title>
+  <title>สไลด์รูปภาพ — EP47</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">แกลเลอรีท่องเที่ยว</h1>
+
+    <div class="slider" id="slider">
+      <div class="slider-viewport">
+        <div class="slider-track" id="track">
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/thai1/640/400" alt="ชายหาดทรายขาว">
+            <figcaption>ชายหาดทรายขาว</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/thai2/640/400" alt="ภูเขาและหมอก">
+            <figcaption>ภูเขาและหมอกยามเช้า</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/thai3/640/400" alt="น้ำตกในป่า">
+            <figcaption>น้ำตกในป่าเขา</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://picsum.photos/seed/thai4/640/400" alt="ทุ่งดอกไม้">
+            <figcaption>ทุ่งดอกไม้บานสะพรั่ง</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <button class="slider-btn slider-btn--prev" type="button" aria-label="ก่อนหน้า">‹</button>
+      <button class="slider-btn slider-btn--next" type="button" aria-label="ถัดไป">›</button>
+
+      <div class="slider-dots" id="dots" role="tablist"></div>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown timer — EP60</title>
+  <title>นับถอยหลัง — EP60</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="timer-card">
+      <p id="timerDisplay" class="timer-display" aria-live="polite">05:00</p>
+      <div class="timer-actions">
+        <button id="startBtn" class="btn btn--primary" type="button">เริ่ม</button>
+        <button id="pauseBtn" class="btn btn--secondary" type="button" disabled>หยุดชั่วคราว</button>
+        <button id="resetBtn" class="btn btn--ghost" type="button">รีเซ็ต</button>
+      </div>
+      <p id="timerMessage" class="timer-message" role="status" hidden></p>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

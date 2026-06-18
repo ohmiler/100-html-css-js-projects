@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated hamburger — EP52</title>
+  <title>แฮมเบอร์เกอร์เคลื่อนไหว — EP52</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <header class="header">
+    <span class="logo">ร้านอาหารไทย</span>
+    <button
+      class="hamburger"
+      id="hamburgerBtn"
+      type="button"
+      aria-label="เปิดเมนู"
+      aria-expanded="false"
+      aria-controls="navPanel"
+    >
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+  </header>
+
+  <nav class="panel" id="navPanel" aria-hidden="true">
+    <a class="panel-link" href="#">หน้าแรก</a>
+    <a class="panel-link" href="#">เมนูอาหาร</a>
+    <a class="panel-link" href="#">โปรโมชัน</a>
+    <a class="panel-link" href="#">ติดต่อเรา</a>
+  </nav>
+
+  <main class="content">
+    <h1>ยินดีต้อนรับ</h1>
+    <p>อาหารไทยต้นตำรับ รสชาติกลมกล่อม สดใหม่ทุกวัน</p>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>

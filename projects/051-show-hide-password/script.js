@@ -1,4 +1,20 @@
-﻿// EP51: Show/hide password
-// เขียน JavaScript ของคุณที่นี่
+﻿// EP51: แสดง/ซ่อนรหัสผ่าน
 
-console.log("EP51 พร้อมแล้ว — เริ่มเขียนโค้ดได้เลย");
+const passwordInput = document.getElementById("passwordInput");
+const toggleBtn = document.getElementById("togglePassword");
+const toggleIcon = toggleBtn.querySelector(".toggle-icon");
+const loginForm = document.getElementById("loginForm");
+
+// สลับ type ระหว่าง password กับ text
+toggleBtn.addEventListener("click", () => {
+  const isHidden = passwordInput.type === "password";
+
+  passwordInput.type = isHidden ? "text" : "password";
+  toggleIcon.textContent = isHidden ? "🙈" : "👁️";
+  toggleBtn.setAttribute("aria-label", isHidden ? "ซ่อนรหัสผ่าน" : "แสดงรหัสผ่าน");
+  toggleBtn.setAttribute("aria-pressed", String(isHidden));
+});
+
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+});

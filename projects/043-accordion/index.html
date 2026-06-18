@@ -3,11 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accordion — EP43</title>
+  <title>รายการพับ — EP43</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="accordion" id="accordion">
+      <div class="accordion__item">
+        <button class="accordion__header" type="button" aria-expanded="false">
+          <span>วิธีการชำระเงิน</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion__content">
+          <div class="accordion__body">
+            <p>รองรับบัตรเครดิต โอนผ่านธนาคาร และ QR พร้อมเพย์ ยืนยันภายใน 24 ชั่วโมง</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__header" type="button" aria-expanded="false">
+          <span>การจัดส่ง</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion__content">
+          <div class="accordion__body">
+            <p>จัดส่งทั่วประเทศ ใช้เวลา 2–5 วันทำการ ติดตามพัสดุได้จาก SMS และอีเมล</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__header" type="button" aria-expanded="false">
+          <span>นโยบายคืนสินค้า</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion__content">
+          <div class="accordion__body">
+            <p>คืนสินค้าได้ภายใน 7 วัน สินค้าต้องอยู่ในสภาพเดิม พร้อมใบเสร็จ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__header" type="button" aria-expanded="false">
+          <span>ติดต่อฝ่ายบริการ</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion__content">
+          <div class="accordion__body">
+            <p>โทร 02-123-4567 หรือแชทผ่าน Line @shopth ทุกวัน 09:00–18:00 น.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

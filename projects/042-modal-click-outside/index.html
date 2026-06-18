@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modal ปิดเมื่อคลิกนอก — EP42</title>
+  <title>ปิด modal คลิกนอก — EP42</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <button class="open-btn" type="button" id="openModal">เปิดหน้าต่าง</button>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" type="button" id="closeModal" aria-label="ปิด">×</button>
+      <h2 class="modal__title" id="modalTitle">แก้ไขโปรไฟล์</h2>
+      <p class="modal__text">คลิกพื้นที่มืดด้านนอกเพื่อปิด หรือคลิกภายในกล่องเพื่อใช้งานต่อ</p>
+      <label class="field">
+        <span class="field__label">ชื่อที่แสดง</span>
+        <input class="field__input" type="text" value="สมชาย ใจดี">
+      </label>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" type="button" id="cancelModal">ยกเลิก</button>
+        <button class="btn btn--primary" type="button">บันทึก</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

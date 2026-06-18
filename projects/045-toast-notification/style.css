@@ -7,13 +7,132 @@
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.toast-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.toast-btn:hover {
+  background: #4f46e5;
+}
+
+.toast-btn:active {
+  transform: scale(0.98);
+}
+
+/* กอง toast มุมล่างขวา สูงสุด 3 รายการ */
+.toast-stack {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.65rem;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  min-width: 280px;
+  max-width: min(360px, calc(100vw - 2.5rem));
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border-left: 4px solid #6366f1;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+  pointer-events: auto;
+  transform: translateX(calc(100% + 1.5rem));
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* slide-in จากขวา */
+.toast.is-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.is-leaving {
+  transform: translateX(calc(100% + 1.5rem));
+  opacity: 0;
+}
+
+.toast__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background: #6366f1;
+  position: relative;
+}
+
+.toast__icon::after {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 0.45rem;
+  width: 0.25rem;
+  height: 0.45rem;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+.toast__content {
+  flex: 1;
+}
+
+.toast__title {
+  margin: 0 0 0.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.toast__message {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.toast__close {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.toast__close:hover {
+  color: #475569;
+  background: #f1f5f9;
 }

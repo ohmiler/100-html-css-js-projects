@@ -8,12 +8,110 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #0f172a;
+  color: #f8fafc;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.page-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.slider {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1e293b;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.slider-viewport {
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.slide figcaption {
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  background: #1e293b;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn--prev {
+  left: 12px;
+}
+
+.slider-btn--next {
+  right: 12px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #1e293b;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #475569;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot.is-active {
+  background: #38bdf8;
+  transform: scale(1.25);
 }

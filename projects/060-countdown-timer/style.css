@@ -13,7 +13,94 @@ body {
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 2rem 1rem;
+}
+
+.timer-card {
+  width: min(360px, 100%);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+}
+
+.timer-display {
+  margin: 0 0 1.75rem;
+  font-size: 4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  color: #1e293b;
+}
+
+.timer-display.is-finished {
+  color: #dc2626;
+}
+
+.timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.65rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  color: #fff;
+  background: #6366f1;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.btn--secondary {
+  color: #fff;
+  background: #f59e0b;
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.btn--ghost {
+  color: #475569;
+  background: #f1f5f9;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.timer-message {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 8px;
+}
+
+.timer-message[hidden] {
+  display: none;
 }

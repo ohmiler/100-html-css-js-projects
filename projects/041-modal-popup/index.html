@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modal popup — EP41</title>
+  <title>หน้าต่างป๊อปอัป — EP41</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <button class="open-btn" type="button" id="openModal">เปิดหน้าต่าง</button>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" type="button" id="closeModal" aria-label="ปิด">×</button>
+      <h2 class="modal__title" id="modalTitle">ยืนยันการดำเนินการ</h2>
+      <p class="modal__text">คุณต้องการบันทึกการเปลี่ยนแปลงหรือไม่?</p>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" type="button" id="cancelModal">ยกเลิก</button>
+        <button class="btn btn--primary" type="button">บันทึก</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

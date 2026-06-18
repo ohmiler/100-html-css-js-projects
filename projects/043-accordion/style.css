@@ -7,13 +7,83 @@
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+  width: min(100%, 560px);
   padding: 2rem 1rem;
+}
+
+.accordion {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+
+.accordion__item + .accordion__item {
+  border-top: 1px solid #e2e8f0;
+}
+
+.accordion__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: left;
+  color: #1e293b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.accordion__header:hover {
+  background: #f8fafc;
+}
+
+.accordion__item.is-open .accordion__header {
+  color: #4338ca;
+}
+
+/* ลูกศรหมุน 180deg เมื่อขยาย */
+.accordion__icon {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion__item.is-open .accordion__icon {
+  transform: rotate(225deg);
+}
+
+/* ซ่อนเนื้อหาด้วย max-height แล้ว animate เมื่อเปิด */
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion__body {
+  padding: 0 1.25rem 1.1rem;
+}
+
+.accordion__body p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.65;
 }

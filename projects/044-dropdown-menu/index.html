@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dropdown menu — EP44</title>
+  <title>เมนูดรอปดาวน์ — EP44</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <div class="dropdown" id="dropdown">
+      <button
+        class="dropdown__trigger"
+        type="button"
+        id="dropdownTrigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        เมนูการกระทำ
+        <span class="dropdown__chevron" aria-hidden="true"></span>
+      </button>
+
+      <ul class="dropdown__menu" id="dropdownMenu" role="menu" hidden>
+        <li role="none">
+          <button class="dropdown__item" type="button" role="menuitem" data-value="edit">แก้ไข</button>
+        </li>
+        <li role="none">
+          <button class="dropdown__item" type="button" role="menuitem" data-value="duplicate">ทำสำเนา</button>
+        </li>
+        <li role="none">
+          <button class="dropdown__item" type="button" role="menuitem" data-value="archive">เก็บถาวร</button>
+        </li>
+        <li role="none">
+          <button class="dropdown__item dropdown__item--danger" type="button" role="menuitem" data-value="delete">ลบ</button>
+        </li>
+      </ul>
+
+      <output class="dropdown__result" id="dropdownResult" for="dropdownTrigger">ยังไม่ได้เลือก</output>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

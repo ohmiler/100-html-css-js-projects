@@ -8,12 +8,132 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
+}
+
+.page-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.35rem;
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-name {
+  font-weight: 500;
+}
+
+.delete-btn {
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+}
+
+/* โอверเลย์และกล่องยืนยัน */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.dialog-overlay[hidden] {
+  display: none;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 380px;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.2);
+}
+
+.dialog-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.dialog-message {
+  margin: 0 0 1.25rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.dialog-btn {
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dialog-btn--cancel {
+  color: #475569;
+  background: #f1f5f9;
+}
+
+.dialog-btn--cancel:hover {
+  background: #e2e8f0;
+}
+
+/* ปุ่มยืนยันแบบ danger */
+.dialog-btn--confirm {
+  color: #fff;
+  background: #dc2626;
+}
+
+.dialog-btn--confirm:hover {
+  background: #b91c1c;
 }

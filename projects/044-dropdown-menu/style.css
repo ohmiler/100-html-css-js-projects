@@ -7,13 +7,109 @@
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown__trigger:hover,
+.dropdown__trigger[aria-expanded="true"] {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.dropdown__chevron {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.dropdown__trigger[aria-expanded="true"] .dropdown__chevron {
+  transform: rotate(225deg) translateY(2px);
+}
+
+/* เมนู absolute ใต้ปุ่ม trigger */
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  z-index: 50;
+}
+
+.dropdown__menu[hidden] {
+  display: none;
+}
+
+.dropdown__item {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  color: #334155;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown__item:hover,
+.dropdown__item.is-focused {
+  background: #f1f5f9;
+}
+
+.dropdown__item--danger {
+  color: #dc2626;
+}
+
+.dropdown__item--danger:hover,
+.dropdown__item--danger.is-focused {
+  background: #fef2f2;
+}
+
+.dropdown__result {
+  font-size: 0.85rem;
+  color: #64748b;
 }

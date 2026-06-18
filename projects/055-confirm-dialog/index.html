@@ -3,11 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirm dialog — EP55</title>
+  <title>กล่องยืนยัน — EP55</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">รายการงาน</h1>
+
+    <ul class="task-list" id="taskList">
+      <li class="task-item" data-id="1">
+        <span class="task-name">ออกแบบหน้าแรก</span>
+        <button class="delete-btn" type="button">ลบ</button>
+      </li>
+      <li class="task-item" data-id="2">
+        <span class="task-name">เขียน API ผู้ใช้</span>
+        <button class="delete-btn" type="button">ลบ</button>
+      </li>
+      <li class="task-item" data-id="3">
+        <span class="task-name">ทดสอบฟอร์มสมัคร</span>
+        <button class="delete-btn" type="button">ลบ</button>
+      </li>
+      <li class="task-item" data-id="4">
+        <span class="task-name">เตรียมสไลด์นำเสนอ</span>
+        <button class="delete-btn" type="button">ลบ</button>
+      </li>
+    </ul>
+  </main>
+
+  <div class="dialog-overlay" id="dialogOverlay" hidden>
+    <div
+      class="dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialogTitle"
+      aria-describedby="dialogMessage"
+    >
+      <h2 class="dialog-title" id="dialogTitle">ยืนยันการลบ</h2>
+      <p class="dialog-message" id="dialogMessage"></p>
+      <div class="dialog-actions">
+        <button class="dialog-btn dialog-btn--cancel" id="dialogCancel" type="button">ยกเลิก</button>
+        <button class="dialog-btn dialog-btn--confirm" id="dialogConfirm" type="button">ลบ</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

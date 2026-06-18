@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading spinner — EP48</title>
+  <title>สปินเนอร์โหลด — EP48</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">รายงานยอดขาย</h1>
+
+    <button id="loadBtn" class="load-btn" type="button">โหลดข้อมูล</button>
+
+    <div id="loadingArea" class="loading-area" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-text">กำลังโหลดข้อมูล...</p>
+    </div>
+
+    <article id="contentArea" class="content-area" hidden>
+      <h2>ยอดขายเดือนนี้</h2>
+      <p class="big-number">฿245,800</p>
+      <ul class="stats">
+        <li><span>คำสั่งซื้อ</span><strong>1,284</strong></li>
+        <li><span>ลูกค้าใหม่</span><strong>342</strong></li>
+        <li><span>อัตราเติบโต</span><strong>+18%</strong></li>
+      </ul>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

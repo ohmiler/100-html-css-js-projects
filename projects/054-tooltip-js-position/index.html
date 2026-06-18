@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tooltip ตำแหน่ง JS — EP54</title>
+  <title>ทูลทิป JS — EP54</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">เครื่องมือช่วยเหลือ</h1>
+
+    <div class="toolbar">
+      <button class="tool-btn" type="button" data-tip="บันทึกเอกสารของคุณ">บันทึก</button>
+      <button class="tool-btn" type="button" data-tip="คัดลอกไปยังคลิปบอร์ด">คัดลอก</button>
+      <button class="tool-btn" type="button" data-tip="แชร์ลิงก์ให้เพื่อน">แชร์</button>
+      <button class="tool-btn tool-btn--edge" type="button" data-tip="ดาวน์โหลดไฟล์ PDF">ดาวน์โหลด</button>
+    </div>
+
+    <div class="card-row">
+      <span class="info-badge" tabindex="0" data-tip="อัปเดตล่าสุดเมื่อวาน">ℹ️ สถานะ</span>
+      <span class="info-badge" tabindex="0" data-tip="เวอร์ชัน 2.4.1">🏷️ เวอร์ชัน</span>
+    </div>
+  </main>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
   <script src="script.js"></script>
 </body>
 </html>

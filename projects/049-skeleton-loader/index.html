@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skeleton loader — EP49</title>
+  <title>สเกเลตันโหลด — EP49</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container"></main>
+  <main class="container">
+    <h1 class="page-title">บทความแนะนำ</h1>
+
+    <div id="skeleton" class="card">
+      <div class="skeleton skeleton-image"></div>
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line skeleton-line--short"></div>
+    </div>
+
+    <article id="content" class="card" hidden>
+      <img class="article-image" src="https://picsum.photos/seed/article/600/320" alt="ภาพประกอบบทความ">
+      <h2 class="article-title">10 เคล็ดลับทำอาหารไทยให้อร่อย</h2>
+      <p class="article-text">การปรุงอาหารไทยให้อร่อยต้องเริ่มจากการเลือกวัตถุดิบสดใหม่ ปรุงด้วยไฟอ่อน และรสชาติสมดุลระหว่างเปรี้ยว หวาน เค็ม เผ็ด</p>
+      <p class="article-text">อย่าลืมใส่ใจกับเครื่องปรุงอย่างน้ำปลา น้ำตาลปี๊บ และมะนาว เพื่อให้ได้รสชาติที่กลมกล่อม</p>
+    </article>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
