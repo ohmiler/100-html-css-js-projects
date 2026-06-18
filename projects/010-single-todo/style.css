@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -12,18 +23,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f0f4f8;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   width: min(100% - 2rem, 420px);
-}
-
-.description {
-  color: #64748b;
-  margin: 0 0 1.5rem;
-  text-align: center;
 }
 
 /* ช่องพิมพ์รายการ */
@@ -31,34 +38,50 @@ body {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1.5px solid rgba(28, 25, 23, 0.1);
+  border-radius: 10px;
   margin-bottom: 1rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  box-shadow: var(--shadow);
+  transition:
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.todo-input::placeholder {
+  color: var(--muted);
 }
 
 .todo-input:focus {
-  border-color: #3b82f6;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 /* กล่องรายการ — label ครอบ checkbox และข้อความ */
 .todo-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   cursor: pointer;
+  transition: box-shadow 0.2s var(--ease);
+}
+
+.todo-item:hover {
+  box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08), 0 12px 32px rgba(28, 25, 23, 0.06);
 }
 
 /* ช่องติ๊ก */
 .todo-checkbox {
   width: 1.25rem;
   height: 1.25rem;
-  accent-color: #3b82f6;
+  accent-color: var(--accent);
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -66,12 +89,12 @@ body {
 /* ข้อความรายการ */
 .todo-label {
   font-size: 1rem;
-  color: #1e293b;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
+  color: var(--text);
+  transition: color 0.2s var(--ease), text-decoration 0.2s var(--ease);
 }
 
 /* เมื่อติ๊ก checkbox — ขีดฆ่าข้อความ (ใช้ :checked + sibling selector) */
 .todo-checkbox:checked + .todo-label {
   text-decoration: line-through;
-  color: #94a3b8;
+  color: var(--muted);
 }

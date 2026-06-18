@@ -1,4 +1,17 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-light: #818cf8;
+  --surface-dark: #1c1917;
+  --surface-card: #292524;
+  --surface-elevated: #44403c;
+  --text: #f5f5f4;
+  --text-muted: #a8a29e;
+  --border: rgb(255 255 255 / 8%);
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,15 +20,16 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #0f172a;
-  color: #f8fafc;
+  font-family: var(--font-sans);
+  background: var(--surface-dark);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
 }
 
 /* layout แบบ bento ด้วย grid-template-areas */
@@ -27,75 +41,95 @@ body {
     "hero hero stats chart"
     "hero hero note gallery"
     "cta team team gallery";
-  gap: 0.75rem;
+  gap: clamp(0.625rem, 1.5vw, 0.875rem);
 }
 
 .bento-item {
-  padding: 1.25rem;
-  border-radius: 16px;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s ease, background 0.25s ease;
   outline: none;
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
+.bento-item:nth-child(2) { animation-delay: 0.04s; }
+.bento-item:nth-child(3) { animation-delay: 0.08s; }
+.bento-item:nth-child(4) { animation-delay: 0.12s; }
+.bento-item:nth-child(5) { animation-delay: 0.16s; }
+.bento-item:nth-child(6) { animation-delay: 0.2s; }
+.bento-item:nth-child(7) { animation-delay: 0.24s; }
+
 .bento-item:focus-visible {
-  box-shadow: 0 0 0 3px #818cf8;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgb(129 140 248 / 25%);
 }
 
 .bento-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  border-color: rgb(255 255 255 / 14%);
 }
 
 /* กำหนดตำแหน่งแต่ละกล่อง */
 .bento-item[data-area="hero"] {
   grid-area: hero;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(145deg, var(--accent) 0%, #3730a3 100%);
+  border-color: rgb(129 140 248 / 20%);
 }
 
 .bento-item[data-area="stats"] {
   grid-area: stats;
-  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  background: var(--surface-card);
 }
 
 .bento-item[data-area="chart"] {
   grid-area: chart;
-  background: linear-gradient(135deg, #f59e0b, #f97316);
+  background: var(--surface-elevated);
 }
 
 .bento-item[data-area="note"] {
   grid-area: note;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: var(--surface-card);
 }
 
 .bento-item[data-area="gallery"] {
   grid-area: gallery;
-  background: linear-gradient(135deg, #ec4899, #db2777);
+  background: linear-gradient(160deg, var(--surface-elevated) 0%, var(--surface-card) 100%);
 }
 
 .bento-item[data-area="cta"] {
   grid-area: cta;
-  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  background: var(--accent);
+  border-color: rgb(129 140 248 / 25%);
 }
 
 .bento-item[data-area="team"] {
   grid-area: team;
-  background: linear-gradient(135deg, #64748b, #475569);
+  background: var(--surface-card);
 }
 
 .bento-label {
   display: inline-block;
   margin-bottom: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.85;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.bento-item[data-area="hero"] .bento-label,
+.bento-item[data-area="cta"] .bento-label {
+  color: rgb(255 255 255 / 70%);
 }
 
 .bento-item h2 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 /* กล่องที่ถูกขยายเต็มแถว */
@@ -109,7 +143,7 @@ body {
 }
 
 .bento-grid.is-expanded .bento-item:not(.is-expanded) {
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 /* มือถือ — ยุบเป็นคอลัมน์เดียว */
@@ -123,5 +157,17 @@ body {
   .bento-grid .bento-item {
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

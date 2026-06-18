@@ -4,14 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -21,27 +34,42 @@ body {
 }
 
 .btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .message {
-  font-size: 1.1rem;
-  color: #475569;
-  padding: 1rem;
-  background: #e2e8f0;
-  border-radius: 8px;
-  transition: opacity 0.2s ease;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: opacity 0.25s var(--ease);
 }
 
 /* class นี้ใช้ซ่อน element */

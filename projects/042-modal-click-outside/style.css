@@ -1,4 +1,25 @@
-﻿*,
+﻿/* EP42: Modal click outside — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-ring: rgba(79, 70, 229, 0.16);
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --overlay: rgba(28, 25, 23, 0.52);
+  --shadow-lg: 0 24px 56px rgba(28, 25, 23, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.28s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,9 +31,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ล็อก scroll ของ body เมื่อ modal เปิด */
@@ -28,16 +50,17 @@ body.modal-open {
   padding: 0.75rem 1.5rem;
   font-size: 0.95rem;
   font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background var(--duration) var(--ease), transform 0.15s var(--ease);
 }
 
 .open-btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }
 
 .open-btn:active {
@@ -51,10 +74,12 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: rgba(15, 23, 42, 0.55);
+  background: var(--overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+  transition: opacity var(--duration) var(--ease), visibility var(--duration) var(--ease);
   z-index: 100;
 }
 
@@ -67,15 +92,20 @@ body.modal-open {
   position: relative;
   width: min(100%, 420px);
   padding: 1.75rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.18);
-  transform: translateY(12px) scale(0.97);
-  transition: transform 0.25s ease;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(16px) scale(0.96);
+  opacity: 0;
+  transition:
+    transform var(--duration) var(--ease),
+    opacity var(--duration) var(--ease);
 }
 
 .modal-overlay.modal--open .modal {
   transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .modal__close {
@@ -89,28 +119,31 @@ body.modal-open {
   justify-content: center;
   font-size: 1.25rem;
   line-height: 1;
-  color: #64748b;
+  color: var(--text-muted);
   background: transparent;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
 .modal__close:hover {
-  color: #1e293b;
-  background: #f1f5f9;
+  color: var(--text);
+  background: var(--bg);
 }
 
 .modal__title {
   margin: 0 2rem 0.75rem 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .modal__text {
   margin: 0 0 1.25rem;
-  color: #64748b;
-  line-height: 1.6;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
 }
 
 .field {
@@ -123,7 +156,7 @@ body.modal-open {
   margin-bottom: 0.4rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--text-muted);
 }
 
 .field__input {
@@ -131,17 +164,17 @@ body.modal-open {
   padding: 0.65rem 0.85rem;
   font-size: 0.95rem;
   font-family: inherit;
-  color: #1e293b;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
 .field__input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .modal__actions {
@@ -154,26 +187,27 @@ body.modal-open {
   padding: 0.6rem 1.1rem;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 8px;
+  font-family: inherit;
+  border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
 .btn--ghost {
-  color: #475569;
-  background: #f1f5f9;
+  color: var(--text-muted);
+  background: var(--bg);
 }
 
 .btn--ghost:hover {
-  background: #e2e8f0;
+  background: var(--border);
 }
 
 .btn--primary {
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
 }
 
 .btn--primary:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }

@@ -4,18 +4,35 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #f0f0f0;
+  font-family: var(--font-ui);
+  color: #f5f5f4;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #1c1917;
+}
+
+/* ภาพพื้นหลังเต็มจอ — โทนเงียบสำหรับข้อความ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 10, 9, 0.75) 0%, rgba(12, 10, 9, 0.88) 100%),
+    url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80&auto=format&fit=crop") center / cover no-repeat;
+  pointer-events: none;
 }
 
 .container {
+  position: relative;
   width: 100%;
   max-width: 560px;
   padding: 2rem 1.25rem;
@@ -23,21 +40,20 @@ body {
 }
 
 .quote-card {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.25rem;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 0;
   min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .quote-text {
   margin: 0;
-  font-size: clamp(1.15rem, 4vw, 1.5rem);
-  line-height: 1.7;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.625rem);
+  line-height: 1.75;
   font-style: italic;
   transition: opacity 0.35s ease;
 }
@@ -48,8 +64,10 @@ body {
 
 .quote-author {
   margin: 1.5rem 0 0;
-  font-size: 1rem;
-  color: #a8dadc;
+  font-size: 0.875rem;
+  color: #a8a29e;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition: opacity 0.35s ease;
 }
 
@@ -66,13 +84,13 @@ body {
 }
 
 .btn {
-  padding: 0.85rem 1.75rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 2rem;
-  font-size: 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s;
 }
 
 .btn:hover {
@@ -80,21 +98,20 @@ body {
 }
 
 .btn--primary {
-  background: #e94560;
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+  background: #fafaf9;
+  color: #1c1917;
 }
 
 .btn--secondary {
   background: transparent;
-  color: #a8dadc;
-  border: 2px solid #a8dadc;
+  color: #d6d3d1;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .toast {
   margin: 1.25rem 0 0;
-  font-size: 0.9rem;
-  color: #4ade80;
+  font-size: 0.8125rem;
+  color: #86efac;
   min-height: 1.4em;
   opacity: 0;
   transition: opacity 0.3s;

@@ -4,14 +4,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --radius: 12px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -23,37 +34,40 @@ body {
 /* badge พื้นฐาน — inline element รูป pill */
 .badge {
   display: inline-block;
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 999px;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.1);
+}
+
+.badge:active {
+  transform: translateY(0);
 }
 
 /* modifier class — สถานะสำเร็จ (สีเขียว) */
 .badge--success {
   color: #166534;
-  background: #dcfce7;
-  border: 1px solid #86efac;
+  background: #ecfdf5;
 }
 
 /* modifier class — สถานะรอ/เตือน (สีเหลือง) */
 .badge--warning {
   color: #854d0e;
-  background: #fef9c3;
-  border: 1px solid #fde047;
+  background: #fffbeb;
 }
 
 /* modifier class — สถานะยกเลิก (สีแดง) */
 .badge--cancel {
   color: #991b1b;
-  background: #fee2e2;
-  border: 1px solid #fca5a5;
+  background: #fef2f2;
 }

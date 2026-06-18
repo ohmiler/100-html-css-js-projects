@@ -1,4 +1,18 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: #eef2ff;
+  --surface: #ffffff;
+  --surface-muted: #fafaf9;
+  --text: #44403c;
+  --text-muted: #78716c;
+  --text-strong: #1c1917;
+  --border: #e7e5e4;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,33 +24,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--surface-muted);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   width: min(100%, 560px);
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
 .page-content {
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  background: #fff;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
 }
 
 .page-content h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
 }
 
 .page-content ul {
   margin: 0;
   padding-left: 1.25rem;
-  color: #475569;
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
@@ -57,34 +74,49 @@ body {
 .page-btn {
   min-width: 2.5rem;
   padding: 0.5rem 0.75rem;
-  font-size: 0.9rem;
+  font-family: inherit;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #475569;
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-out);
 }
 
 .page-btn:hover:not(:disabled) {
-  border-color: #6366f1;
-  color: #4338ca;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
+  transform: translateY(-1px);
 }
 
 /* หน้าที่เลือกอยู่ */
 .page-btn.is-active {
   color: #fff;
-  background: #6366f1;
-  border-color: #6366f1;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .page-btn:disabled {
-  opacity: 0.45;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .page-btn--nav {
   min-width: auto;
   padding-inline: 1rem;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

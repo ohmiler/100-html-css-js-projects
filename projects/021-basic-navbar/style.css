@@ -1,4 +1,19 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: #eef2ff;
+  --surface: #ffffff;
+  --surface-muted: #fafaf9;
+  --text: #44403c;
+  --text-muted: #78716c;
+  --text-strong: #1c1917;
+  --border: #e7e5e4;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-sm: 6px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -6,9 +21,10 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #334155;
+  font-family: var(--font-sans);
+  background: var(--surface-muted);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* navbar ใช้ flex จัดโลโก้ซ้าย ลิงก์ขวา */
@@ -16,17 +32,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgb(15 23 42 / 6%);
+  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  animation: fade-down 0.5s var(--ease-out) both;
 }
 
 .navbar__logo {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: #6366f1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
   text-decoration: none;
+  transition: color var(--duration-fast, 0.2s) ease;
+}
+
+.navbar__logo:hover {
+  color: var(--accent-hover);
 }
 
 .navbar__nav {
@@ -36,7 +58,7 @@ body {
 /* ul เป็น flex เรียงลิงก์แนวนอน */
 .navbar__list {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 3vw, 2rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -45,20 +67,20 @@ body {
 .navbar__link {
   position: relative;
   padding: 0.25rem 0;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .navbar__link:hover {
-  color: #6366f1;
+  color: var(--accent);
 }
 
 /* ลิงก์ที่ active — สีเข้ม + เส้นใต้ */
 .navbar__link--active {
-  color: #6366f1;
+  color: var(--accent);
 }
 
 .navbar__link--active::after {
@@ -66,26 +88,57 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -4px;
+  bottom: -6px;
   height: 2px;
-  background: #6366f1;
+  background: var(--accent);
   border-radius: 1px;
 }
 
 /* เนื้อหาตัวอย่าง */
 .page__section {
-  padding: 4rem 2rem;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
   max-width: 720px;
   margin: 0 auto;
+  animation: fade-up 0.6s var(--ease-out) both;
 }
+
+.page__section:nth-child(2) { animation-delay: 0.05s; }
+.page__section:nth-child(3) { animation-delay: 0.1s; }
+.page__section:nth-child(4) { animation-delay: 0.15s; }
 
 .page__section h1,
 .page__section h2 {
   margin: 0 0 0.5rem;
-  color: #1e293b;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
 }
 
 .page__section p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,4 +1,23 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: #eef2ff;
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.18);
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-800: #292524;
+  --surface: #ffffff;
+  --border: var(--stone-200);
+  --text: var(--stone-800);
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,26 +27,31 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #faf5ff;
-  color: #1e1b4b;
+  background: var(--stone-100);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 440px;
+  max-width: 400px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 1.25rem;
 }
 
 .card {
-  background: #fff;
-  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.1);
+  box-shadow: var(--shadow);
 }
 
 .card-title {
   margin: 0 0 1.25rem;
-  font-size: 1.2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .file-input {
@@ -42,75 +66,77 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   padding: 2rem 1.5rem;
-  border: 2px dashed #c4b5fd;
-  border-radius: 12px;
-  background: #f5f3ff;
+  border: 1px dashed var(--stone-400);
+  border-radius: var(--radius-lg);
+  background: var(--stone-50);
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .upload-zone:hover,
 .upload-zone:focus-within {
-  border-color: #8b5cf6;
-  background: #ede9fe;
+  border-color: var(--accent);
+  background: var(--accent-muted);
 }
 
 .upload-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--stone-500);
 }
 
 .upload-text {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .upload-hint {
-  font-size: 0.8rem;
-  color: #7c3aed;
+  font-size: 0.75rem;
+  color: var(--stone-500);
 }
 
 .preview-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
   margin-top: 1rem;
 }
 
 .preview-image {
   max-width: 100%;
   max-height: 280px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   object-fit: contain;
-  border: 1px solid #e9d5ff;
-  background: #faf5ff;
+  border: 1px solid var(--border);
+  background: var(--stone-50);
 }
 
 .preview-name {
   margin: 0;
-  font-size: 0.85rem;
-  color: #6b7280;
+  font-size: 0.8125rem;
+  color: var(--stone-500);
   word-break: break-all;
   text-align: center;
 }
 
 .btn {
-  padding: 0.5rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .btn--clear {
-  color: #7c3aed;
-  background: #ede9fe;
+  color: var(--accent);
+  background: var(--accent-muted);
 }
 
 .btn--clear:hover {
-  background: #ddd6fe;
+  background: #e0e7ff;
 }

@@ -1,24 +1,31 @@
 ﻿/* ตัวแปรสีสำหรับโหมดสว่าง (ค่าเริ่มต้น) */
 :root,
 [data-theme="light"] {
-  --bg-color: #f0f4f8;
-  --text-color: #334155;
-  --card-bg: #ffffff;
-  --btn-bg: #3b82f6;
-  --btn-hover: #2563eb;
+  --bg-color: #faf8f5;
+  --bg-gradient: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  --text-color: #1c1917;
+  --muted-color: #78716c;
+  --card-bg: transparent;
+  --btn-bg: #4f46e5;
+  --btn-hover: #4338ca;
   --btn-text: #ffffff;
-  --accent: #3b82f6;
+  --accent: #4f46e5;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ตัวแปรสีสำหรับโหมดมืด — เปลี่ยนเมื่อ data-theme="dark" บน html */
 [data-theme="dark"] {
-  --bg-color: #0f172a;
-  --text-color: #e2e8f0;
-  --card-bg: #1e293b;
+  --bg-color: #1c1917;
+  --bg-gradient: linear-gradient(165deg, #1c1917 0%, #292524 45%, #1c1917 100%);
+  --text-color: #fafaf9;
+  --muted-color: #a8a29e;
+  --card-bg: transparent;
   --btn-bg: #6366f1;
   --btn-hover: #4f46e5;
   --btn-text: #ffffff;
   --accent: #818cf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* รีเซ็ต box model ให้ทุก element คำนวณขนาดสม่ำเสมอ */
@@ -35,50 +42,45 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
   /* ใช้ตัวแปร CSS — เปลี่ยนอัตโนมัติตามธีม */
-  background: var(--bg-color);
+  background: var(--bg-gradient);
   color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
 }
 
 .container {
   text-align: center;
   padding: 2rem;
   background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: background 0.3s ease;
-}
-
-.description {
-  margin: 0 0 1.5rem;
-  color: var(--text-color);
-  opacity: 0.8;
+  transition: background 0.35s var(--ease);
 }
 
 /* สไตล์ปุ่มสลับธีม */
 .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
   font-weight: 600;
+  font-family: inherit;
   color: var(--btn-text);
   background: var(--btn-bg);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
   background: var(--btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
 }
 
 .btn:active {
-  transform: scale(0.98);
-}
-
-/* เน้นสี accent เมื่ออยู่โหมดมืด */
-[data-theme="dark"] h1 {
-  color: var(--accent);
+  transform: translateY(0) scale(0.98);
 }

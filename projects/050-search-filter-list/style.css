@@ -1,4 +1,23 @@
-﻿*,
+﻿/* EP50: Search filter list — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --accent-ring: rgba(79, 70, 229, 0.14);
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-sm: 0 2px 8px rgba(28, 25, 23, 0.05);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.22s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +26,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #fffbeb;
-  color: #1a1a1a;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -20,8 +40,9 @@ body {
 
 .page-title {
   margin: 0 0 1.25rem;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .search-wrap {
@@ -31,25 +52,27 @@ body {
 .search-input {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid #fde68a;
-  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-family: inherit;
-  background: #fff;
+  background: var(--surface);
+  color: var(--text);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
 .search-input:focus {
-  border-color: #f59e0b;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .empty-msg {
   margin: 0;
   padding: 2rem;
   text-align: center;
-  color: #9ca3af;
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .item-list {
@@ -62,16 +85,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.85rem 1rem;
-  background: #fff;
-  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   margin-bottom: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration) var(--ease), border-color var(--duration) var(--ease);
 }
 
 .item-list li:hover {
-  transform: translateX(4px);
+  transform: translateX(3px);
+  border-color: var(--accent);
 }
 
 .item-name {
@@ -79,9 +104,10 @@ body {
 }
 
 .item-category {
-  font-size: 0.8rem;
-  color: #d97706;
-  background: #fef3c7;
-  padding: 0.2rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.22rem 0.65rem;
   border-radius: 999px;
 }

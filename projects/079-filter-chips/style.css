@@ -1,4 +1,23 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: #eef2ff;
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-800: #292524;
+  --surface: #ffffff;
+  --border: var(--stone-200);
+  --text: var(--stone-800);
+  --error: #dc2626;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,21 +27,24 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: var(--stone-100);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 560px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 1.25rem;
 }
 
 .panel {
-  background: #fff;
-  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
 }
 
 .header-row {
@@ -35,61 +57,66 @@ body {
 
 .title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .clear-btn {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #fff;
-  color: #6b7280;
-  font-size: 0.8125rem;
+  padding: 0.3125rem 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--stone-500);
+  font-size: 0.75rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
 }
 
 .clear-btn:hover {
   background: #fef2f2;
   border-color: #fecaca;
-  color: #dc2626;
+  color: var(--error);
 }
 
 .chip-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.375rem;
   margin-bottom: 1rem;
 }
 
 .chip {
-  padding: 0.5rem 1rem;
-  border: 2px solid #e5e7eb;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: #fff;
-  color: #4b5563;
-  font-size: 0.875rem;
+  background: var(--surface);
+  color: var(--stone-500);
+  font-size: 0.8125rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
 .chip:hover {
-  border-color: #93c5fd;
-  color: #2563eb;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
 }
 
 .chip.is-active {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
 .result-count {
-  margin: 0 0 1rem;
-  font-size: 0.875rem;
-  color: #6b7280;
+  margin: 0 0 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--stone-500);
+  font-variant-numeric: tabular-nums;
 }
 
 .product-list {
@@ -98,7 +125,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.375rem;
 }
 
 .product-item {
@@ -106,10 +133,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem;
-  background: #f9fafb;
-  border-radius: 10px;
-  border: 1px solid #f3f4f6;
+  padding: 0.75rem;
+  background: var(--stone-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--stone-100);
 }
 
 .product-info {
@@ -118,21 +145,22 @@ body {
 
 .product-name {
   margin: 0;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .product-category {
-  margin: 0.2rem 0 0;
-  font-size: 0.8125rem;
-  color: #9ca3af;
+  margin: 0.125rem 0 0;
+  font-size: 0.75rem;
+  color: var(--stone-400);
 }
 
 .product-price {
   flex-shrink: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #2563eb;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
 }
 
 .product-list:empty::after {
@@ -140,6 +168,6 @@ body {
   display: block;
   padding: 2rem;
   text-align: center;
-  color: #9ca3af;
-  font-size: 0.9375rem;
+  color: var(--stone-400);
+  font-size: 0.875rem;
 }

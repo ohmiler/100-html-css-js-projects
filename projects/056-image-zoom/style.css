@@ -1,4 +1,17 @@
-﻿*,
+﻿/* EP56: Image zoom — โทкенดีไซน์ dark stone + indigo accent */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --bg: #1c1917;
+  --surface: #292524;
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5);
+  --radius-md: 12px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.35s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +20,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #0f172a;
-  color: #f8fafc;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: #fafaf9;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -24,9 +38,10 @@ body {
   margin: 0;
   width: min(800px, 100%);
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-  background: #1e293b;
+  border-radius: var(--radius-md);
+  border: 1px solid #44403c;
+  box-shadow: var(--shadow-lg);
+  background: var(--surface);
 }
 
 .zoom-img {
@@ -34,7 +49,7 @@ body {
   width: 100%;
   height: auto;
   cursor: zoom-in;
-  transition: transform 0.35s ease;
+  transition: transform var(--duration) var(--ease);
   user-select: none;
 }
 

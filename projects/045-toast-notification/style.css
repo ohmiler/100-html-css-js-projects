@@ -1,4 +1,22 @@
-﻿*,
+﻿/* EP45: Toast notification — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --text-subtle: #a8a29e;
+  --border: #e7e5e4;
+  --shadow-md: 0 12px 36px rgba(28, 25, 23, 0.14);
+  --radius-md: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.32s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,9 +28,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -23,16 +42,17 @@ body {
   padding: 0.75rem 1.5rem;
   font-size: 0.95rem;
   font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background var(--duration) var(--ease), transform 0.15s var(--ease);
 }
 
 .toast-btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }
 
 .toast-btn:active {
@@ -54,18 +74,19 @@ body {
 .toast {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
-  min-width: 280px;
+  gap: 0.7rem;
+  min-width: 290px;
   max-width: min(360px, calc(100vw - 2.5rem));
-  padding: 0.85rem 1rem;
-  background: #fff;
-  border-left: 4px solid #6366f1;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   pointer-events: auto;
   transform: translateX(calc(100% + 1.5rem));
   opacity: 0;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
 }
 
 /* slide-in จากขวา */
@@ -85,7 +106,7 @@ body {
   height: 1.25rem;
   margin-top: 0.1rem;
   border-radius: 50%;
-  background: #6366f1;
+  background: var(--accent);
   position: relative;
 }
 
@@ -106,16 +127,17 @@ body {
 }
 
 .toast__title {
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.2rem;
   font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .toast__message {
   margin: 0;
   font-size: 0.85rem;
-  color: #64748b;
-  line-height: 1.45;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .toast__close {
@@ -124,15 +146,15 @@ body {
   height: 1.5rem;
   font-size: 1rem;
   line-height: 1;
-  color: #94a3b8;
+  color: var(--text-subtle);
   background: transparent;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
 }
 
 .toast__close:hover {
-  color: #475569;
-  background: #f1f5f9;
+  color: var(--text-muted);
+  background: var(--bg);
 }

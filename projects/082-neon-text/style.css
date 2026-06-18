@@ -4,15 +4,55 @@
   box-sizing: border-box;
 }
 
+:root {
+  --alley: #0d0d12;
+  --brick: #1a1210;
+  --font-display: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #0a0a0f;
+  font-family: var(--font-display);
+  background: var(--alley);
   color: #e2e8f0;
+  overflow: hidden;
+}
+
+/* ผนังอิฐและแสงริมถนน — บรรยากาศป้ายนีออน */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 48px,
+      rgba(255, 255, 255, 0.015) 48px,
+      rgba(255, 255, 255, 0.015) 49px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--brick) 0,
+      var(--brick) 28px,
+      #14100e 28px,
+      #14100e 30px
+    );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255, 110, 199, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,14 +62,21 @@ body {
 
 .stage {
   text-align: center;
+  animation: sign-flicker-in 1.2s ease both;
+}
+
+@keyframes sign-flicker-in {
+  0% { opacity: 0; filter: brightness(3); }
+  40% { opacity: 1; filter: brightness(1.8); }
+  100% { opacity: 1; filter: brightness(1); }
 }
 
 /* ข้อความนีออน — เงาเรืองแสงหลายชั้น */
 .neon-text {
-  margin: 0 0 1.25rem;
+  margin: 0 0 2rem;
   font-size: clamp(2rem, 8vw, 3.75rem);
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   animation: flicker 4s ease-in-out infinite;
 }
 
@@ -66,17 +113,11 @@ body {
     0 0 120px #00cc33;
 }
 
-.hint {
-  margin: 0 0 1.75rem;
-  font-size: 0.9375rem;
-  color: #64748b;
-}
-
 .color-btn {
   padding: 0.875rem 1.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.45);
   color: #f1f5f9;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -85,13 +126,15 @@ body {
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .color-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* กระพริบเบา ๆ ให้ดูเป็นธรรมชาติ */

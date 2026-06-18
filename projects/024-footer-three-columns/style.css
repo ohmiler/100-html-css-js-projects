@@ -1,4 +1,18 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --surface-muted: #fafaf9;
+  --footer-bg: #1c1917;
+  --footer-text: #d6d3d1;
+  --footer-muted: #a8a29e;
+  --footer-border: rgb(255 255 255 / 8%);
+  --text-strong: #1c1917;
+  --text-muted: #78716c;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,25 +24,29 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #334155;
+  font-family: var(--font-sans);
+  background: var(--surface-muted);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
 }
 
 .content {
-  padding: 3rem 2rem;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem);
   max-width: 720px;
   margin: 0 auto;
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
 .content h1 {
   margin: 0 0 0.5rem;
-  color: #1e293b;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
 }
 
 .content p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 /* พื้นที่ว่างให้ scroll ได้ */
@@ -37,25 +55,27 @@ body {
 }
 
 .footer {
-  background: #1e293b;
-  color: #cbd5e1;
-  padding: 3rem 2rem 1.5rem;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) 1.5rem;
 }
 
 /* CSS Grid 3 คอลัมน์ */
 .footer__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
   max-width: 960px;
   margin: 0 auto 2rem;
 }
 
 .footer__heading {
   margin: 0 0 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #f1f5f9;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f5f5f4;
 }
 
 .footer__list {
@@ -69,23 +89,26 @@ body {
 }
 
 .footer__list a {
-  color: #94a3b8;
+  color: var(--footer-muted);
   text-decoration: none;
+  font-size: 0.9375rem;
   transition: color 0.2s ease;
 }
 
 .footer__list a:hover {
-  color: #6366f1;
+  color: #e0e7ff;
 }
 
 .footer__list--plain li {
-  color: #94a3b8;
+  color: var(--footer-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 
 /* ไอคอนโซเชียล */
 .footer__social {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.625rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -95,20 +118,23 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 0.75rem;
+  width: 2.375rem;
+  height: 2.375rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #e2e8f0;
-  background: rgb(255 255 255 / 8%);
+  color: var(--footer-text);
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid var(--footer-border);
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease-out);
 }
 
 .footer__social a:hover {
-  background: #6366f1;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .footer__bottom {
@@ -118,31 +144,31 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding-top: 1.5rem;
-  border-top: 1px solid rgb(255 255 255 / 10%);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer__copy {
   margin: 0;
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 0.8125rem;
+  color: var(--footer-muted);
 }
 
 /* ปุ่ม scroll to top */
 .footer__scroll-top {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.375rem;
+  height: 2.375rem;
   padding: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
 }
 
 .footer__scroll-top:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
   transform: translateY(-2px);
 }
 
@@ -151,5 +177,17 @@ body {
   .footer__grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

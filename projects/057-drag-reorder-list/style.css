@@ -1,4 +1,24 @@
-﻿*,
+﻿/* EP57: Drag reorder list — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --accent-ring: rgba(79, 70, 229, 0.2);
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-sm: 0 2px 10px rgba(28, 25, 23, 0.06);
+  --shadow-drag: 0 12px 32px rgba(28, 25, 23, 0.18);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.2s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +27,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -31,11 +52,15 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
 }
 
 .reorder-item.is-dragging {
@@ -44,7 +69,8 @@ body {
 
 .reorder-item.is-over {
   transform: translateY(4px);
-  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px var(--accent-ring);
 }
 
 .handle {
@@ -57,12 +83,18 @@ body {
   padding: 0;
   font-size: 1rem;
   letter-spacing: -2px;
-  color: #64748b;
-  background: #f1f5f9;
+  color: var(--text-muted);
+  background: var(--bg);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: grab;
   touch-action: none;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.handle:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .handle:active {
@@ -71,7 +103,7 @@ body {
 
 .item-label {
   flex: 1;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -83,11 +115,12 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.22);
-  opacity: 0.92;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-drag);
+  opacity: 0.94;
   transform: translate(-50%, -50%);
 }
 

@@ -4,19 +4,29 @@
   box-sizing: border-box;
 }
 
+:root {
+  --canvas: #0f0f14;
+  --surface: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.1);
+  --x-color: #f87171;
+  --o-color: #60a5fa;
+  --accent: #facc15;
+  --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(160deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
-  color: #f8fafc;
+  font-family: var(--font-ui);
+  background: var(--canvas);
+  color: #f4f4f5;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .container {
-  width: min(100%, 420px);
+  width: min(100%, 400px);
   padding: 2rem 1.25rem;
   text-align: center;
 }
@@ -26,15 +36,16 @@ body {
 }
 
 .title {
-  margin: 0 0 0.5rem;
-  font-size: 1.75rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .status {
   margin: 0;
-  font-size: 1.125rem;
-  color: #c7d2fe;
+  font-size: 0.9375rem;
+  color: #a1a1aa;
 }
 
 .board {
@@ -46,19 +57,19 @@ body {
 
 .cell {
   aspect-ratio: 1;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
   color: #fff;
-  font-size: clamp(2rem, 10vw, 3rem);
+  font-size: clamp(2rem, 10vw, 2.75rem);
   font-weight: 700;
   cursor: pointer;
   transition: background 0.15s, transform 0.1s;
 }
 
 .cell:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.22);
-  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
 }
 
 .cell:disabled {
@@ -66,25 +77,25 @@ body {
 }
 
 .cell--x {
-  color: #fca5a5;
+  color: var(--x-color);
 }
 
 .cell--o {
-  color: #93c5fd;
+  color: var(--o-color);
 }
 
 .cell--win {
-  background: rgba(250, 204, 21, 0.35);
-  box-shadow: 0 0 0 2px #facc15;
+  background: rgba(250, 204, 21, 0.15);
+  border-color: var(--accent);
 }
 
 .reset-btn {
-  padding: 0.75rem 2rem;
+  padding: 0.7rem 1.75rem;
   border: none;
   border-radius: 999px;
-  background: #facc15;
-  color: #1e1b4b;
-  font-size: 1rem;
+  background: var(--accent);
+  color: #171717;
+  font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s, transform 0.1s;

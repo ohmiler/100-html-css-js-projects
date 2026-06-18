@@ -4,15 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #334155;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -24,35 +36,49 @@ body {
 
 /* กล่องแสดงข้อความที่จะคัดลอก */
 .copy-text {
-  margin: 0 0 1.25rem;
-  padding: 1rem;
+  margin: 0 0 1.35rem;
+  padding: 1.1rem 1.25rem;
   font-size: 1rem;
-  line-height: 1.5;
-  color: #475569;
-  background: #e2e8f0;
-  border-radius: 8px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius);
   word-break: break-word;
+  box-shadow: var(--shadow);
 }
 
 /* ปุ่มคัดลอก */
 .copy-btn {
-  padding: 0.6rem 1.4rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
-.copy-btn:hover {
-  background: #4f46e5;
+.copy-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+}
+
+.copy-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .copy-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.65;
   cursor: wait;
+  transform: none;
 }
 
 /* สถานะหลังคัดลอก — แสดง "คัดลอกแล้ว" */

@@ -1,4 +1,18 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --sidebar-bg: #1c1917;
+  --sidebar-border: rgb(255 255 255 / 8%);
+  --sidebar-text: #d6d3d1;
+  --sidebar-muted: #a8a29e;
+  --surface: #fafaf9;
+  --text-strong: #1c1917;
+  --text-muted: #78716c;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -6,9 +20,10 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f1f5f9;
-  color: #334155;
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* sidebar fixed ซ้าย — transition ความกว้าง */
@@ -20,9 +35,10 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #1e293b;
-  color: #e2e8f0;
-  transition: width 0.3s ease;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-right: 1px solid var(--sidebar-border);
+  transition: width 0.3s var(--ease-out);
   overflow: hidden;
   z-index: 100;
 }
@@ -37,7 +53,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1rem;
-  border-bottom: 1px solid rgb(255 255 255 / 10%);
+  border-bottom: 1px solid var(--sidebar-border);
 }
 
 .sidebar__brand {
@@ -45,6 +61,8 @@ body {
   align-items: center;
   gap: 0.75rem;
   font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
@@ -54,16 +72,17 @@ body {
   height: 2rem;
   padding: 0;
   font-size: 0.75rem;
-  color: #94a3b8;
-  background: rgb(255 255 255 / 8%);
-  border: none;
+  color: var(--sidebar-muted);
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid var(--sidebar-border);
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.3s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s var(--ease-out);
 }
 
 .sidebar__toggle:hover {
-  background: rgb(255 255 255 / 15%);
+  background: rgb(255 255 255 / 10%);
+  border-color: rgb(255 255 255 / 14%);
 }
 
 /* หมุนลูกศรเมื่อ sidebar ย่อ */
@@ -74,7 +93,7 @@ body {
 
 .sidebar__nav {
   flex: 1;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.625rem;
   overflow-y: auto;
 }
 
@@ -88,9 +107,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.25rem;
-  color: #94a3b8;
+  padding: 0.7rem 0.875rem;
+  margin-bottom: 0.125rem;
+  color: var(--sidebar-muted);
   text-decoration: none;
   border-radius: 8px;
   white-space: nowrap;
@@ -98,12 +117,12 @@ body {
 }
 
 .sidebar__link:hover {
-  background: rgb(255 255 255 / 8%);
-  color: #f1f5f9;
+  background: rgb(255 255 255 / 6%);
+  color: #f5f5f4;
 }
 
 .sidebar__link--active {
-  background: #6366f1;
+  background: var(--accent);
   color: #fff;
 }
 
@@ -111,7 +130,7 @@ body {
   flex-shrink: 0;
   width: 1.5rem;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 /* ซ่อนข้อความเมื่อ sidebar ย่อ */
@@ -122,15 +141,17 @@ body {
 }
 
 .sidebar__text {
+  font-size: 0.9375rem;
   transition: opacity 0.2s ease;
 }
 
 /* เนื้อหาหลัก — margin-left สอดคล้องกับ sidebar */
 .main {
   margin-left: 240px;
-  padding: 2.5rem 2rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
   min-height: 100vh;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s var(--ease-out);
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
 .sidebar.collapsed ~ .main {
@@ -139,12 +160,14 @@ body {
 
 .main h1 {
   margin: 0 0 0.5rem;
-  color: #1e293b;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
 }
 
 .main p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 @media (max-width: 640px) {
@@ -173,5 +196,17 @@ body {
 
   .sidebar:not(.collapsed) ~ .main {
     margin-left: 240px;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

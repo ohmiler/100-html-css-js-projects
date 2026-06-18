@@ -1,4 +1,27 @@
-﻿*,
+﻿/* EP60: Countdown timer — โทкенดีไซน์ indigo + stone + monospace digits */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", "JetBrains Mono", monospace;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --warning: #d97706;
+  --warning-hover: #b45309;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-lg: 0 12px 40px rgba(28, 25, 23, 0.1);
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.22s;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +30,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -24,22 +48,25 @@ body {
   width: min(360px, 100%);
   padding: 2.5rem 2rem;
   text-align: center;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .timer-display {
-  margin: 0 0 1.75rem;
-  font-size: 4rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 12vw, 4.25rem);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.05em;
-  color: #1e293b;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  line-height: 1;
 }
 
 .timer-display.is-finished {
-  color: #dc2626;
+  color: var(--danger);
 }
 
 .timer-actions {
@@ -47,16 +74,18 @@ body {
   flex-wrap: wrap;
   gap: 0.65rem;
   justify-content: center;
+  margin-top: 1.75rem;
 }
 
 .btn {
   padding: 0.65rem 1.15rem;
   font-size: 0.95rem;
   font-weight: 600;
+  font-family: inherit;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
+  transition: background var(--duration) var(--ease), opacity var(--duration) var(--ease);
 }
 
 .btn:disabled {
@@ -66,29 +95,29 @@ body {
 
 .btn--primary {
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }
 
 .btn--secondary {
   color: #fff;
-  background: #f59e0b;
+  background: var(--warning);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: #d97706;
+  background: var(--warning-hover);
 }
 
 .btn--ghost {
-  color: #475569;
-  background: #f1f5f9;
+  color: var(--text-muted);
+  background: var(--bg);
 }
 
 .btn--ghost:hover:not(:disabled) {
-  background: #e2e8f0;
+  background: var(--border);
 }
 
 .timer-message {
@@ -96,9 +125,9 @@ body {
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #dc2626;
-  background: #fef2f2;
-  border-radius: 8px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius-sm);
 }
 
 .timer-message[hidden] {

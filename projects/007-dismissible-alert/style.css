@@ -4,14 +4,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --radius: 12px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -26,30 +37,29 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.9rem 1rem;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  border: 1px solid transparent;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+  border-radius: var(--radius);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
 /* ประเภท info — สีฟ้า */
 .alert--info {
   color: #1e40af;
-  background: #dbeafe;
-  border-color: #93c5fd;
+  background: #eff6ff;
 }
 
 /* ประเภท warning — สีเหลือง */
 .alert--warning {
   color: #92400e;
-  background: #fef3c7;
-  border-color: #fcd34d;
+  background: #fffbeb;
 }
 
 .alert__message {
   margin: 0;
   flex: 1;
-  line-height: 1.5;
+  line-height: 1.55;
+  font-size: 0.95rem;
 }
 
 /* ปุ่มปิด X */
@@ -63,12 +73,15 @@ body {
   color: inherit;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.65;
+  transition:
+    opacity 0.15s var(--ease),
+    background 0.15s var(--ease);
 }
 
 .alert__close:hover {
   opacity: 1;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(28, 25, 23, 0.06);
 }

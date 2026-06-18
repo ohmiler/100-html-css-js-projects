@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -12,28 +23,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f0f4f8;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   text-align: center;
 }
 
-.description {
-  color: #64748b;
-  margin: 0 0 1.5rem;
-}
-
 /* กล่องตัวนับ — จัดปุ่มและตัวเลขในแนวนอน */
 .counter {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  gap: 1.25rem;
+  padding: 1.1rem 1.6rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 /* ตัวเลขแสดงผล */
@@ -41,8 +49,9 @@ body {
   min-width: 3rem;
   font-size: 2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text);
   text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 /* สไตล์ปุ่มร่วม */
@@ -51,19 +60,24 @@ body {
   height: 3rem;
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: inherit;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    opacity 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover:not(:disabled) {
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 .btn:active:not(:disabled) {
-  transform: scale(0.95);
+  transform: translateY(0) scale(0.95);
 }
 
 /* ปุ่มลบ — สีแดง */
@@ -73,19 +87,23 @@ body {
 
 .btn--minus:hover:not(:disabled) {
   background: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-/* ปุ่มบวก — สีเขียว */
+/* ปุ่มบวก — สี accent */
 .btn--plus {
-  background: #22c55e;
+  background: var(--accent);
 }
 
 .btn--plus:hover:not(:disabled) {
-  background: #16a34a;
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 /* ปุ่ม disabled เมื่อค่าถึงขั้นต่ำ */
 .btn:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }

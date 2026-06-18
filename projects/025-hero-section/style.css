@@ -1,4 +1,14 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --surface-muted: #fafaf9;
+  --text-strong: #1c1917;
+  --text-muted: #78716c;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,8 +20,9 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: #334155;
+  font-family: var(--font-sans);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* hero เต็มความสูง viewport */
@@ -19,14 +30,12 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-  /* gradient พื้นหลัง + รูป placeholder */
+  justify-content: flex-start;
+  min-height: 100svh;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 6vw, 5rem);
   background:
-    linear-gradient(135deg, rgb(30 41 59 / 85%), rgb(99 102 241 / 75%)),
     url("https://picsum.photos/seed/hero25/1920/1080") center / cover no-repeat;
-  text-align: center;
+  text-align: left;
 }
 
 /* overlay มืดทับรูปพื้นหลัง */
@@ -34,9 +43,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgb(15 23 42 / 30%),
-    rgb(15 23 42 / 60%)
+    105deg,
+    rgb(28 25 23 / 88%) 0%,
+    rgb(28 25 23 / 72%) 42%,
+    rgb(28 25 23 / 35%) 100%
   );
   pointer-events: none;
 }
@@ -44,40 +54,52 @@ body {
 .hero__content {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  width: min(100%, 26rem);
+  animation: hero-in 0.8s var(--ease-out) both;
+}
+
+.hero__brand {
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c7d2fe;
 }
 
 .hero__title {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: #fff;
 }
 
 .hero__subtitle {
   margin: 0 0 2rem;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.6;
-  color: #e2e8f0;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.65;
+  color: rgb(255 255 255 / 82%);
 }
 
 .hero__cta {
-  padding: 0.875rem 2rem;
-  font-size: 1rem;
+  padding: 0.875rem 1.75rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: #1e293b;
-  background: #fff;
+  color: #fff;
+  background: var(--accent);
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out), box-shadow 0.2s ease;
 }
 
 .hero__cta:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  box-shadow: 0 8px 24px rgb(79 70 229 / 35%);
 }
 
 .hero__cta:active {
@@ -86,17 +108,44 @@ body {
 
 /* section ด้านล่าง hero */
 .next-section {
-  padding: 5rem 2rem;
+  padding: clamp(4rem, 10vw, 6rem) clamp(1.5rem, 4vw, 2rem);
   text-align: center;
-  background: #f8fafc;
+  background: var(--surface-muted);
+  animation: fade-up 0.6s var(--ease-out) both;
 }
 
 .next-section h2 {
   margin: 0 0 0.5rem;
-  color: #1e293b;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
 }
 
 .next-section p {
   margin: 0;
-  color: #64748b;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

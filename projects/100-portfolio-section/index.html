@@ -21,99 +21,98 @@
   </header>
 
   <section id="hero" class="hero">
-    <div class="hero__content">
-      <p class="hero__greeting">สวัสดีครับ ผมคือ</p>
-      <h1 class="hero__name">สมชาย ใจดี</h1>
-      <p class="hero__role">นักพัฒนาเว็บไซต์ · ออกแบบประสบการณ์ดิจิทัล</p>
-      <a href="#projects" class="hero__cta">ดูผลงานของผม</a>
-    </div>
-    <div class="hero__visual" aria-hidden="true">
-      <div class="hero__orb"></div>
+    <div class="hero__backdrop" aria-hidden="true"></div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__greeting">สวัสดีครับ ผมคือ</p>
+        <h1 class="hero__name">สมชาย ใจดี</h1>
+        <p class="hero__role">นักพัฒนาเว็บไซต์ · ออกแบบประสบการณ์ดิจิทัล</p>
+        <a href="#projects" class="hero__cta">ดูผลงานของผม</a>
+      </div>
     </div>
   </section>
 
   <section id="projects" class="section projects">
     <div class="section__inner">
-      <h2 class="section__title">ผลงาน</h2>
-      <p class="section__subtitle">โปรเจกต์ที่ผมภูมิใจ</p>
-      <div class="projects__grid">
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--1"></div>
-          <h3 class="project-card__title">แอปจัดการงาน</h3>
-          <p class="project-card__desc">ระบบจัดการ to-do แบบ real-time</p>
+      <header class="section__header">
+        <h2 class="section__title">ผลงาน</h2>
+        <p class="section__subtitle">โปรเจกต์ที่เลือกมาแสดงแนวทางการทำงาน</p>
+      </header>
+      <div class="projects__list">
+        <article class="project-row">
+          <div class="project-row__media project-row__media--1" aria-hidden="true"></div>
+          <div class="project-row__body">
+            <h3 class="project-row__title">แอปจัดการงาน</h3>
+            <p class="project-row__desc">ระบบจัดการ to-do แบบ real-time สำหรับทีมขนาดเล็ก</p>
+          </div>
         </article>
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--2"></div>
-          <h3 class="project-card__title">ร้านค้าออนไลน์</h3>
-          <p class="project-card__desc">E-commerce พร้อมระบบชำระเงิน</p>
+        <article class="project-row">
+          <div class="project-row__media project-row__media--2" aria-hidden="true"></div>
+          <div class="project-row__body">
+            <h3 class="project-row__title">ร้านค้าออนไลน์</h3>
+            <p class="project-row__desc">E-commerce พร้อมระบบชำระเงินและติดตามคำสั่งซื้อ</p>
+          </div>
         </article>
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--3"></div>
-          <h3 class="project-card__title">แดชบอร์ดวิเคราะห์</h3>
-          <p class="project-card__desc">แสดงข้อมูลเชิงลึกแบบ interactive</p>
+        <article class="project-row">
+          <div class="project-row__media project-row__media--3" aria-hidden="true"></div>
+          <div class="project-row__body">
+            <h3 class="project-row__title">แดชบอร์ดวิเคราะห์</h3>
+            <p class="project-row__desc">แสดงข้อมูลเชิงลึกแบบ interactive สำหรับผู้บริหาร</p>
+          </div>
         </article>
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--4"></div>
-          <h3 class="project-card__title">เกมเว็บมินิ</h3>
-          <p class="project-card__desc">เกม HTML5 สนุกๆ เล่นบนเบราว์เซอร์</p>
-        </article>
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--5"></div>
-          <h3 class="project-card__title">พอร์ทัลข่าว</h3>
-          <p class="project-card__desc">อ่านข่าวสารพร้อมระบบค้นหา</p>
-        </article>
-        <article class="project-card">
-          <div class="project-card__thumb project-card__thumb--6"></div>
-          <h3 class="project-card__title">แอปสุขภาพ</h3>
-          <p class="project-card__desc">ติดตาม BMI และกิจกรรมประจำวัน</p>
+        <article class="project-row">
+          <div class="project-row__media project-row__media--4" aria-hidden="true"></div>
+          <div class="project-row__body">
+            <h3 class="project-row__title">เกมเว็บมินิ</h3>
+            <p class="project-row__desc">เกม HTML5 เล่นบนเบราว์เซอร์ ไม่ต้องติดตั้ง</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
   <section id="skills" class="section skills">
-    <div class="section__inner">
-      <h2 class="section__title">ทักษะ</h2>
-      <p class="section__subtitle">เครื่องมือและเทคโนโลยีที่ใช้งานได้</p>
-      <div class="skills__grid">
-        <div class="skill-item">
-          <span class="skill-item__icon">🌐</span>
-          <h3 class="skill-item__name">HTML & CSS</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item__icon">⚡</span>
-          <h3 class="skill-item__name">JavaScript</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item__icon">⚛️</span>
-          <h3 class="skill-item__name">React</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item__icon">🎨</span>
-          <h3 class="skill-item__name">UI/UX Design</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item__icon">📱</span>
-          <h3 class="skill-item__name">Responsive</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 92%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item__icon">🔧</span>
-          <h3 class="skill-item__name">Git & DevOps</h3>
-          <div class="skill-item__bar"><div class="skill-item__fill" style="width: 70%"></div></div>
-        </div>
-      </div>
+    <div class="section__inner section__inner--narrow">
+      <header class="section__header">
+        <h2 class="section__title">ทักษะ</h2>
+        <p class="section__subtitle">เครื่องมือที่ใช้งานประจำ</p>
+      </header>
+      <ul class="skills__list">
+        <li class="skill-row">
+          <span class="skill-row__name">HTML & CSS</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 95%"></div></div>
+        </li>
+        <li class="skill-row">
+          <span class="skill-row__name">JavaScript</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 90%"></div></div>
+        </li>
+        <li class="skill-row">
+          <span class="skill-row__name">React</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 80%"></div></div>
+        </li>
+        <li class="skill-row">
+          <span class="skill-row__name">UI/UX Design</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 75%"></div></div>
+        </li>
+        <li class="skill-row">
+          <span class="skill-row__name">Responsive</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 92%"></div></div>
+        </li>
+        <li class="skill-row">
+          <span class="skill-row__name">Git & DevOps</span>
+          <div class="skill-row__bar"><div class="skill-row__fill" style="width: 70%"></div></div>
+        </li>
+      </ul>
     </div>
   </section>
 
   <section id="contact" class="section contact">
-    <div class="section__inner">
-      <h2 class="section__title">ติดต่อ</h2>
-      <p class="section__subtitle">มีโปรเจกต์ในใจ? ส่งข้อความมาได้เลย</p>
+    <div class="section__inner section__inner--narrow">
+      <header class="section__header">
+        <h2 class="section__title">ติดต่อ</h2>
+        <p class="section__subtitle">มีโปรเจกต์ในใจ? ส่งข้อความมาได้เลย</p>
+      </header>
       <form id="contactForm" class="contact-form" novalidate>
         <div class="field">
           <label for="contactName">ชื่อ</label>

@@ -1,4 +1,23 @@
-﻿*,
+﻿/* EP58: Load more mock — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: #eef2ff;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-sm: 0 2px 10px rgba(28, 25, 23, 0.06);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.22s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +26,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f5f5f5;
-  color: #1a1a1a;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -32,16 +52,17 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.07);
-  animation: fadeIn 0.3s ease;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.32s var(--ease);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -57,8 +78,8 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   font-size: 1.25rem;
-  background: #eef2ff;
-  border-radius: 8px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
 }
 
 .item-body {
@@ -75,7 +96,7 @@ body {
 .item-desc {
   margin: 0;
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .load-more-btn {
@@ -84,16 +105,17 @@ body {
   padding: 0.85rem 1rem;
   font-size: 1rem;
   font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background var(--duration) var(--ease);
 }
 
 .load-more-btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }
 
 .load-more-btn.is-hidden {

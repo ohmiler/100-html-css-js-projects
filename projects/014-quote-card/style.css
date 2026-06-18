@@ -4,14 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -23,42 +36,57 @@ body {
 /* การ์ดคำคม */
 .quote-card {
   margin: 0 0 1.5rem;
-  padding: 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  padding: 1.75rem 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
 }
 
 .quote-text {
   margin: 0 0 1rem;
   font-size: 1.15rem;
-  line-height: 1.6;
-  color: #334155;
+  line-height: 1.65;
+  color: var(--text);
   font-style: italic;
 }
 
 .quote-text::before {
   content: "\201C";
-  color: #6366f1;
-  font-size: 1.4rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-style: normal;
+  margin-right: 0.15rem;
 }
 
 .quote-author {
   font-size: 0.9rem;
-  color: #64748b;
+  color: var(--muted);
 }
 
 .btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }

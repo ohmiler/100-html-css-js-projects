@@ -4,20 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --surface: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.14);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: #fff;
-  transition: background 0.5s ease;
+  font-family: var(--font-ui);
+  color: #fafafa;
+  transition: background-color 0.6s ease;
 }
 
 body.phase-work {
-  background: linear-gradient(160deg, #c0392b 0%, #e74c3c 50%, #f39c12 100%);
+  background: #1a0f0f;
 }
 
 body.phase-break {
-  background: linear-gradient(160deg, #27ae60 0%, #2ecc71 50%, #1abc9c 100%);
+  background: #0f1a14;
 }
 
 .container {
@@ -33,58 +39,59 @@ body.phase-break {
 .timer {
   width: min(100%, 360px);
   padding: 2.5rem 2rem;
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
   text-align: center;
 }
 
 .timer__phase {
   margin: 0 0 0.5rem;
-  font-size: 1.1rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.9;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .timer__display {
   margin: 0 0 2rem;
-  font-size: 5rem;
+  font-size: clamp(4rem, 18vw, 5rem);
   font-weight: 300;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  letter-spacing: -0.03em;
 }
 
 .timer__controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.65rem;
   justify-content: center;
 }
 
 .timer__btn {
-  padding: 0.7rem 1.25rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 0.65rem 1.15rem;
+  border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
 .timer__btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
 }
 
 .timer__btn--primary {
-  background: rgba(255, 255, 255, 0.9);
+  background: #fafafa;
   border-color: transparent;
-  color: #1a1a1a;
+  color: #171717;
 }
 
 .timer__btn--primary:hover {
@@ -97,8 +104,8 @@ body.phase-break {
   gap: 1rem;
   padding: 1rem 1.25rem;
   border-radius: 0.75rem;
-  background: rgba(0, 0, 0, 0.75);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   animation: slideUp 0.4s ease;
 }
 
@@ -108,22 +115,22 @@ body.phase-break {
 
 .notification__text {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9375rem;
 }
 
 .notification__close {
   padding: 0.4rem 0.9rem;
   border: none;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .notification__close:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 @keyframes slideUp {
@@ -131,6 +138,7 @@ body.phase-break {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

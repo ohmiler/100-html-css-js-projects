@@ -1,4 +1,17 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: #eef2ff;
+  --surface: #ffffff;
+  --surface-muted: #fafaf9;
+  --text-muted: #78716c;
+  --text-strong: #1c1917;
+  --border: #e7e5e4;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,31 +23,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: var(--font-sans);
+  background: var(--surface-muted);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   max-width: 320px;
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
 }
 
 /* การ์ดสมาชิกทีม */
 .team-card {
   position: relative;
-  padding: 2rem 1.5rem;
-  background: #fff;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
+  padding: clamp(1.75rem, 4vw, 2.25rem) clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.25s ease;
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
 /* hover lift */
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  transform: translateY(-5px);
+  border-color: #d6d3d1;
+  box-shadow: 0 16px 32px rgb(28 25 23 / 8%);
 }
 
 .team-avatar {
@@ -42,20 +58,27 @@ body {
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #e2e8f0;
+  border: 2px solid var(--border);
   margin-bottom: 1rem;
+  transition: border-color 0.25s ease;
+}
+
+.team-card:hover .team-avatar {
+  border-color: #c7d2fe;
 }
 
 .team-name {
   margin: 0 0 0.25rem;
-  font-size: 1.15rem;
-  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
 }
 
 .team-role {
   margin: 0 0 1rem;
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .team-socials {
@@ -67,19 +90,20 @@ body {
 .social-btn {
   width: 36px;
   height: 36px;
-  border: 2px solid #e2e8f0;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   font-size: 0.7rem;
   font-weight: 700;
-  color: #475569;
+  color: var(--text-muted);
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 .social-btn:hover {
-  border-color: #6366f1;
-  color: #6366f1;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
 }
 
 /* overlay bio — แสดงเมื่อ hover หรือ class is-bio-open */
@@ -90,18 +114,37 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  background: rgba(99, 102, 241, 0.92);
-  border-radius: 14px;
+  background: rgb(79 70 229 / 92%);
+  border-radius: 13px;
   color: #fff;
+  backdrop-filter: blur(4px);
 }
 
 .team-card:hover .bio-overlay,
 .team-card.is-bio-open .bio-overlay {
   display: flex;
+  animation: fade-in 0.25s var(--ease-out) both;
 }
 
 .bio-overlay p {
   margin: 0;
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

@@ -1,4 +1,25 @@
-﻿*,
+﻿/* EP44: Dropdown menu — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --accent-ring: rgba(79, 70, 229, 0.14);
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-md: 0 12px 32px rgba(28, 25, 23, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.22s;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,9 +31,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -31,49 +53,58 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.1rem;
+  padding: 0.7rem 1.15rem;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #1e293b;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    background var(--duration) var(--ease);
 }
 
 .dropdown__trigger:hover,
 .dropdown__trigger[aria-expanded="true"] {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.dropdown__trigger[aria-expanded="true"] {
+  background: var(--accent-soft);
 }
 
 .dropdown__chevron {
   width: 0.45rem;
   height: 0.45rem;
-  border-right: 2px solid #64748b;
-  border-bottom: 2px solid #64748b;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
   transform: rotate(45deg) translateY(-2px);
-  transition: transform 0.2s ease;
+  transition: transform var(--duration) var(--ease), border-color var(--duration) var(--ease);
 }
 
 .dropdown__trigger[aria-expanded="true"] .dropdown__chevron {
   transform: rotate(225deg) translateY(2px);
+  border-color: var(--accent);
 }
 
 /* เมนู absolute ใต้ปุ่ม trigger */
 .dropdown__menu {
   position: absolute;
-  top: calc(100% + 0.4rem);
+  top: calc(100% + 0.45rem);
   left: 0;
-  min-width: 180px;
+  min-width: 190px;
   margin: 0;
-  padding: 0.35rem;
+  padding: 0.4rem;
   list-style: none;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   z-index: 50;
 }
 
@@ -83,33 +114,36 @@ body {
 
 .dropdown__item {
   width: 100%;
-  padding: 0.6rem 0.85rem;
+  padding: 0.62rem 0.9rem;
   font-size: 0.9rem;
   font-weight: 500;
+  font-family: inherit;
   text-align: left;
-  color: #334155;
+  color: var(--text);
   background: transparent;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
 .dropdown__item:hover,
 .dropdown__item.is-focused {
-  background: #f1f5f9;
+  background: var(--bg);
+  color: var(--accent);
 }
 
 .dropdown__item--danger {
-  color: #dc2626;
+  color: var(--danger);
 }
 
 .dropdown__item--danger:hover,
 .dropdown__item--danger.is-focused {
-  background: #fef2f2;
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .dropdown__result {
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-muted);
 }

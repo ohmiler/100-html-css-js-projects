@@ -1,4 +1,25 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.18);
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-800: #292524;
+  --surface: #ffffff;
+  --border: var(--stone-200);
+  --text: var(--stone-800);
+  --error: #dc2626;
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,34 +29,38 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #1a1a1a;
+  background: var(--stone-100);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 520px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 3rem 1.25rem;
 }
 
 .panel {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem 1.75rem;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
 }
 
 .title {
   margin: 0;
-  font-size: 1.375rem;
-  font-weight: 700;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 
 .subtitle {
-  margin: 0.5rem 0 1.5rem;
-  font-size: 0.9375rem;
-  color: #6b7280;
+  margin: 0.375rem 0 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--stone-500);
   text-align: center;
   line-height: 1.5;
 }
@@ -52,63 +77,69 @@ body {
 .email-input {
   flex: 1;
   min-width: 0;
-  padding: 0.75rem 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.email-input::placeholder {
+  color: var(--stone-400);
 }
 
 .email-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 .email-input.is-invalid {
-  border-color: #ef4444;
+  border-color: var(--error);
 }
 
 .email-input.is-valid {
-  border-color: #22c55e;
+  border-color: var(--success);
 }
 
 .subscribe-btn {
   flex-shrink: 0;
-  padding: 0.75rem 1.25rem;
+  padding: 0.625rem 1rem;
   border: none;
-  border-radius: 10px;
-  background: #667eea;
+  border-radius: var(--radius-md);
+  background: var(--accent);
   color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
+  transition: background 0.15s ease, opacity 0.15s ease;
 }
 
 .subscribe-btn:disabled {
-  background: #d1d5db;
+  background: var(--stone-200);
+  color: var(--stone-500);
   cursor: not-allowed;
-  opacity: 0.7;
 }
 
 .subscribe-btn:not(:disabled):hover {
-  background: #5a6fd6;
+  background: var(--accent-hover);
 }
 
 .email-hint {
   margin: 0.5rem 0 0;
-  font-size: 0.8125rem;
-  color: #9ca3af;
+  font-size: 0.75rem;
+  color: var(--stone-400);
 }
 
 .email-hint.is-error {
-  color: #ef4444;
+  color: var(--error);
 }
 
 .success-state {
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .success-state[hidden] {
@@ -119,27 +150,27 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: #dcfce7;
-  color: #16a34a;
+  width: 48px;
+  height: 48px;
+  background: var(--success-bg);
+  color: var(--success);
   border-radius: 50%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.625rem;
 }
 
 .success-text {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: #166534;
+  color: var(--success);
 }
 
 .success-email {
-  margin: 0.5rem 0 0;
-  font-size: 0.9375rem;
-  color: #6b7280;
+  margin: 0.375rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--stone-500);
 }
 
 @media (max-width: 400px) {

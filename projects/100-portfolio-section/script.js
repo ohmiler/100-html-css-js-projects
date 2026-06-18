@@ -110,7 +110,7 @@ contactForm.addEventListener("submit", (e) => {
 
 // ── Animate skill bars เมื่อเลื่อนมาเห็น ──
 
-const skillFills = document.querySelectorAll(".skill-item__fill");
+const skillFills = document.querySelectorAll(".skill-row__fill");
 const savedWidths = new Map();
 
 skillFills.forEach((fill) => {

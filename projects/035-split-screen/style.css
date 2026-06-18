@@ -1,4 +1,16 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --surface-dark: #1c1917;
+  --surface-panel: #292524;
+  --text: #f5f5f4;
+  --text-muted: #a8a29e;
+  --border: rgb(255 255 255 / 10%);
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,9 +19,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #0f172a;
-  color: #f8fafc;
+  font-family: var(--font-sans);
+  background: var(--surface-dark);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* หน้าจอแบ่งครึ่ง 50/50 */
@@ -32,14 +45,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.split:hover .split__img {
+  transform: scale(1.02);
 }
 
 .split__panel--form {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  background: #1e293b;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--surface-panel);
+  border-left: 1px solid var(--border);
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
 .signup-form {
@@ -48,7 +68,9 @@ body {
 
 .signup-form__title {
   margin: 0 0 1.5rem;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .signup-form__field {
@@ -56,44 +78,54 @@ body {
   flex-direction: column;
   gap: 0.35rem;
   margin-bottom: 1rem;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
 }
 
 .signup-form__field input {
-  padding: 0.7rem 0.85rem;
+  padding: 0.7rem 0.875rem;
   font: inherit;
-  color: #0f172a;
-  background: #f8fafc;
-  border: 2px solid transparent;
+  color: var(--surface-dark);
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
   border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .signup-form__field input:focus {
   outline: none;
-  border-color: #38bdf8;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(79 70 229 / 15%);
 }
 
 .signup-form__submit {
   width: 100%;
   margin-top: 0.5rem;
   padding: 0.8rem 1rem;
-  font-size: 1rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: #0f172a;
-  background: #38bdf8;
+  color: #fff;
+  background: var(--accent);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
 }
 
 .signup-form__submit:hover {
-  background: #0ea5e9;
+  background: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 /* สลับด้านซ้าย/ขวาด้วย flex-direction: row-reverse */
 .split.is-reversed {
   flex-direction: row-reverse;
+}
+
+.split.is-reversed .split__panel--form {
+  border-left: none;
+  border-right: 1px solid var(--border);
 }
 
 .swap-btn {
@@ -102,18 +134,20 @@ body {
   bottom: 1.25rem;
   transform: translateX(-50%);
   padding: 0.7rem 1.25rem;
-  font-size: 0.95rem;
+  font-family: inherit;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #0f172a;
-  background: #f8fafc;
-  border: none;
+  color: var(--surface-dark);
+  background: #f5f5f4;
+  border: 1px solid #e7e5e4;
   border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.15s ease;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
+  transition: transform 0.2s var(--ease-out), background 0.2s ease;
 }
 
 .swap-btn:hover {
+  background: #fff;
   transform: translateX(-50%) translateY(-2px);
 }
 
@@ -131,5 +165,24 @@ body {
 
   .split__panel--image {
     min-height: 240px;
+  }
+
+  .split__panel--form,
+  .split.is-reversed .split__panel--form {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

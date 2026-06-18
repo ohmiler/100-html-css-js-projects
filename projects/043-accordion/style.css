@@ -1,4 +1,22 @@
-﻿*,
+﻿/* EP43: Accordion — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: #eef2ff;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-md: 0 8px 24px rgba(28, 25, 23, 0.07);
+  --radius-md: 14px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.28s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,9 +28,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -21,14 +40,15 @@ body {
 }
 
 .accordion {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.07);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 .accordion__item + .accordion__item {
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border);
 }
 
 .accordion__header {
@@ -37,23 +57,25 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.25rem;
+  padding: 1.05rem 1.35rem;
   font-size: 0.95rem;
   font-weight: 600;
+  font-family: inherit;
   text-align: left;
-  color: #1e293b;
+  color: var(--text);
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
 .accordion__header:hover {
-  background: #f8fafc;
+  background: var(--bg);
 }
 
 .accordion__item.is-open .accordion__header {
-  color: #4338ca;
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* ลูกศรหมุน 180deg เมื่อขยาย */
@@ -64,7 +86,7 @@ body {
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(45deg);
-  transition: transform 0.3s ease;
+  transition: transform var(--duration) var(--ease);
 }
 
 .accordion__item.is-open .accordion__icon {
@@ -75,15 +97,16 @@ body {
 .accordion__content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.35s var(--ease);
 }
 
 .accordion__body {
-  padding: 0 1.25rem 1.1rem;
+  padding: 0 1.35rem 1.15rem;
 }
 
 .accordion__body p {
   margin: 0;
-  color: #64748b;
-  line-height: 1.65;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
 }

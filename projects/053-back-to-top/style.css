@@ -1,4 +1,24 @@
-﻿*,
+﻿/* EP53: Back to top — โทкенดีไซน์ indigo + stone */
+
+:root {
+  --font-sans: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: #eef2ff;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #78716c;
+  --border: #e7e5e4;
+  --shadow-md: 0 8px 24px rgba(28, 25, 23, 0.07);
+  --shadow-accent: 0 6px 20px rgba(79, 70, 229, 0.35);
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.28s;
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -11,9 +31,10 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -24,21 +45,24 @@ body {
 
 .hero {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  padding: 1.75rem;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
   color: #fff;
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .hero h1 {
   margin: 0 0 0.5rem;
   font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .hero p {
   margin: 0;
-  opacity: 0.9;
-  line-height: 1.5;
+  opacity: 0.92;
+  line-height: 1.55;
 }
 
 .article {
@@ -47,22 +71,25 @@ body {
 }
 
 .section {
-  padding: 1.25rem 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  padding: 1.35rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
 }
 
 .section h2 {
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-  color: #4338ca;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 .section p {
   margin: 0;
   line-height: 1.65;
-  color: #475569;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 /* ปุ่มกลับด้านบน มุมขวาล่าง */
@@ -79,15 +106,19 @@ body {
   font-size: 1.35rem;
   font-weight: 700;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
   border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+  box-shadow: var(--shadow-accent);
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  transition:
+    opacity var(--duration) var(--ease),
+    visibility var(--duration) var(--ease),
+    transform var(--duration) var(--ease),
+    background var(--duration) var(--ease);
 }
 
 .back-to-top.is-visible {
@@ -97,11 +128,11 @@ body {
 }
 
 .back-to-top:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
 }
 
 .back-to-top:focus-visible {
-  outline: 2px solid #4338ca;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 

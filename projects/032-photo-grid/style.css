@@ -1,4 +1,15 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-muted: #eef2ff;
+  --surface-dark: #1c1917;
+  --surface-card: #292524;
+  --text: #f5f5f4;
+  --text-muted: #a8a29e;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,37 +18,50 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #111827;
-  color: #f9fafb;
+  font-family: var(--font-sans);
+  background: var(--surface-dark);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
 }
 
 /* แกลเลอรี 3 คอลัมน์ — รูปเต็มช่องด้วย object-fit: cover */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  gap: clamp(0.625rem, 1.5vw, 0.875rem);
 }
 
 .gallery__item {
   position: relative;
   padding: 0;
-  border: 3px solid transparent;
-  border-radius: 12px;
+  border: 2px solid transparent;
+  border-radius: 10px;
   overflow: hidden;
-  background: #1f2937;
+  background: var(--surface-card);
   cursor: pointer;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: border-color 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  animation: fade-up 0.5s var(--ease-out) both;
 }
 
+.gallery__item:nth-child(2) { animation-delay: 0.04s; }
+.gallery__item:nth-child(3) { animation-delay: 0.08s; }
+.gallery__item:nth-child(4) { animation-delay: 0.12s; }
+.gallery__item:nth-child(5) { animation-delay: 0.16s; }
+.gallery__item:nth-child(6) { animation-delay: 0.2s; }
+
 .gallery__item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 25%);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.04);
 }
 
 /* รูปแรกกินพื้นที่ 2 คอลัมน์ */
@@ -52,6 +76,7 @@ body {
   min-height: 180px;
   object-fit: cover;
   aspect-ratio: 1;
+  transition: transform 0.4s var(--ease-out);
 }
 
 .gallery__item--wide img {
@@ -61,8 +86,8 @@ body {
 
 /* คลาส highlight จาก JavaScript เมื่อคลิกเลือกรูป */
 .gallery__item.is-selected {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(79 70 229 / 25%);
 }
 
 @media (max-width: 640px) {
@@ -72,5 +97,17 @@ body {
 
   .gallery__item--wide {
     grid-column: span 2;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

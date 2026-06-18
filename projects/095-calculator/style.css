@@ -4,11 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --canvas: #09090b;
+  --surface: #18181b;
+  --key: #27272a;
+  --key-hover: #3f3f46;
+  --func: #52525b;
+  --op: #ea580c;
+  --eq: #16a34a;
+  --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #18181b;
+  font-family: var(--font-ui);
+  background: var(--canvas);
   color: #fafafa;
   display: flex;
   align-items: center;
@@ -16,29 +27,29 @@ body {
 }
 
 .container {
-  width: min(100%, 340px);
+  width: min(100%, 320px);
   padding: 1.5rem 1rem;
 }
 
 .calculator {
-  background: #27272a;
-  border-radius: 20px;
-  padding: 1.25rem;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  background: var(--surface);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .display-wrap {
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
   padding: 1rem 0.75rem;
-  border-radius: 12px;
-  background: #09090b;
+  border-radius: 0.5rem;
+  background: #000;
   text-align: right;
   overflow: hidden;
 }
 
 .display {
   display: block;
-  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-size: clamp(2rem, 8vw, 2.5rem);
   font-weight: 300;
   font-variant-numeric: tabular-nums;
   word-break: break-all;
@@ -48,23 +59,23 @@ body {
 .keypad {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .key {
-  padding: 1rem 0.5rem;
+  padding: 0.95rem 0.5rem;
   border: none;
-  border-radius: 12px;
-  background: #3f3f46;
+  border-radius: 0.5rem;
+  background: var(--key);
   color: inherit;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.12s;
 }
 
 .key:hover {
-  background: #52525b;
+  background: var(--key-hover);
 }
 
 .key:active {
@@ -72,7 +83,7 @@ body {
 }
 
 .key--func {
-  background: #52525b;
+  background: var(--func);
   color: #fde047;
 }
 
@@ -81,23 +92,23 @@ body {
 }
 
 .key--op {
-  background: #f97316;
+  background: var(--op);
   color: #fff;
 }
 
 .key--op:hover {
-  background: #fb923c;
+  background: #f97316;
 }
 
 .key--eq {
   grid-row: span 2;
-  background: #22c55e;
+  background: var(--eq);
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
 }
 
 .key--eq:hover {
-  background: #4ade80;
+  background: #22c55e;
 }
 
 .key--zero {

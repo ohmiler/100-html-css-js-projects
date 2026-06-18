@@ -4,15 +4,41 @@
   box-sizing: border-box;
 }
 
+:root {
+  --ink: #0c0a09;
+  --mist: #78716c;
+  --accent: #f97316;
+  --accent-glow: rgba(249, 115, 22, 0.45);
+  --font-display: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1e 55%, #050308 100%);
-  color: #f8fafc;
+  font-family: var(--font-display);
+  background: var(--ink);
+  color: #fafaf9;
+}
+
+/* แสงสปอตไลท์เคลื่อนไหวช้า ๆ — บรรยากาศเวทีมากกว่า gradient ทั่วไป */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 38%, rgba(249, 115, 22, 0.14) 0%, transparent 70%),
+    radial-gradient(circle at 20% 80%, rgba(120, 53, 15, 0.08) 0%, transparent 40%);
+  animation: spotlight-drift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes spotlight-drift {
+  from { opacity: 0.85; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.06) translateY(-2%); }
 }
 
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,31 +47,45 @@ body {
 }
 
 .hero {
-  max-width: 520px;
+  max-width: 480px;
   text-align: center;
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #a78bfa;
+  color: var(--accent);
 }
 
 .title {
   margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-size: clamp(1.875rem, 5vw, 2.625rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  margin: 0 0 2rem;
+  margin: 0 0 2.25rem;
   font-size: 1rem;
-  line-height: 1.6;
-  color: #94a3b8;
+  line-height: 1.65;
+  color: var(--mist);
 }
 
 /* ปุ่ม CTA พร้อม pulse และ hover */
@@ -53,18 +93,18 @@ body {
   position: relative;
   overflow: hidden;
   padding: 1rem 2.25rem;
-  border: none;
+  border: 1px solid rgba(249, 115, 22, 0.35);
   border-radius: 999px;
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
-  color: #fff;
+  background: var(--accent);
+  color: #1c1917;
   font-size: 1.0625rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
   box-shadow:
-    0 0 0 0 rgba(168, 85, 247, 0.55),
-    0 12px 32px rgba(124, 58, 237, 0.35);
-  animation: pulse 2.4s ease-in-out infinite;
+    0 0 0 0 var(--accent-glow),
+    0 16px 40px rgba(0, 0, 0, 0.35);
+  animation: pulse 2.6s ease-in-out infinite;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -72,11 +112,11 @@ body {
 }
 
 .cta-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  filter: brightness(1.08);
+  transform: translateY(-3px);
+  filter: brightness(1.06);
   box-shadow:
-    0 0 0 6px rgba(168, 85, 247, 0.18),
-    0 18px 40px rgba(124, 58, 237, 0.45);
+    0 0 0 8px rgba(249, 115, 22, 0.12),
+    0 22px 48px rgba(0, 0, 0, 0.4);
 }
 
 .cta-btn:active {
@@ -97,14 +137,14 @@ body {
   0%,
   100% {
     box-shadow:
-      0 0 0 0 rgba(168, 85, 247, 0.55),
-      0 12px 32px rgba(124, 58, 237, 0.35);
+      0 0 0 0 var(--accent-glow),
+      0 16px 40px rgba(0, 0, 0, 0.35);
   }
 
   50% {
     box-shadow:
-      0 0 0 14px rgba(168, 85, 247, 0),
-      0 12px 32px rgba(124, 58, 237, 0.35);
+      0 0 0 12px rgba(249, 115, 22, 0),
+      0 16px 40px rgba(0, 0, 0, 0.35);
   }
 }
 

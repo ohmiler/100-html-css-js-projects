@@ -4,14 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -21,17 +34,30 @@ body {
 }
 
 .btn {
-  padding: 0.65rem 1.4rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
-  background: #4f46e5;
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* wrapper เป็น relative เพื่อให้ tooltip วาง absolute ภายในได้ */
@@ -44,21 +70,25 @@ body {
 .tooltip {
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%);
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(4px);
   min-width: 180px;
-  padding: 0.55rem 0.85rem;
+  padding: 0.6rem 0.9rem;
   font-size: 0.875rem;
-  line-height: 1.4;
-  color: #f8fafc;
+  line-height: 1.45;
+  color: #fafaf9;
   text-align: center;
-  background: #1e293b;
+  background: var(--text);
   border-radius: 8px;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.18);
+  transition:
+    opacity 0.2s var(--ease),
+    visibility 0.2s var(--ease),
+    transform 0.2s var(--ease);
 }
 
 /* ลูกศรชี้ลงมาที่ปุ่ม */
@@ -69,17 +99,19 @@ body {
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: #1e293b;
+  border-top-color: var(--text);
 }
 
 /* :hover pseudo-class แสดง tooltip เมื่อเมาส์อยู่บน wrapper */
 .tooltip-wrapper:hover .tooltip {
   opacity: 1;
   visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* class lock จาก JS — เปิด tooltip ค้างไว้แม้ไม่ hover */
 .tooltip-wrapper--locked .tooltip {
   opacity: 1;
   visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }

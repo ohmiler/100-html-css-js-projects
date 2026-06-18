@@ -4,15 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f8fafc;
-  color: #334155;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -25,11 +36,11 @@ body {
 .like-widget {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  background: #fff;
+  gap: 0.85rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--surface);
   border-radius: 999px;
-  box-shadow: 0 4px 14px rgb(15 23 42 / 8%);
+  box-shadow: var(--shadow);
 }
 
 /* ปุ่มหัวใจ — สีเทาเมื่อยังไม่ like */
@@ -42,16 +53,21 @@ body {
   padding: 0;
   font-size: 1.6rem;
   line-height: 1;
-  color: #94a3b8;
-  background: #f1f5f9;
+  color: #a8a29e;
+  background: #f5f5f4;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+  transition:
+    color 0.2s var(--ease),
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .like-btn:hover {
   transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08);
 }
 
 .like-btn:active {
@@ -61,12 +77,17 @@ body {
 /* สถานะ liked — สีแดง */
 .like-btn.liked {
   color: #ef4444;
-  background: #fee2e2;
+  background: #fef2f2;
+}
+
+.like-btn.liked:hover {
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.2);
 }
 
 .like-count {
   min-width: 2rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
 }

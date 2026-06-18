@@ -1,4 +1,24 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.18);
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-800: #292524;
+  --surface: #ffffff;
+  --border: var(--stone-200);
+  --text: var(--stone-800);
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,27 +28,31 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #f2f2f7;
-  color: #1c1c1e;
+  background: var(--stone-100);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 3rem 1.25rem;
 }
 
 .panel {
-  background: #fff;
-  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
 }
 
 .title {
   margin: 0 0 1.25rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .toggle-row {
@@ -36,7 +60,11 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 0;
+  padding: 0.625rem 0;
+}
+
+.toggle-row + .toggle-row {
+  border-top: 1px solid var(--stone-100);
 }
 
 .toggle-info {
@@ -46,14 +74,14 @@ body {
 
 .toggle-label {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
 .toggle-desc {
-  margin: 0.25rem 0 0;
-  font-size: 0.875rem;
-  color: #8e8e93;
+  margin: 0.125rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--stone-500);
 }
 
 .toggle-control {
@@ -76,29 +104,29 @@ body {
 .toggle-slider {
   display: block;
   position: relative;
-  width: 51px;
-  height: 31px;
-  background: #e5e5ea;
-  border-radius: 31px;
+  width: 44px;
+  height: 24px;
+  background: var(--stone-200);
+  border-radius: 999px;
   cursor: pointer;
-  transition: background 0.25s ease;
+  transition: background 0.2s ease;
 }
 
 .toggle-knob {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 27px;
-  height: 27px;
-  background: #fff;
+  width: 20px;
+  height: 20px;
+  background: var(--surface);
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.25s ease;
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.12);
+  transition: transform 0.2s ease;
 }
 
-/* สถานะเปิด — แทร็กสีเขียว + เลื่อนปุ่ม */
+/* สถานะเปิด — แทร็กสี accent + เลื่อนปุ่ม */
 .toggle-input:checked + .toggle-slider {
-  background: #34c759;
+  background: var(--accent);
 }
 
 .toggle-input:checked + .toggle-slider .toggle-knob {
@@ -106,27 +134,28 @@ body {
 }
 
 .toggle-input:focus-visible + .toggle-slider {
-  outline: 2px solid #007aff;
-  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
 }
 
 .toggle-status {
   margin: 1rem 0 0;
-  padding: 0.75rem 1rem;
-  background: #f2f2f7;
-  border-radius: 10px;
-  font-size: 0.9375rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--stone-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  font-size: 0.8125rem;
   font-weight: 500;
   text-align: center;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
 .toggle-status.is-on {
-  color: #248a3d;
-  background: #e8f8ec;
+  color: var(--success);
+  background: var(--success-bg);
+  border-color: #bbf7d0;
 }
 
 .toggle-status.is-off {
-  color: #636366;
-  background: #f2f2f7;
+  color: var(--stone-500);
+  background: var(--stone-50);
 }

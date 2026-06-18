@@ -4,14 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text: #1c1917;
+  --muted: #78716c;
+  --surface: #fff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(28, 25, 23, 0.05);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: "Segoe UI", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(165deg, #faf8f5 0%, #f5f1eb 45%, #efe9e1 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -21,54 +34,70 @@ body {
 }
 
 .progress-label {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
   font-size: 1rem;
-  color: #475569;
+  color: var(--muted);
   text-align: center;
 }
 
 #progressValue {
   font-weight: 700;
-  color: #6366f1;
+  color: var(--accent);
 }
 
 /* กล่อง progress container */
 .progress {
   width: 100%;
-  height: 20px;
-  background: #e2e8f0;
+  height: 10px;
+  background: rgba(28, 25, 23, 0.08);
   border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 /* แถบความคืบหน้า — ใช้ CSS custom property --progress */
 .progress__bar {
   width: var(--progress, 0%);
   height: 100%;
-  background: linear-gradient(90deg, #6366f1, #818cf8);
+  background: linear-gradient(90deg, var(--accent), #818cf8);
   border-radius: inherit;
-  transition: width 0.3s ease;
+  transition: width 0.35s var(--ease);
 }
 
 .btn {
   display: block;
   margin: 0 auto;
-  padding: 0.6rem 1.4rem;
+  padding: 0.7rem 1.35rem;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
   color: #fff;
-  background: #6366f1;
+  background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
-.btn:hover {
-  background: #4f46e5;
+.btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 /* ปิดการใช้งานปุ่มเมื่อ progress ถึง 100% */
 .btn:disabled {
-  background: #cbd5e1;
+  background: #d6d3d1;
+  color: #a8a29e;
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }

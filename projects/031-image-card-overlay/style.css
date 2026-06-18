@@ -1,4 +1,12 @@
-﻿*,
+﻿:root {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --surface-dark: #1c1917;
+  --font-sans: "Sarabun", "Noto Sans Thai", "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -10,22 +18,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #0f172a;
-  color: #f8fafc;
+  font-family: var(--font-sans);
+  background: var(--surface-dark);
+  color: #f5f5f4;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
 }
 
 /* การ์ดรูป — ใช้ relative เพื่อวาง overlay แบบ absolute */
 .image-card {
   position: relative;
   width: min(100%, 480px);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  animation: fade-up 0.5s var(--ease-out) both;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.image-card:hover {
+  transform: translateY(-4px);
 }
 
 .image-card__img {
@@ -35,6 +49,11 @@ body {
   aspect-ratio: 3 / 2;
   object-fit: cover;
   vertical-align: middle;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.image-card:hover .image-card__img {
+  transform: scale(1.04);
 }
 
 /* overlay ทับบนรูป — เริ่มต้นโปร่งใส แล้วแสดงเมื่อ hover */
@@ -47,9 +66,13 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem;
-  background: rgba(15, 23, 42, 0.72);
+  background: linear-gradient(
+    to top,
+    rgb(28 25 23 / 85%) 0%,
+    rgb(28 25 23 / 45%) 100%
+  );
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s var(--ease-out);
 }
 
 .image-card:hover .image-card__overlay,
@@ -59,25 +82,28 @@ body {
 
 .image-card__title {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .image-card__btn {
-  padding: 0.65rem 1.25rem;
-  font-size: 0.95rem;
+  padding: 0.625rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--surface-dark);
+  background: #f5f5f4;
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.2s ease;
+  transition: transform 0.2s var(--ease-out), background 0.2s ease;
 }
 
 .image-card__btn:hover {
-  background: #e2e8f0;
+  background: #fff;
+  transform: translateY(-2px);
 }
 
 .image-card__btn:active {
@@ -101,7 +127,8 @@ body {
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgb(28 25 23 / 88%);
+  backdrop-filter: blur(6px);
 }
 
 .lightbox__panel {
@@ -109,7 +136,7 @@ body {
   z-index: 1;
   margin: 0;
   max-width: min(960px, 100%);
-  animation: lightbox-in 0.25s ease;
+  animation: lightbox-in 0.3s var(--ease-out);
 }
 
 .lightbox__img {
@@ -118,7 +145,7 @@ body {
   max-height: 85vh;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 24px 48px rgb(0 0 0 / 45%);
 }
 
 .lightbox__close {
@@ -129,11 +156,17 @@ body {
   height: 2.5rem;
   font-size: 1.5rem;
   line-height: 1;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--surface-dark);
+  background: #f5f5f4;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
+}
+
+.lightbox__close:hover {
+  background: #fff;
+  transform: scale(1.05);
 }
 
 @keyframes lightbox-in {
@@ -145,5 +178,17 @@ body {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
