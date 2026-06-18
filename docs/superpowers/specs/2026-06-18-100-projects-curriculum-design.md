@@ -1,8 +1,8 @@
 # Design Spec: 100 HTML/CSS/JS Projects สำหรับมือใหม่
 
 **วันที่:** 2026-06-18  
-**สถานะ:** อนุมัติแล้ว — เฟส Curriculum  
-**เฟสถัดไป:** Implementation (โค้ด starter + สคริปต์วิดีโอ)
+**สถานะ:** Implementation เสร็จสมบูรณ์ — starter 100 โปรเจกต์ + EP01 solution + landing page  
+**Implementation plan:** [`docs/superpowers/plans/2026-06-18-100-projects-implementation.md`](../plans/2026-06-18-100-projects-implementation.md)
 
 ---
 
